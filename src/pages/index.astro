@@ -123,13 +123,18 @@ import Footer from '../components/Footer.astro';
       });
     });
 
-    // Auto-redirect first-time Indonesian visitors arriving at root '/' to '/id'
+    // Auto-redirect first-time Indonesian visitors arriving at root '/' to '/id' (only if no explicit preference saved)
     const isRoot = window.location.pathname === '/';
     if (isRoot) {
       const saved = localStorage.getItem('preferred_lang');
-      const browserLang = (navigator.language || '').toLowerCase();
-      if (saved === 'id' || (!saved && browserLang.startsWith('id'))) {
-        window.location.replace('/id' + window.location.hash);
+      if (!saved) {
+        const browserLang = (navigator.language || '').toLowerCase();
+        if (browserLang.startsWith('id')) {
+          localStorage.setItem('preferred_lang', 'id');
+          window.location.replace('/id' + window.location.hash);
+        } else {
+          localStorage.setItem('preferred_lang', 'en');
+        }
       }
     }
 
@@ -216,7 +221,7 @@ import Footer from '../components/Footer.astro';
       });
     }
 
-    // GSAP is retained exclusively for number counter interpolation and interactive footer hover
+    // GSAP is retained exclusively for number counter interpolation
     if (!reducedMotion && window.gsap) {
       gsap.registerPlugin(ScrollTrigger);
 
@@ -233,90 +238,18 @@ import Footer from '../components/Footer.astro';
           });
         }
       });
+    }
 
-      const footerName = document.querySelector('.footer-name');
-      const footerShine = document.querySelector('.footer-shine');
-      if (footerName && footerShine) {
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        let shineFrame;
-
-        const moveFooterShine = (event) => {
-          if (reduceMotion) return;
-          cancelAnimationFrame(shineFrame);
-          shineFrame = requestAnimationFrame(() => {
-            const rect = footerName.getBoundingClientRect();
-            const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
-            const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
-
-            footerShine.style.setProperty('--shine-x', `${x}%`);
-            footerShine.style.setProperty('--shine-y', `${y}%`);
-            gsap.to(footerShine, {
-              opacity: 1,
-              x: (x - 50) * 0.025,
-              duration: 0.18,
-              ease: 'power2.out',
-              overwrite: 'auto'
-            });
-          });
-        };
-
-        footerName.addEventListener('pointerenter', (event) => {
-          gsap.to(footerShine, { opacity: 1, duration: 0.2, overwrite: true });
-          moveFooterShine(event);
-        });
-        footerName.addEventListener('pointermove', moveFooterShine);
-        footerName.addEventListener('pointerleave', () => {
-          cancelAnimationFrame(shineFrame);
-          gsap.to(footerShine, { opacity: 0, x: 0, duration: 0.28, ease: 'power2.out' });
-        });
-        footerName.addEventListener('focus', () => {
-          footerShine.style.setProperty('--shine-x', '50%');
-          footerShine.style.setProperty('--shine-y', '50%');
-          gsap.to(footerShine, { opacity: 1, duration: 0.2 });
-        });
-        footerName.addEventListener('blur', () => gsap.to(footerShine, { opacity: 0, duration: 0.25 }));
-      }
-
-      const cursor = document.getElementById('cursor');
-      if (cursor && window.innerWidth >= 1024) {
-        const cursorX = gsap.quickTo(cursor, 'x', { duration: .12, ease: 'power2.out' });
-        const cursorY = gsap.quickTo(cursor, 'y', { duration: .12, ease: 'power2.out' });
-        window.addEventListener('pointermove', (event) => {
-          cursorX(event.clientX - 10);
-          cursorY(event.clientY - 10);
-        }, { passive: true });
-
-        document.addEventListener('mouseover', (e) => {
-          if (e.target && e.target.closest('a, button, .skill-card, .service-card, .process-card, .project, .testimonial-card, .insight-card')) {
-            gsap.to(cursor, { scale: 1.8, opacity: 0.8, duration: 0.15 });
-          }
-        }, { passive: true });
-        document.addEventListener('mouseout', (e) => {
-          if (e.target && e.target.closest('a, button, .skill-card, .service-card, .process-card, .project, .testimonial-card, .insight-card')) {
-            gsap.to(cursor, { scale: 1, opacity: 0.6, duration: 0.15 });
-          }
-        }, { passive: true });
-      }
-    } else {
-      const formatCounter = (el) => {
-        const target = Number(el.dataset.count || 0);
-        el.textContent = target.toLocaleString() + (target < 100 ? '+' : '');
-      };
-      document.querySelectorAll('[data-count]').forEach(formatCounter);
-
-      const footerName = document.querySelector('.footer-name');
-      const footerShine = document.querySelector('.footer-shine');
-      if (footerName && footerShine) {
-        footerName.addEventListener('pointermove', (event) => {
-          const rect = footerName.getBoundingClientRect();
-          const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
-          const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
-          footerShine.style.setProperty('--shine-x', `${x}%`);
-          footerShine.style.setProperty('--shine-y', `${y}%`);
-          footerShine.style.opacity = '1';
-        });
-        footerName.addEventListener('pointerleave', () => { footerShine.style.opacity = '0'; });
-      }
+    const footerName = document.querySelector('.footer-name');
+    const footerShine = document.querySelector('.footer-shine');
+    if (footerName && footerShine) {
+      footerName.addEventListener('pointermove', (event) => {
+        const rect = footerName.getBoundingClientRect();
+        const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
+        const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
+        footerShine.style.setProperty('--shine-x', `${x}%`);
+        footerShine.style.setProperty('--shine-y', `${y}%`);
+      }, { passive: true });
     }
   });
   </script>

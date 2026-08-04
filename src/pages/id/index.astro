@@ -206,7 +206,7 @@ import Footer from '../../components/Footer.astro';
       });
     }
 
-    // GSAP is retained exclusively for number counter interpolation and interactive footer hover
+    // GSAP is retained exclusively for number counter interpolation
     if (!reducedMotion && window.gsap) {
       gsap.registerPlugin(ScrollTrigger);
 
@@ -223,49 +223,18 @@ import Footer from '../../components/Footer.astro';
           });
         }
       });
+    }
 
-      const footerName = document.querySelector('.footer-name');
-      const footerShine = document.querySelector('.footer-shine');
-      if (footerName && footerShine) {
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        let shineFrame;
-
-        const moveFooterShine = (event) => {
-          if (reduceMotion) return;
-          cancelAnimationFrame(shineFrame);
-          shineFrame = requestAnimationFrame(() => {
-            const rect = footerName.getBoundingClientRect();
-            const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
-            const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
-
-            footerShine.style.setProperty('--shine-x', `${x}%`);
-            footerShine.style.setProperty('--shine-y', `${y}%`);
-            gsap.to(footerShine, {
-              opacity: 1,
-              x: (x - 50) * 0.025,
-              duration: 0.18,
-              ease: 'power2.out',
-              overwrite: 'auto'
-            });
-          });
-        };
-
-        footerName.addEventListener('pointerenter', (event) => {
-          gsap.to(footerShine, { opacity: 1, duration: 0.2, overwrite: true });
-          moveFooterShine(event);
-        });
-        footerName.addEventListener('pointermove', moveFooterShine);
-        footerName.addEventListener('pointerleave', () => {
-          cancelAnimationFrame(shineFrame);
-          gsap.to(footerShine, { opacity: 0, x: 0, duration: 0.28, ease: 'power2.out' });
-        });
-        footerName.addEventListener('focus', () => {
-          footerShine.style.setProperty('--shine-x', '50%');
-          footerShine.style.setProperty('--shine-y', '50%');
-          gsap.to(footerShine, { opacity: 1, duration: 0.2 });
-        });
-        footerName.addEventListener('blur', () => gsap.to(footerShine, { opacity: 0, duration: 0.25 }));
-      }
+    const footerName = document.querySelector('.footer-name');
+    const footerShine = document.querySelector('.footer-shine');
+    if (footerName && footerShine) {
+      footerName.addEventListener('pointermove', (event) => {
+        const rect = footerName.getBoundingClientRect();
+        const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
+        const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
+        footerShine.style.setProperty('--shine-x', `${x}%`);
+        footerShine.style.setProperty('--shine-y', `${y}%`);
+      }, { passive: true });
     }
   });
   </script>

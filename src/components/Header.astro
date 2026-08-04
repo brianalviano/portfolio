@@ -28,8 +28,8 @@ const idHref = '/id';
     <div class="flex items-center gap-3">
       <!-- Language Switcher URL Links (Metode 1 Standar Internasional) -->
       <div class="flex items-center rounded-full border-2 border-ink bg-white p-1 text-xs font-extrabold shadow-[2px_2px_0_#151310]" id="lang-switcher">
-        <a href={enHref} data-lang-btn="en" aria-label="Switch to English" class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === 'en' ? 'bg-ink text-white' : 'text-ink/60 hover:text-ink'}`}>EN</a>
-        <a href={idHref} data-lang-btn="id" aria-label="Switch to Indonesian" class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === 'id' ? 'bg-ink text-white' : 'text-ink/60 hover:text-ink'}`}>ID</a>
+        <a href={enHref} onclick="localStorage.setItem('preferred_lang', 'en')" data-lang-btn="en" aria-label="Switch to English" class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === 'en' ? 'bg-ink text-white' : 'text-ink/60 hover:text-ink'}`}>EN</a>
+        <a href={idHref} onclick="localStorage.setItem('preferred_lang', 'id')" data-lang-btn="id" aria-label="Switch to Indonesian" class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === 'id' ? 'bg-ink text-white' : 'text-ink/60 hover:text-ink'}`}>ID</a>
       </div>
 
       <a class="inline-flex items-center gap-2 rounded-full bg-ink px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-accent" href={currentLang === 'id' ? '/id#contact' : '#contact'}>
