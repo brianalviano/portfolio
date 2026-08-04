@@ -3,9 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
 import Skills from '../components/Skills.astro';
-import Experience from '../components/Experience.astro';
 import Work from '../components/Work.astro';
+import Testimonials from '../components/Testimonials.astro';
 import InsightsSection from '../components/InsightsSection.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -20,9 +22,11 @@ import Footer from '../components/Footer.astro';
   <main id="main-content" tabindex="-1">
     <Hero />
     <About />
+    <Services />
+    <Process />
     <Skills />
-    <Experience />
     <Work />
+    <Testimonials />
     <InsightsSection />
     <Footer />
   </main>
@@ -125,7 +129,7 @@ import Footer from '../components/Footer.astro';
         x: 70, opacity: 0, rotate: 4, duration: 1.2, delay: .25, ease: 'power3.out'
       });
 
-      gsap.utils.toArray('.skill-card, .service-card, .process-card, .experience-card, .project, .cta-panel').forEach((item) => {
+      gsap.utils.toArray('.skill-card, .service-card, .process-card, .testimonial-card, .experience-card, .project, .cta-panel').forEach((item) => {
         gsap.from(item, {
           y: 55, opacity: 0, duration: .85, ease: 'power3.out',
           scrollTrigger: { trigger: item, start: 'top 88%', once: true }

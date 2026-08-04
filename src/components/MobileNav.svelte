@@ -40,10 +40,12 @@
 		<div class="fixed inset-x-4 top-24 z-50 rounded-3xl border-2 border-ink bg-paper p-6 shadow-[8px_8px_0_#151310] space-y-6">
 			<nav class="flex flex-col space-y-4 text-base font-bold text-ink">
 				<a href="#about" onclick={closeMenu} class="hover:text-accent transition-colors py-2 border-b border-ink/10">About</a>
+				<a href="#services" onclick={closeMenu} class="hover:text-accent transition-colors py-2 border-b border-ink/10">Services</a>
+				<a href="#process" onclick={closeMenu} class="hover:text-accent transition-colors py-2 border-b border-ink/10">Process</a>
 				<a href="#skills" onclick={closeMenu} class="hover:text-accent transition-colors py-2 border-b border-ink/10">Skills</a>
-				<a href="#experience" onclick={closeMenu} class="hover:text-accent transition-colors py-2 border-b border-ink/10">Experience</a>
 				<a href="#work" onclick={closeMenu} class="hover:text-accent transition-colors py-2 border-b border-ink/10">Work</a>
-				<a href="/insights" onclick={closeMenu} class="hover:text-accent transition-colors py-2 border-b border-ink/10">Insights</a>
+				<a href="#testimonials" onclick={closeMenu} class="hover:text-accent transition-colors py-2 border-b border-ink/10">Testimonials</a>
+				<a href="#insights" onclick={closeMenu} class="hover:text-accent transition-colors py-2 border-b border-ink/10">Insights</a>
 				<a href="#contact" onclick={closeMenu} class="hover:text-accent transition-colors py-2">Contact</a>
 			</nav>
 

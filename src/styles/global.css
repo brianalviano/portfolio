@@ -134,13 +134,13 @@
 
   @media (min-width: 640px) {
     .work-stack-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .project-gallery { padding: 1.25rem; }
-    .project-slide { padding: 1rem; }
-    .project-screen { grid-template-columns: 112px 1fr; min-height: 340px; }
+    .project-gallery { padding: 1rem; }
+    .project-slide { padding: .75rem; }
+    .project-screen { grid-template-columns: 112px 1fr; min-height: 290px; }
   }
 
   @media (max-width: 639px) {
-    .project-screen { grid-template-columns: 62px 1fr; min-height: 255px; }
+    .project-screen { grid-template-columns: 62px 1fr; min-height: 240px; }
     .project-screen-sidebar { padding: .7rem .45rem; }
     .project-screen-main { padding: .7rem; }
     .project-screen-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
