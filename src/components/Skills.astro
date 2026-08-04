@@ -1,14 +1,20 @@
 ---
+import { portfolioData } from '../data/portfolioData';
+const { skills } = portfolioData;
 ---
 
-<section class="border-y-2 border-ink bg-ink py-20 text-white sm:py-24 cv-auto" id="skills">
+<section class="border-y-2 border-ink bg-ink py-20 text-white sm:py-24" id="skills">
   <div class="section-shell">
     <div class="mb-12 grid gap-8 lg:grid-cols-[1fr_.65fr] lg:items-end">
       <div>
-        <p class="eyebrow">04 — Complete stack</p>
-        <h2 class="display mt-3 text-4xl font-bold tracking-tight sm:text-5xl">A practical toolkit for complete product delivery.</h2>
+        <p class="eyebrow">{skills.eyebrow}</p>
+        <h2 class="display mt-3 text-4xl font-bold tracking-tight sm:text-5xl" data-i18n-en={skills.heading.en} data-i18n-id={skills.heading.id}>
+          {skills.heading.en}
+        </h2>
       </div>
-      <p class="text-base leading-relaxed text-white/55">From browser UI and API design to databases, caching, deployment, monitoring, and developer tooling.</p>
+      <p class="text-base leading-relaxed text-white/55" data-i18n-en={skills.subtext.en} data-i18n-id={skills.subtext.id}>
+        {skills.subtext.en}
+      </p>
     </div>
 
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

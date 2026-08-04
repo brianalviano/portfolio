@@ -1,41 +1,31 @@
 ---
+import { portfolioData } from '../data/portfolioData';
+const { process } = portfolioData;
 ---
 
 <section class="border-y-2 border-ink bg-accent py-24 sm:py-32" id="process">
   <div class="section-shell">
     <div class="grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
       <div>
-        <p class="eyebrow !text-ink/60">03 — Process</p>
-        <h2 class="display mt-3 text-4xl font-bold sm:text-6xl text-ink">A clear path from ambiguity to a reliable product.</h2>
+        <p class="eyebrow !text-ink/60">{process.eyebrow}</p>
+        <h2 class="display mt-3 text-4xl font-bold sm:text-6xl text-ink" data-i18n-en={process.heading.en} data-i18n-id={process.heading.id}>
+          {process.heading.en}
+        </h2>
       </div>
-      <p class="text-lg leading-relaxed text-ink/75 font-medium">Services describe what I deliver. This process shows how I reduce risk, keep communication clear, and move the work forward.</p>
+      <p class="text-lg leading-relaxed text-ink/75 font-medium" data-i18n-en={process.subtext.en} data-i18n-id={process.subtext.id}>
+        {process.subtext.en}
+      </p>
     </div>
     <div class="relative mt-16 grid gap-5 lg:grid-cols-4">
       <div class="absolute left-0 right-0 top-10 hidden h-0.5 bg-ink/25 lg:block"></div>
-      <article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
-        <span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold text-white">01</span>
-        <p class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45">Understand first</p>
-        <h3 class="display mt-3 text-3xl font-bold">Discover</h3>
-        <p class="mt-4 text-ink/65">Clarify business goals, user needs, constraints, existing workflows, and measurable outcomes.</p>
-      </article>
-      <article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
-        <span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold text-white">02</span>
-        <p class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45">Design the system</p>
-        <h3 class="display mt-3 text-3xl font-bold">Architect</h3>
-        <p class="mt-4 text-ink/65">Define priorities, data flow, modules, technical decisions, milestones, and delivery boundaries.</p>
-      </article>
-      <article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
-        <span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold text-white">03</span>
-        <p class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45">Iterate visibly</p>
-        <h3 class="display mt-3 text-3xl font-bold">Build &amp; Validate</h3>
-        <p class="mt-4 text-ink/65">Develop in focused increments, test critical flows, review progress, and incorporate practical feedback.</p>
-      </article>
-      <article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
-        <span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold text-white">04</span>
-        <p class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45">Operate with confidence</p>
-        <h3 class="display mt-3 text-3xl font-bold">Launch &amp; Improve</h3>
-        <p class="mt-4 text-ink/65">Deploy safely, monitor usage and performance, document the system, and continue improving it.</p>
-      </article>
+      {process.steps.map((st) => (
+        <article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
+          <span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold text-white">{st.num}</span>
+          <p class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45" data-i18n-en={st.tag.en} data-i18n-id={st.tag.id}>{st.tag.en}</p>
+          <h3 class="display mt-3 text-3xl font-bold" data-i18n-en={st.title.en} data-i18n-id={st.title.id}>{st.title.en}</h3>
+          <p class="mt-4 text-ink/65" data-i18n-en={st.desc.en} data-i18n-id={st.desc.id}>{st.desc.en}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>

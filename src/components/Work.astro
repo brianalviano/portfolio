@@ -1,14 +1,18 @@
 ---
+import { portfolioData } from '../data/portfolioData';
+const { projects } = portfolioData;
 ---
 
 <section class="section-shell py-16 sm:py-20" id="work">
   <div class="mb-8 grid gap-6 lg:grid-cols-[1fr_.7fr] lg:items-end sm:mb-10">
     <div>
-      <p class="eyebrow">05 — Selected work</p>
-      <h2 class="display mt-2 text-3xl font-bold sm:text-5xl">Case studies, not just screenshots.</h2>
+      <p class="eyebrow">{projects.eyebrow}</p>
+      <h2 class="display mt-2 text-3xl font-bold sm:text-5xl" data-i18n-en={projects.heading.en} data-i18n-id={projects.heading.id}>
+        {projects.heading.en}
+      </h2>
     </div>
-    <p class="text-base leading-relaxed text-ink/60">
-      Each project explains the client context, product goals, major capabilities, technical contribution, and operational results. Click the right handle tab to open the full interactive case study drawer.
+    <p class="text-base leading-relaxed text-ink/60" data-i18n-en={projects.subtext.en} data-i18n-id={projects.subtext.id}>
+      {projects.subtext.en}
     </p>
   </div>
 

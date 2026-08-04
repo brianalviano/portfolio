@@ -1,4 +1,6 @@
 ---
+import { portfolioData } from '../data/portfolioData';
+const { hero } = portfolioData;
 ---
 
 <section class="relative flex min-h-screen flex-col overflow-hidden pt-20" id="home">
@@ -15,16 +17,15 @@
             <span class="absolute inline-flex h-full w-full rounded-full bg-accent opacity-40"></span>
             <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
           </span>
-          Surabaya-built <span class="text-ink/25">/</span> production-minded
+          <span data-i18n-en={hero.badge.en} data-i18n-id={hero.badge.id}>{hero.badge.en}</span>
         </span>
       </div>
-      <h1 class="display hero-fade-2 max-w-5xl text-[clamp(2.9rem,6.25vw,6.45rem)] font-bold leading-[.88] tracking-[-.07em]">
-        I build systems<br/>
-        that <span class="text-accent">work hard.</span>
+      <h1 class="display hero-fade-2 max-w-5xl text-[clamp(2.5rem,5.5vw,5.5rem)] font-bold leading-[.92] tracking-[-.06em]">
+        <span data-i18n-en={hero.headline.en} data-i18n-id={hero.headline.id}>{hero.headline.en}</span>
       </h1>
       <div class="hero-fade-3 mt-5 grid gap-4 border-t border-ink/20 pt-4 sm:grid-cols-[1fr_auto] sm:items-end">
-        <p class="max-w-2xl text-base leading-relaxed text-ink/70 sm:text-lg">
-          Brian Alviano is a full-stack Laravel developer crafting scalable ERP platforms, APIs, dashboards, and conversion-focused websites from Indonesia.
+        <p class="max-w-2xl text-base leading-relaxed text-ink/70 sm:text-lg" data-i18n-en={hero.subhead.en} data-i18n-id={hero.subhead.id}>
+          {hero.subhead.en}
         </p>
         <a class="group inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink bg-accent text-xl transition hover:rotate-45" href="#work">
           <i class="ti ti-arrow-down-right transition-transform group-hover:scale-110"></i>
@@ -37,10 +38,10 @@
         <div class="grid-bg relative min-h-[330px] overflow-hidden rounded-2xl bg-[#24211d] p-5 sm:min-h-[360px]">
           <div class="relative z-10 flex items-start justify-between">
             <div>
-              <p class="text-xs uppercase tracking-[.25em] text-white/45">Developer profile</p>
+              <p class="text-xs uppercase tracking-[.25em] text-white/45" data-i18n-en={hero.cardProfileTitle.en} data-i18n-id={hero.cardProfileTitle.id}>{hero.cardProfileTitle.en}</p>
               <h2 class="display mt-2 text-2xl font-bold sm:text-3xl">Brian<br/>Alviano</h2>
             </div>
-            <span class="rounded-full border border-white/20 px-3 py-1 text-xs">Surabaya, ID</span>
+            <span class="rounded-full border border-white/20 px-3 py-1 text-xs">{hero.location}</span>
           </div>
           <div class="absolute inset-x-0 bottom-0 flex justify-center">
             <svg aria-label="Abstract developer portrait" class="w-[70%] sm:w-[74%]" fill="none" viewBox="0 0 420 440">
@@ -55,8 +56,8 @@
             </svg>
           </div>
           <div class="absolute bottom-5 left-5 z-20 rounded-xl border border-white/20 bg-[#151310]/85 px-4 py-2.5 shadow-md">
-            <p class="text-xs text-white/50">Primary stack</p>
-            <p class="mt-1 font-semibold">Laravel · Svelte · PostgreSQL</p>
+            <p class="text-xs text-white/50" data-i18n-en={hero.primaryStackLabel.en} data-i18n-id={hero.primaryStackLabel.id}>{hero.primaryStackLabel.en}</p>
+            <p class="mt-1 font-semibold">{hero.primaryStack}</p>
           </div>
         </div>
       </div>
@@ -64,8 +65,8 @@
   </div>
   <div class="shrink-0 overflow-hidden border-y-2 border-ink bg-ink py-3 text-white">
     <div class="marquee-track flex w-max gap-12 whitespace-nowrap text-base font-bold uppercase tracking-[.15em] sm:text-lg">
-      <span>Backend Engineering ✦ REST API ✦ ERP Systems ✦ Frontend Development ✦ Database Design ✦ DevOps ✦</span>
-      <span>Backend Engineering ✦ REST API ✦ ERP Systems ✦ Frontend Development ✦ Database Design ✦ DevOps ✦</span>
+      <span>{hero.marquee[0]}</span>
+      <span>{hero.marquee[1]}</span>
     </div>
   </div>
 </section>

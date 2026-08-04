@@ -4,15 +4,16 @@ import '../styles/global.css';
 
 export interface Props {
 	seo?: SEOProps;
+	lang?: 'en' | 'id';
 }
 
-const { seo } = Astro.props;
+const { seo, lang = 'en' } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
 	<head>
-		<SEO {...seo} />
+		<SEO {...seo} lang={lang} />
 	</head>
 	<body class="noise bg-paper antialiased">
 		<slot />

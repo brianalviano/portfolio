@@ -1,70 +1,39 @@
 ---
-const articles = [
-  {
-    title: "Structuring Laravel applications for long-term maintenance.",
-    desc: "A practical approach to boundaries, services, validation, data access, and keeping business logic understandable as a product grows.",
-    category: "Engineering Note",
-    readTime: "8 min read",
-    link: "/insights/laravel-maintainable-architecture",
-    theme: "bg-ink text-white"
-  },
-  {
-    title: "Custom ERP or off-the-shelf software?",
-    desc: "A decision framework based on workflow fit, integration needs, ownership, cost, and operational complexity.",
-    category: "Business Guide",
-    readTime: "6 min read",
-    link: "/insights/custom-erp-vs-off-the-shelf",
-    theme: "bg-accent text-white"
-  },
-  {
-    title: "Designing REST APIs that remain predictable.",
-    desc: "Consistency in resources, errors, validation, pagination, permissions, and versioning.",
-    category: "API Design",
-    readTime: "7 min read",
-    link: "/insights/reliable-rest-api-design",
-    theme: "bg-white text-ink"
-  }
-];
-
-const clients = [
-  { name: "Pelangi UV", industry: "Printing & Manufacturing", icon: "ti-printer", bg: "bg-[#f4d9d0]" },
-  { name: "Awniraya", industry: "Logistics & Freight", icon: "ti-truck-delivery", bg: "bg-[#dce7f4]" },
-  { name: "DAKI Pet Shop", industry: "Multi-branch Retail", icon: "ti-paw", bg: "bg-[#f5e0a9]" },
-  { name: "Universitas Airlangga", industry: "Education & Research", icon: "ti-school", bg: "bg-[#dcebdc]" },
-  { name: "GAPALA", industry: "Financial Operations", icon: "ti-building-bank", bg: "bg-[#eadcf1]" },
-  { name: "Burningroom", industry: "Technology Partner", icon: "ti-code", bg: "bg-ink text-white" }
-];
+import { portfolioData } from '../data/portfolioData';
+const { insights, clients } = portfolioData;
 ---
 
 <section class="section-shell py-14 sm:py-20" id="insights">
   <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
     <div>
-      <p class="eyebrow">07 — Insights</p>
-      <h2 class="display mt-2 text-3xl font-bold sm:text-4xl">Notes from building real systems.</h2>
+      <p class="eyebrow">{insights.eyebrow}</p>
+      <h2 class="display mt-2 text-3xl font-bold sm:text-4xl" data-i18n-en={insights.heading.en} data-i18n-id={insights.heading.id}>
+        {insights.heading.en}
+      </h2>
     </div>
     <a class="inline-flex items-center gap-2 text-sm font-bold text-accent transition hover:gap-3 shrink-0" href="/insights">
-      View all articles <i class="ti ti-arrow-up-right"></i>
+      <span data-i18n-en={insights.viewAll.en} data-i18n-id={insights.viewAll.id}>{insights.viewAll.en}</span> <i class="ti ti-arrow-up-right"></i>
     </a>
   </div>
 
   <div class="grid gap-5 md:grid-cols-3">
-    {articles.map((art) => (
+    {insights.articles.map((art) => (
       <article class={`insight-card group flex flex-col justify-between rounded-3xl border-2 border-ink p-6 shadow-[5px_5px_0_#151310] transition-all duration-300 hover:-translate-y-1 hover:shadow-[7px_7px_0_#ed4d2b] ${art.theme}`}>
         <div>
           <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider opacity-60">
-            <span>{art.category}</span>
+            <span data-i18n-en={art.category.en} data-i18n-id={art.category.id}>{art.category.en}</span>
             <span>{art.readTime}</span>
           </div>
-          <h3 class="display mt-5 text-xl font-bold leading-snug sm:text-2xl">
-            {art.title}
+          <h3 class="display mt-5 text-xl font-bold leading-snug sm:text-2xl" data-i18n-en={art.title.en} data-i18n-id={art.title.id}>
+            {art.title.en}
           </h3>
-          <p class="mt-3 text-xs sm:text-sm leading-relaxed opacity-75">
-            {art.desc}
+          <p class="mt-3 text-xs sm:text-sm leading-relaxed opacity-75" data-i18n-en={art.desc.en} data-i18n-id={art.desc.id}>
+            {art.desc.en}
           </p>
         </div>
         <div class="mt-8 pt-4 border-t border-current/15 flex items-center justify-between">
           <a href={art.link} class="inline-flex items-center gap-2 text-xs font-bold transition group-hover:gap-3">
-            Read article <i class="ti ti-arrow-right"></i>
+            <span data-i18n-en={insights.readArticle.en} data-i18n-id={insights.readArticle.id}>{insights.readArticle.en}</span> <i class="ti ti-arrow-right"></i>
           </a>
         </div>
       </article>
@@ -76,22 +45,24 @@ const clients = [
   <div class="section-shell">
     <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
       <div>
-        <p class="eyebrow">08 — Selected clients</p>
-        <h2 class="display mt-2 text-2xl font-bold sm:text-4xl">Built across different industries.</h2>
+        <p class="eyebrow">{clients.eyebrow}</p>
+        <h2 class="display mt-2 text-2xl font-bold sm:text-4xl" data-i18n-en={clients.heading.en} data-i18n-id={clients.heading.id}>
+          {clients.heading.en}
+        </h2>
       </div>
-      <p class="max-w-xl text-xs sm:text-sm leading-relaxed text-ink/65">
-        From retail operations and logistics to education, research, printing, and tech teams across Indonesia.
+      <p class="max-w-xl text-xs sm:text-sm leading-relaxed text-ink/65" data-i18n-en={clients.subtext.en} data-i18n-id={clients.subtext.id}>
+        {clients.subtext.en}
       </p>
     </div>
 
     <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {clients.map((c) => (
+      {clients.items.map((c) => (
         <article class={`group rounded-2xl border-2 border-ink ${c.bg} p-5 transition duration-200 hover:-translate-y-1 hover:shadow-[5px_5px_0_#151310]`}>
           <div class="flex items-center justify-between">
             <strong class="display text-lg font-bold">{c.name}</strong>
             <i class={`ti ${c.icon} text-2xl text-accent`}></i>
           </div>
-          <p class="mt-4 text-xs font-bold uppercase tracking-wider opacity-50">{c.industry}</p>
+          <p class="mt-4 text-xs font-bold uppercase tracking-wider opacity-50" data-i18n-en={c.industry.en} data-i18n-id={c.industry.id}>{c.industry.en}</p>
         </article>
       ))}
     </div>

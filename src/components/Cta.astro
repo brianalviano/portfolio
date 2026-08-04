@@ -1,4 +1,6 @@
 ---
+import { portfolioData } from '../data/portfolioData';
+const { cta } = portfolioData;
 ---
 
 <section class="relative overflow-hidden border-t-2 border-ink bg-paper py-24 sm:py-32" id="contact">
@@ -9,25 +11,38 @@
   <div class="section-shell relative z-10">
     <div class="mb-10 grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
       <div>
-        <p class="eyebrow">Get in touch</p>
-        <h2 class="display mt-4 text-5xl font-bold leading-[.95] tracking-tight sm:text-7xl">Let’s build something useful.</h2>
+        <p class="eyebrow">{cta.eyebrow}</p>
+        <h2 class="display mt-4 text-5xl font-bold leading-[.95] tracking-tight sm:text-7xl" data-i18n-en={cta.heading.en} data-i18n-id={cta.heading.id}>
+          {cta.heading.en}
+        </h2>
       </div>
-      <p class="max-w-2xl text-lg leading-relaxed text-ink/60 lg:justify-self-end">Have a workflow to automate, an ERP to improve, or a product to launch? Share the context below and I’ll reply with a practical next step.</p>
+      <p class="max-w-2xl text-lg leading-relaxed text-ink/60 lg:justify-self-end" data-i18n-en={cta.subtext.en} data-i18n-id={cta.subtext.id}>
+        {cta.subtext.en}
+      </p>
     </div>
     <div class="cta-panel grid overflow-hidden rounded-[2rem] border-2 border-ink bg-white shadow-[12px_12px_0_#151310] lg:grid-cols-[.72fr_1.28fr]">
       <aside class="flex flex-col justify-between bg-accent p-8 text-white sm:p-10 lg:p-12">
         <div>
           <div class="grid h-14 w-14 place-items-center rounded-2xl border-2 border-ink bg-white text-ink shadow-[5px_5px_0_#151310]"><i class="ti ti-message-code text-3xl text-accent"></i></div>
-          <h3 class="display mt-8 text-3xl font-bold">A good brief does not need to be long.</h3>
-          <p class="mt-4 leading-relaxed text-white/75">Tell me the problem, who uses the system, and what a successful result should look like.</p>
+          <h3 class="display mt-8 text-3xl font-bold" data-i18n-en={cta.asideTitle.en} data-i18n-id={cta.asideTitle.id}>
+            {cta.asideTitle.en}
+          </h3>
+          <p class="mt-4 leading-relaxed text-white/75" data-i18n-en={cta.asideSub.en} data-i18n-id={cta.asideSub.id}>
+            {cta.asideSub.en}
+          </p>
           <ul class="mt-8 space-y-4 text-sm leading-relaxed">
-            <li class="flex gap-3"><span class="font-bold text-white/60">01</span><span>Business problem or product goal</span></li>
-            <li class="flex gap-3"><span class="font-bold text-white/60">02</span><span>Users and current workflow</span></li>
-            <li class="flex gap-3"><span class="font-bold text-white/60">03</span><span>Timeline and existing system</span></li>
+            {cta.asidePoints.map((p) => (
+              <li class="flex gap-3">
+                <span class="font-bold text-white/60">{p.num}</span>
+                <span data-i18n-en={p.text.en} data-i18n-id={p.text.id}>{p.text.en}</span>
+              </li>
+            ))}
           </ul>
         </div>
         <div class="mt-10 border-t border-white/25 pt-6">
-          <p class="text-xs font-bold uppercase tracking-[.18em] text-white/55">Prefer direct contact?</p>
+          <p class="text-xs font-bold uppercase tracking-[.18em] text-white/55" data-i18n-en={cta.preferDirect.en} data-i18n-id={cta.preferDirect.id}>
+            {cta.preferDirect.en}
+          </p>
           <div class="mt-4 flex flex-wrap gap-3">
             <a class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-ink transition hover:-translate-y-0.5" href="https://wa.me/6281370004025" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
             <a class="inline-flex items-center gap-2 rounded-full border border-white/45 px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-white hover:text-ink" href="mailto:brianalviano.official@gmail.com"><i class="ti ti-mail"></i> Email</a>
@@ -36,43 +51,34 @@
       </aside>
       <form class="grid gap-5 p-7 sm:grid-cols-2 sm:p-10 lg:p-12" id="contact-form" novalidate="">
         <div>
-          <label class="mb-2 block text-sm font-bold" for="contact-name">Your name</label>
-          <input autocomplete="name" class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-name" name="name" placeholder="Your name" required="" type="text"/>
+          <label class="mb-2 block text-sm font-bold" for="contact-name" data-i18n-en={cta.labels.name.en} data-i18n-id={cta.labels.name.id}>{cta.labels.name.en}</label>
+          <input autocomplete="name" class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-name" name="name" placeholder={cta.labels.namePlaceholder.en} data-i18n-ph-en={cta.labels.namePlaceholder.en} data-i18n-ph-id={cta.labels.namePlaceholder.id} required="" type="text"/>
         </div>
         <div>
-          <label class="mb-2 block text-sm font-bold" for="contact-email">Email address</label>
-          <input autocomplete="email" class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-email" inputmode="email" name="email" placeholder="you@company.com" required="" type="email"/>
+          <label class="mb-2 block text-sm font-bold" for="contact-email" data-i18n-en={cta.labels.email.en} data-i18n-id={cta.labels.email.id}>{cta.labels.email.en}</label>
+          <input autocomplete="email" class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-email" inputmode="email" name="email" placeholder={cta.labels.emailPlaceholder.en} data-i18n-ph-en={cta.labels.emailPlaceholder.en} data-i18n-ph-id={cta.labels.emailPlaceholder.id} required="" type="email"/>
         </div>
         <div>
-          <label class="mb-2 block text-sm font-bold" for="contact-type">Project type</label>
+          <label class="mb-2 block text-sm font-bold" for="contact-type" data-i18n-en={cta.labels.type.en} data-i18n-id={cta.labels.type.id}>{cta.labels.type.en}</label>
           <select class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-type" name="type" required="">
-            <option value="">Choose one</option>
-            <option>ERP / Business System</option>
-            <option>Custom Web Application</option>
-            <option>Company Website / Landing Page</option>
-            <option>API / System Integration</option>
-            <option>Maintenance / Modernization</option>
-            <option>Other</option>
+            <option value="" data-i18n-en={cta.labels.typeChoose.en} data-i18n-id={cta.labels.typeChoose.id}>{cta.labels.typeChoose.en}</option>
+            {cta.labels.typeOptions.map((opt) => <option>{opt}</option>)}
           </select>
         </div>
         <div>
-          <label class="mb-2 block text-sm font-bold" for="contact-timeline">Target timeline</label>
+          <label class="mb-2 block text-sm font-bold" for="contact-timeline" data-i18n-en={cta.labels.timeline.en} data-i18n-id={cta.labels.timeline.id}>{cta.labels.timeline.en}</label>
           <select class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-timeline" name="timeline">
-            <option>Flexible / Not decided</option>
-            <option>Less than 1 month</option>
-            <option>1–3 months</option>
-            <option>3–6 months</option>
-            <option>More than 6 months</option>
+            {cta.labels.timelineOptions.map((opt) => <option>{opt}</option>)}
           </select>
         </div>
         <div class="sm:col-span-2">
-          <label class="mb-2 block text-sm font-bold" for="contact-message">Tell me about the project</label>
-          <textarea autocomplete="off" class="w-full resize-y rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-message" name="message" placeholder="What are you trying to build or improve? Who will use it, and what is currently slowing you down?" required="" rows="6"></textarea>
+          <label class="mb-2 block text-sm font-bold" for="contact-message" data-i18n-en={cta.labels.message.en} data-i18n-id={cta.labels.message.id}>{cta.labels.message.en}</label>
+          <textarea autocomplete="off" class="w-full resize-y rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-message" name="message" placeholder={cta.labels.messagePlaceholder.en} data-i18n-ph-en={cta.labels.messagePlaceholder.en} data-i18n-ph-id={cta.labels.messagePlaceholder.id} required="" rows="6"></textarea>
         </div>
         <div class="sm:col-span-2 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p aria-live="polite" class="text-sm text-ink/50" id="form-status">Submitting opens your email app with the brief already prepared.</p>
+          <p aria-live="polite" class="text-sm text-ink/50" id="form-status" data-i18n-en={cta.labels.formStatus.en} data-i18n-id={cta.labels.formStatus.id}>{cta.labels.formStatus.en}</p>
           <button class="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-4 font-bold text-white transition hover:-translate-y-1 hover:bg-accent" type="submit">
-            Send project brief <i class="ti ti-arrow-up-right"></i>
+            <span data-i18n-en={cta.labels.submitButton.en} data-i18n-id={cta.labels.submitButton.id}>{cta.labels.submitButton.en}</span> <i class="ti ti-arrow-up-right"></i>
           </button>
         </div>
       </form>

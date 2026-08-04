@@ -1,16 +1,33 @@
 ---
+import { portfolioData } from '../data/portfolioData';
+const { footer } = portfolioData;
 ---
 
-<footer class="overflow-hidden bg-ink pb-8 pt-20 text-white">
+<footer class="border-t-2 border-ink bg-ink text-white pt-16 pb-12">
   <div class="section-shell">
-    <div class="flex flex-col justify-between gap-8 border-b border-white/15 pb-10 md:flex-row md:items-end">
-      <div><p class="text-xs font-bold uppercase tracking-[.24em] text-accent">Independent full-stack developer</p><p class="mt-3 max-w-xl text-lg leading-relaxed text-white/55">ERP systems, custom web applications, integrations, and dependable product delivery from Indonesia.</p></div>
-      <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold"><a class="transition hover:text-accent" href="mailto:brianalviano.official@gmail.com">Email</a><a class="transition hover:text-accent" href="https://github.com/brianalviano" rel="noopener noreferrer" target="_blank">GitHub</a><a class="transition hover:text-accent" href="https://linkedin.com/in/brianalviano" rel="noopener noreferrer" target="_blank">LinkedIn</a><a class="transition hover:text-accent" href="https://instagram.com/vinnoo_" rel="noopener noreferrer" target="_blank">Instagram</a><a class="transition hover:text-accent" href="#home">Back to top ↑</a></div>
+    <div class="mb-14 grid gap-8 md:grid-cols-2 md:items-end">
+      <div>
+        <span class="eyebrow text-accent" data-i18n-en={footer.tagline.en} data-i18n-id={footer.tagline.id}>{footer.tagline.en}</span>
+        <h2 class="footer-name display mt-3 text-5xl font-extrabold sm:text-7xl lg:text-8xl tracking-tight leading-none uppercase select-none">
+          BRIAN ALVIANO
+        </h2>
+      </div>
+      <div class="md:justify-self-end">
+        <p class="max-w-md text-sm text-white/60 leading-relaxed" data-i18n-en={footer.desc.en} data-i18n-id={footer.desc.id}>
+          {footer.desc.en}
+        </p>
+      </div>
     </div>
-    <a aria-label="Back to top" class="footer-name group relative mt-5 block overflow-hidden py-3" href="#home">
-      <span class="display block whitespace-nowrap text-center text-[clamp(3.6rem,13.4vw,13rem)] font-bold leading-none tracking-[-.075em] text-white/95">BRIAN ALVIANO</span>
-      <span aria-hidden="true" class="footer-shine display pointer-events-none absolute inset-0 block whitespace-nowrap py-3 text-center text-[clamp(3.6rem,13.4vw,13rem)] font-bold leading-none tracking-[-.075em]">BRIAN ALVIANO</span>
-    </a>
-    <div class="mt-6 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/40 sm:flex-row sm:items-center"><p>© <span id="year"></span> Brian Alviano. All rights reserved.</p><p>HTML · Tailwind CSS 4 · Tabler Icons · GSAP</p></div>
+    <div class="flex flex-col gap-6 border-t border-white/15 pt-8 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm">
+      <div class="flex flex-wrap gap-6 font-bold">
+        {footer.links.map((l) => (
+          <a class="transition-colors hover:text-accent" href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined}>{l.label}</a>
+        ))}
+      </div>
+      <div class="flex items-center justify-between gap-4 text-white/40 font-semibold sm:justify-end">
+        <span>© {new Date().getFullYear()} Brian Alviano. <span data-i18n-en={footer.rights.en} data-i18n-id={footer.rights.id}>{footer.rights.en}</span></span>
+        <a class="font-bold text-white transition-colors hover:text-accent" href="#home" data-i18n-en={footer.backToTop.en} data-i18n-id={footer.backToTop.id}>{footer.backToTop.en}</a>
+      </div>
+    </div>
   </div>
 </footer>

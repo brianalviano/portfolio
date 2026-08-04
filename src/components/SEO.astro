@@ -7,25 +7,30 @@ export interface Props {
 	type?: 'website' | 'article';
 	publishedTime?: string;
 	jsonLd?: Record<string, any>;
+	lang?: 'en' | 'id';
 }
 
 const {
-	title = 'Brian Alviano | Full-Stack Laravel Developer in Indonesia',
-	description = 'Brian Alviano is a full-stack Laravel developer in Indonesia building ERP systems, REST APIs, internal tools, dashboards, and high-performance business websites.',
+	title = 'Brian Alviano | Full-Stack Developer & Custom ERP Systems',
+	description = 'Brian Alviano is a full-stack developer in Indonesia building custom ERP platforms, REST APIs, internal tools, and high-performance business applications.',
 	image = '/og-brian-alviano.png',
 	canonicalURL = Astro.url.href,
 	type = 'website',
 	publishedTime,
 	jsonLd,
+	lang = 'en'
 } = Astro.props;
 
 const siteTitle = title.includes('Brian Alviano') ? title : `${title} | Brian Alviano`;
+const siteOrigin = Astro.site ? Astro.site.origin : Astro.url.origin;
+const enUrl = `${siteOrigin}/`;
+const idUrl = `${siteOrigin}/id/`;
 
 const defaultPersonSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'Person',
 	name: 'Brian Alviano',
-	jobTitle: 'Full-Stack Laravel Developer',
+	jobTitle: 'Full-Stack Developer',
 	description:
 		'Full-stack developer specializing in Laravel, Svelte, ERP systems, REST APIs, internal tools, dashboards, and scalable web applications.',
 	email: 'mailto:brianalviano.official@gmail.com',
@@ -70,9 +75,14 @@ const finalJsonLd = jsonLd || defaultPersonSchema;
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- International i18n hreflang Tags for Google Indexing -->
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="id" href={idUrl} />
+<link rel="alternate" hreflang="x-default" href={enUrl} />
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content={lang === 'id' ? 'id_ID' : 'en_US'} />
 <meta property="og:site_name" content="Brian Alviano" />
 <meta property="og:title" content={siteTitle} />
 <meta property="og:description" content={description} />
