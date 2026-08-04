@@ -1,50 +1,83 @@
 ---
-import { getCollection } from 'astro:content';
-
-const featuredPosts = (await getCollection('insights'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
 ---
 
-<section class="py-20 border-t-2 border-ink bg-paper" id="insights">
-	<div class="section-shell space-y-10">
-		<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-			<div class="space-y-3">
-				<p class="eyebrow">Engineering Insights</p>
-				<h2 class="display text-3xl sm:text-5xl font-bold tracking-tight text-ink">
-					Articles & Notes
-				</h2>
-			</div>
-			<a href="/insights" class="inline-flex items-center gap-2 text-sm font-bold text-ink hover:text-accent transition-colors">
-				View all articles →
-			</a>
-		</div>
+<section class="section-shell py-24 sm:py-32 cv-auto" id="insights">
+  <div class="mb-12 grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
+    <div>
+      <p class="eyebrow">07 — Insights</p>
+      <h2 class="display mt-3 text-4xl font-bold sm:text-6xl">Notes from building real systems.</h2>
+    </div>
+    <div>
+      <p class="text-lg leading-relaxed text-ink/60">Engineering notes, architecture decisions, and practical guides for teams considering custom software.</p>
+      <a class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent transition hover:gap-3" href="/insights">View all articles <i class="ti ti-arrow-up-right"></i></a>
+    </div>
+  </div>
+  <div class="grid gap-5 lg:grid-cols-12">
+    <article class="group overflow-hidden rounded-[2rem] border-2 border-ink bg-ink text-white lg:col-span-7">
+      <a class="block h-full p-7 sm:p-9" href="/insights/laravel-maintainable-architecture">
+        <div class="flex items-center justify-between gap-4 text-xs font-bold uppercase tracking-[.18em] text-white/50">
+          <span>Engineering note</span><span>8 min read</span>
+        </div>
+        <div class="mt-16 sm:mt-24">
+          <span class="inline-grid h-12 w-12 place-items-center rounded-full border border-white/20 text-2xl text-accent transition group-hover:rotate-45 group-hover:bg-accent group-hover:text-white"><i class="ti ti-arrow-up-right"></i></span>
+          <h3 class="display mt-7 max-w-2xl text-3xl font-bold leading-tight sm:text-5xl">Structuring Laravel applications for long-term maintenance.</h3>
+          <p class="mt-5 max-w-xl leading-relaxed text-white/60">A practical approach to boundaries, services, validation, data access, and keeping business logic understandable as a product grows.</p>
+        </div>
+      </a>
+    </article>
+    <div class="grid gap-5 lg:col-span-5">
+      <article class="group rounded-[2rem] border-2 border-ink bg-accent p-7 text-white sm:p-8">
+        <a class="block" href="/insights/custom-erp-vs-off-the-shelf">
+          <div class="flex items-center justify-between gap-4 text-xs font-bold uppercase tracking-[.18em] text-white/70"><span>Business guide</span><span>6 min read</span></div>
+          <h3 class="display mt-12 text-3xl font-bold leading-tight">Custom ERP or off-the-shelf software?</h3>
+          <p class="mt-4 leading-relaxed text-white/75">A decision framework based on workflow fit, integration needs, ownership, cost, and operational complexity.</p>
+          <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold transition group-hover:gap-3">Read article <i class="ti ti-arrow-right"></i></span>
+        </a>
+      </article>
+      <article class="group rounded-[2rem] border-2 border-ink bg-white p-7 sm:p-8">
+        <a class="block" href="/insights/reliable-rest-api-design">
+          <div class="flex items-center justify-between gap-4 text-xs font-bold uppercase tracking-[.18em] text-ink/45"><span>API design</span><span>7 min read</span></div>
+          <h3 class="display mt-12 text-3xl font-bold leading-tight">Designing REST APIs that remain predictable.</h3>
+          <p class="mt-4 leading-relaxed text-ink/60">Consistency in resources, errors, validation, pagination, permissions, and versioning.</p>
+          <span class="mt-7 inline-flex items-center gap-2 text-sm font-bold text-accent transition group-hover:gap-3">Read article <i class="ti ti-arrow-right"></i></span>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
 
-		<div class="grid gap-8 md:grid-cols-3">
-			{featuredPosts.map((post) => (
-				<article class="card-hard rounded-3xl p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform">
-					<div>
-						<div class="flex items-center justify-between text-xs font-bold text-accent uppercase tracking-wider mb-3">
-							<span>{post.data.category}</span>
-							<span class="text-ink/40">{post.data.readTime}</span>
-						</div>
-						<h3 class="display text-xl font-bold text-ink mb-3 leading-snug">
-							<a href={`/insights/${post.id}`} class="hover:text-accent transition-colors">
-								{post.data.title}
-							</a>
-						</h3>
-						<p class="text-sm text-ink/70 line-clamp-3 mb-6">
-							{post.data.description}
-						</p>
-					</div>
-					<a
-						href={`/insights/${post.id}`}
-						class="inline-flex items-center gap-2 text-sm font-bold text-ink hover:text-accent transition-colors pt-4 border-t border-ink/10"
-					>
-						Read article →
-					</a>
-				</article>
-			))}
-		</div>
-	</div>
+<section class="border-y-2 border-ink bg-white py-20 sm:py-24 cv-auto" id="clients">
+  <div class="section-shell">
+    <div class="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+      <div>
+        <p class="eyebrow">08 — Selected clients</p>
+        <h2 class="display mt-3 text-4xl font-bold tracking-tight sm:text-6xl">Built across different industries.</h2>
+      </div>
+      <p class="max-w-2xl text-lg leading-relaxed text-ink/60">From retail operations and logistics to education, research, printing, and technology teams. Each engagement starts with understanding the real workflow—not forcing the same template onto every business.</p>
+    </div>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="group rounded-[1.75rem] border-2 border-ink bg-[#f4d9d0] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
+        <div class="flex items-start justify-between"><span class="display text-3xl font-bold">Pelangi UV</span><i class="ti ti-printer text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Printing &amp; manufacturing</p>
+      </article>
+      <article class="group rounded-[1.75rem] border-2 border-ink bg-[#dce7f4] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
+        <div class="flex items-start justify-between"><span class="display text-3xl font-bold">Awniraya</span><i class="ti ti-truck-delivery text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Logistics &amp; freight</p>
+      </article>
+      <article class="group rounded-[1.75rem] border-2 border-ink bg-[#f5e0a9] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
+        <div class="flex items-start justify-between"><span class="display text-3xl font-bold">DAKI Pet Shop</span><i class="ti ti-paw text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Multi-branch retail</p>
+      </article>
+      <article class="group rounded-[1.75rem] border-2 border-ink bg-[#dcebdc] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
+        <div class="flex items-start justify-between"><span class="display text-3xl font-bold">Universitas Airlangga</span><i class="ti ti-school text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Education &amp; research</p>
+      </article>
+      <article class="group rounded-[1.75rem] border-2 border-ink bg-[#eadcf1] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
+        <div class="flex items-start justify-between"><span class="display text-3xl font-bold">GAPALA</span><i class="ti ti-building-bank text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Financial operations</p>
+      </article>
+      <article class="group rounded-[1.75rem] border-2 border-ink bg-ink p-7 text-white transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#ed4d2b]">
+        <div class="flex items-start justify-between"><span class="display text-3xl font-bold">Burningroom</span><i class="ti ti-code text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-white/45">Technology partner</p>
+      </article>
+    </div>
+    <div class="mt-8 flex flex-col gap-4 rounded-3xl border border-ink/15 bg-paper p-6 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-sm leading-relaxed text-ink/60">Also worked with healthcare, contractors, local businesses, and institutional teams across Indonesia.</p>
+      <a class="inline-flex shrink-0 items-center gap-2 font-bold text-accent" href="#contact">Discuss your project <i class="ti ti-arrow-up-right"></i></a>
+    </div>
+  </div>
 </section>

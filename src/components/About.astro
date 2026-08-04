@@ -1,53 +1,58 @@
 ---
-import { IconCheck, IconCode, IconCpu, IconServer } from '@tabler/icons-svelte';
 ---
 
-<section class="py-20 border-t-2 border-ink bg-paper" id="about">
-	<div class="section-shell grid gap-12 lg:grid-cols-2 lg:items-center">
-		<div class="space-y-6">
-			<p class="eyebrow">About & Philosophy</p>
-			<h2 class="display text-3xl sm:text-5xl font-bold tracking-tight text-ink">
-				Building software that supports operations, not headaches.
-			</h2>
-			<p class="text-base sm:text-lg text-ink/75 leading-relaxed">
-				I specialize in custom ERP platforms, multi-warehouse inventory systems, robust REST APIs, and modern full-stack web applications. I focus on clear database design, clean architecture boundaries, and reliable user interfaces.
-			</p>
-			<div class="grid grid-cols-2 gap-4 pt-2">
-				<div class="card-hard rounded-2xl p-4 flex items-center gap-3">
-					<IconServer size={24} class="text-accent shrink-0" />
-					<div>
-						<p class="text-xs uppercase font-bold text-ink/50">Core Engine</p>
-						<p class="font-bold text-sm">Laravel & PHP 8.4</p>
-					</div>
-				</div>
-				<div class="card-hard rounded-2xl p-4 flex items-center gap-3">
-					<IconCpu size={24} class="text-accent shrink-0" />
-					<div>
-						<p class="text-xs uppercase font-bold text-ink/50">UI Hydration</p>
-						<p class="font-bold text-sm">Svelte 5 & Tailwind</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="space-y-4">
-			<div class="card-hard rounded-3xl p-6 sm:p-8 space-y-4">
-				<h3 class="display text-xl font-bold text-ink border-b border-ink/10 pb-3">My Development Commitments</h3>
-				<ul class="space-y-3 text-sm font-semibold text-ink/80">
-					<li class="flex items-start gap-3">
-						<span class="grid place-items-center w-6 h-6 rounded-full bg-accent/10 text-accent font-bold shrink-0">✓</span>
-						<span><strong>Maintainable Architecture:</strong> Modular monorail with clear Actions, DTOs, and explicit boundaries.</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="grid place-items-center w-6 h-6 rounded-full bg-accent/10 text-accent font-bold shrink-0">✓</span>
-						<span><strong>High Performance:</strong> Aggressive Redis caching, query optimization, and zero unused JS bloat.</span>
-					</li>
-					<li class="flex items-start gap-3">
-						<span class="grid place-items-center w-6 h-6 rounded-full bg-accent/10 text-accent font-bold shrink-0">✓</span>
-						<span><strong>Bulletproof Security:</strong> Strict input validation, Policy/Gate authorization, and CSRF protection.</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+<section class="section-shell py-20 sm:py-24 cv-auto" id="about">
+  <div class="grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
+    <div class="lg:sticky lg:top-28">
+      <p class="eyebrow">01 — About me</p>
+      <h2 class="display mt-3 text-4xl font-bold tracking-tight sm:text-6xl">A little context behind the work.</h2>
+      <p class="mt-5 max-w-md text-sm leading-relaxed text-ink/55">A concise profile, direct contact details, and the places where you can find my work online.</p>
+    </div>
+    <div class="rounded-[2rem] border-2 border-ink bg-white p-6 shadow-[8px_8px_0_#151310] sm:p-8 lg:p-10">
+      <p class="max-w-3xl text-lg leading-relaxed text-ink/78 sm:text-xl">
+        I’m Brian Alviano, a Full-Stack Developer with 6 years of experience specializing in Laravel and Svelte. I build custom ERP systems, internal tools, REST APIs, and scalable web applications from planning and architecture to deployment and support.
+      </p>
+      <div class="mt-8 divide-y divide-ink/10 border-y border-ink/10">
+        <div class="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:items-center">
+          <span class="display font-bold text-accent">Location</span>
+          <span class="text-ink/70">Surabaya, East Java, Indonesia</span>
+        </div>
+        <div class="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:items-center">
+          <span class="display font-bold text-accent">Phone</span>
+          <a class="w-fit text-ink/70 underline decoration-ink/25 underline-offset-4 transition hover:text-accent" href="tel:+6281370004025">+62 813-7000-4025</a>
+        </div>
+        <div class="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:items-center">
+          <span class="display font-bold text-accent">Email</span>
+          <a class="w-fit break-all text-ink/70 underline decoration-ink/25 underline-offset-4 transition hover:text-accent" href="mailto:brianalviano.official@gmail.com">brianalviano.official@gmail.com</a>
+        </div>
+      </div>
+      <div class="mt-8">
+        <p class="display text-xl font-bold">Connect with me</p>
+        <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <a class="group rounded-2xl border-2 border-ink bg-[#ffd7e3] p-4 text-center transition hover:-translate-y-1 hover:shadow-[5px_5px_0_#151310]" href="https://instagram.com/vinnoo_" rel="noopener noreferrer" target="_blank">
+            <i class="ti ti-brand-instagram text-3xl"></i>
+            <span class="mt-3 block text-xs font-bold">@vinnoo_</span>
+          </a>
+          <a class="group rounded-2xl border-2 border-ink bg-[#d9ecff] p-4 text-center transition hover:-translate-y-1 hover:shadow-[5px_5px_0_#151310]" href="https://linkedin.com/in/brianalviano" rel="noopener noreferrer" target="_blank">
+            <i class="ti ti-brand-linkedin text-3xl"></i>
+            <span class="mt-3 block text-xs font-bold">@brianalviano</span>
+          </a>
+          <a class="group rounded-2xl border-2 border-ink bg-[#ececec] p-4 text-center transition hover:-translate-y-1 hover:shadow-[5px_5px_0_#151310]" href="https://github.com/brianalviano" rel="noopener noreferrer" target="_blank">
+            <i class="ti ti-brand-github text-3xl"></i>
+            <span class="mt-3 block text-xs font-bold">@brianalviano</span>
+          </a>
+          <a class="group rounded-2xl border-2 border-ink bg-[#dcfce7] p-4 text-center transition hover:-translate-y-1 hover:shadow-[5px_5px_0_#151310]" href="https://wa.me/6281370004025" rel="noopener noreferrer" target="_blank">
+            <i class="ti ti-brand-whatsapp text-3xl"></i>
+            <span class="mt-3 block text-xs font-bold">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border-2 border-ink bg-ink lg:grid-cols-4">
+    <div class="stat bg-paper p-6 sm:p-8"><strong class="display block text-4xl sm:text-5xl" data-count="23">0</strong><span class="mt-2 block text-sm text-ink/60">Completed projects</span></div>
+    <div class="stat bg-paper p-6 sm:p-8"><strong class="display block text-4xl sm:text-5xl" data-count="6">0</strong><span class="mt-2 block text-sm text-ink/60">Years developing</span></div>
+    <div class="stat bg-paper p-6 sm:p-8"><strong class="display block text-4xl sm:text-5xl" data-count="18">0</strong><span class="mt-2 block text-sm text-ink/60">Clients served</span></div>
+    <div class="stat bg-paper p-6 sm:p-8"><strong class="display block text-4xl sm:text-5xl" data-count="5000">0</strong><span class="mt-2 block text-sm text-ink/60">Platform users</span></div>
+  </div>
 </section>

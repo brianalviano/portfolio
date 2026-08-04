@@ -1,7 +1,5 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 
 export interface Props {
 	title: string;
@@ -10,9 +8,11 @@ export interface Props {
 	readTime: string;
 	pubDate: Date;
 	headings?: { depth: number; slug: string; text: string }[];
+	prevPost?: { id: string; data: { title: string } } | null;
+	nextPost?: { id: string; data: { title: string } } | null;
 }
 
-const { title, description, category, readTime, headings = [] } = Astro.props;
+const { title, description, category, readTime, headings = [], prevPost, nextPost } = Astro.props;
 
 const tocHeadings = headings.filter((h) => h.depth === 2);
 ---
@@ -24,45 +24,311 @@ const tocHeadings = headings.filter((h) => h.depth === 2);
 		type: 'article',
 	}}
 >
-	<Header slot="header" />
+	<header class="shell nav">
+		<a class="brand" href="/">
+			<span class="mark">BA</span>
+			<span>BRIAN<br />ALVIANO</span>
+		</a>
+		<a class="back" href="/insights">← <span>All insights</span></a>
+	</header>
 
-	<article>
-		<section class="hero border-b-2 border-ink py-20 pt-32 bg-paper">
-			<div class="section-shell">
-				<p class="eyebrow mb-3">{category} · {readTime}</p>
-				<h1 class="display max-w-4xl text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[0.95] tracking-tight mb-6">
-					{title}
-				</h1>
-				<p class="max-w-2xl text-lg sm:text-xl text-ink/70 leading-relaxed">
-					{description}
-				</p>
+	<main>
+		<section class="hero">
+			<div class="shell">
+				<p class="meta">{category} · {readTime}</p>
+				<h1 class="display">{title}</h1>
+				<p class="lede">{description}</p>
 			</div>
 		</section>
 
-		<div class="section-shell article-layout grid grid-cols-1 lg:grid-cols-[220px_minmax(0,760px)] gap-12 justify-center py-16">
+		<div class="shell article-layout">
 			{tocHeadings.length > 0 && (
-				<aside class="toc sticky top-28 align-self-start border-l-2 border-ink pl-4 hidden lg:block">
-					<strong class="display text-sm font-bold uppercase tracking-wider block mb-3 text-ink">In this article</strong>
-					<nav class="space-y-2 text-sm text-ink/60">
-						{tocHeadings.map((h) => (
-							<a href={`#${h.slug}`} class="block hover:text-accent transition-colors">
-								{h.text}
-							</a>
-						))}
-					</nav>
+				<aside class="toc">
+					<strong class="display">In this article</strong>
+					{tocHeadings.map((h) => (
+						<a href={`#${h.slug}`}>{h.text}</a>
+					))}
 				</aside>
 			)}
 
-			<div class="prose prose-lg max-w-none text-ink/80 leading-relaxed font-sans [&_h2]:display [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-ink [&_p]:mb-6 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-6 [&_blockquote]:border-l-4 [&_blockquote]:border-accent [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:my-6">
+			<article class="article-content">
 				<slot />
 
-				<div class="mt-16 pt-8 border-t border-ink/10 flex justify-between items-center text-sm font-bold">
-					<a href="/insights" class="hover:text-accent transition-colors">← Back to all insights</a>
-					<a href="/#contact" class="hover:text-accent transition-colors">Discuss a project →</a>
+				<div class="next">
+					{prevPost ? (
+						<a href={`/insights/${prevPost.id}`}>← {prevPost.data.title}</a>
+					) : (
+						<span></span>
+					)}
+					{nextPost ? (
+						<a href={`/insights/${nextPost.id}`}>{nextPost.data.title} →</a>
+					) : (
+						<a href="/insights">All insights →</a>
+					)}
 				</div>
-			</div>
+			</article>
 		</div>
-	</article>
+	</main>
 
-	<Footer slot="footer" />
+	<footer class="article-footer">
+		<div class="shell">
+			<strong class="display">BRIAN ALVIANO</strong>
+			<p>Full-stack Laravel developer in Surabaya, Indonesia.</p>
+			<a href="/#contact">Start a conversation →</a>
+		</div>
+	</footer>
 </BaseLayout>
+
+<style>
+	:root {
+		--ink: #151310;
+		--paper: #f5f1eb;
+		--accent: #ed4d2b;
+		--muted: #756f67;
+	}
+
+	.shell {
+		width: min(1180px, calc(100% - 40px));
+		margin: auto;
+	}
+
+	.nav {
+		height: 82px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom: 1px solid #15131022;
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		color: inherit;
+		text-decoration: none;
+		font-weight: 800;
+		line-height: 1.05;
+	}
+
+	.mark {
+		display: grid;
+		place-items: center;
+		width: 46px;
+		height: 46px;
+		border-radius: 13px;
+		background: var(--ink);
+		color: white;
+	}
+
+	.back {
+		color: inherit;
+		text-decoration: none;
+		font-weight: 700;
+	}
+
+	.back:hover {
+		color: var(--accent);
+	}
+
+	.hero {
+		padding: 90px 0 64px;
+		border-bottom: 2px solid var(--ink);
+	}
+
+	.meta {
+		font-size: 12px;
+		font-weight: 800;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--accent);
+	}
+
+	h1 {
+		font-size: clamp(3rem, 8vw, 7rem);
+		line-height: 0.93;
+		letter-spacing: -0.065em;
+		max-width: 1050px;
+		margin: 20px 0 28px;
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 700;
+	}
+
+	.lede {
+		font-size: clamp(1.1rem, 2vw, 1.35rem);
+		max-width: 760px;
+		color: var(--muted);
+	}
+
+	.article-layout {
+		display: grid;
+		grid-template-columns: 220px minmax(0, 760px);
+		gap: 70px;
+		justify-content: center;
+		padding: 70px 0 110px;
+	}
+
+	.toc {
+		position: sticky;
+		top: 30px;
+		align-self: start;
+		border-left: 2px solid var(--ink);
+		padding-left: 18px;
+	}
+
+	.toc strong {
+		display: block;
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 700;
+		font-size: 1rem;
+		margin-bottom: 12px;
+	}
+
+	.toc a {
+		display: block;
+		color: var(--muted);
+		text-decoration: none;
+		font-size: 0.9rem;
+		margin: 10px 0;
+		transition: color 0.2s;
+	}
+
+	.toc a:hover {
+		color: var(--accent);
+	}
+
+	.article-content :global(h2) {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: clamp(1.8rem, 4vw, 2.7rem);
+		line-height: 1.08;
+		margin: 64px 0 18px;
+		letter-spacing: -0.035em;
+		font-weight: 700;
+		color: var(--ink);
+	}
+
+	.article-content :global(h3) {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: 1.35rem;
+		margin: 38px 0 10px;
+		font-weight: 700;
+		color: var(--ink);
+	}
+
+	.article-content :global(p),
+	.article-content :global(li) {
+		color: #514c46;
+		font-size: 1.06rem;
+		line-height: 1.7;
+	}
+
+	.article-content :global(ul) {
+		padding-left: 1.25rem;
+	}
+
+	.article-content :global(li) {
+		margin: 0.65rem 0;
+	}
+
+	.article-content :global(blockquote) {
+		margin: 34px 0;
+		padding: 24px;
+		border: 2px solid var(--ink);
+		border-radius: 20px;
+		background: white;
+		box-shadow: 7px 7px 0 var(--ink);
+		font-style: normal;
+	}
+
+	.article-content :global(blockquote p) {
+		margin: 0;
+		color: var(--ink);
+		font-weight: 500;
+	}
+
+	.article-content :global(code) {
+		background: #ebe5dd;
+		padding: 0.12rem 0.35rem;
+		border-radius: 0.35rem;
+		font-family: monospace;
+	}
+
+	.article-content :global(pre) {
+		overflow: auto;
+		background: var(--ink);
+		color: #f8f5ef;
+		padding: 24px;
+		border-radius: 20px;
+		font-size: 0.9rem;
+	}
+
+	.next {
+		display: flex;
+		justify-content: space-between;
+		gap: 25px;
+		border-top: 1px solid #15131033;
+		margin-top: 70px;
+		padding-top: 30px;
+	}
+
+	.next a {
+		color: inherit;
+		text-decoration: none;
+		font-weight: 800;
+		transition: color 0.2s;
+	}
+
+	.next a:hover {
+		color: var(--accent);
+	}
+
+	.article-footer {
+		background: var(--ink);
+		color: white;
+		padding: 55px 0;
+	}
+
+	.article-footer strong {
+		display: block;
+		font-size: 1.5rem;
+		font-family: 'Space Grotesk', sans-serif;
+		margin-bottom: 8px;
+	}
+
+	.article-footer p {
+		color: rgba(255, 255, 255, 0.6);
+		margin: 0 0 16px 0;
+	}
+
+	.article-footer a {
+		color: white;
+		font-weight: 700;
+		text-decoration: underline;
+	}
+
+	.article-footer a:hover {
+		color: var(--accent);
+	}
+
+	@media (max-width: 780px) {
+		.article-layout {
+			grid-template-columns: 1fr;
+			gap: 25px;
+		}
+
+		.toc {
+			position: static;
+		}
+
+		.hero {
+			padding-top: 55px;
+		}
+
+		.nav .back span {
+			display: none;
+		}
+
+		.next {
+			flex-direction: column;
+		}
+	}
+</style>

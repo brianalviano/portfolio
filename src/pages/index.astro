@@ -1,454 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Experience from '../components/Experience.astro';
+import Work from '../components/Work.astro';
+import InsightsSection from '../components/InsightsSection.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout>
-<a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-ink focus:shadow-lg" href="#main-content">Skip to main content</a><noscript>This portfolio remains readable without JavaScript, but animations, sliders, and the contact helper require JavaScript.</noscript>
-<div class="pointer-events-none fixed left-0 top-0 z-[100] hidden h-5 w-5 rounded-full border border-ink mix-blend-difference lg:block" id="cursor"></div>
-<header class="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-paper/85 backdrop-blur-xl">
-<nav class="section-shell flex h-20 items-center justify-between">
-<a class="group flex items-center gap-3" href="#home">
-<span class="display grid h-11 w-11 place-items-center rounded-xl bg-ink text-lg font-bold text-white transition-transform group-hover:-rotate-6">BA</span>
-<span class="display hidden text-sm font-bold leading-tight sm:block">BRIAN<br/>ALVIANO</span>
-</a>
-<div class="hidden items-center gap-7 text-sm font-semibold md:flex">
-<a class="transition-colors hover:text-accent" href="#about">About</a>
-<a class="transition-colors hover:text-accent" href="#skills">Skills</a>
-<a class="transition-colors hover:text-accent" href="#experience">Experience</a>
-<a class="transition-colors hover:text-accent" href="#work">Work</a><a class="transition-colors hover:text-accent" href="#insights">Insights</a>
-<a class="transition-colors hover:text-accent" href="#contact">Contact</a>
-</div>
-<a class="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-accent" href="#contact">
-        Let’s talk <i class="ti ti-arrow-up-right"></i>
-</a>
-</nav>
-</header>
-<main id="main-content" tabindex="-1">
-<section class="relative flex min-h-screen flex-col overflow-hidden pt-20" id="home">
-<div class="absolute -right-24 top-36 h-72 w-72 rounded-full border-[28px] border-accent/20"></div>
-<svg aria-hidden="true" class="absolute -left-20 bottom-20 h-64 w-64 text-accent/20" fill="none" viewBox="0 0 200 200">
-<path d="M20 100h160M100 20v160M42 42l116 116M158 42L42 158" stroke="currentColor" stroke-width="16"></path>
-</svg>
-<div class="section-shell grid flex-1 items-center gap-8 py-8 sm:py-10 lg:grid-cols-[1.18fr_.82fr] lg:gap-10 lg:py-10">
-<div>
-<div class="hero-reveal mb-4 inline-flex items-stretch overflow-hidden rounded-full border-2 border-ink bg-white shadow-[4px_4px_0_#151310] transition duration-300 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_#151310]">
-<span class="display grid min-w-14 place-items-center bg-accent px-4 text-sm font-bold text-white">&lt;BA/&gt;</span>
-<span class="flex items-center gap-3 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[.18em] sm:text-xs">
-<span aria-hidden="true" class="relative flex h-2.5 w-2.5">
-<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-50"></span>
-<span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
-</span>
-              Surabaya-built <span class="text-ink/25">/</span> production-minded
-            </span>
-</div>
-<h1 class="display hero-reveal max-w-5xl text-[clamp(2.9rem,6.25vw,6.45rem)] font-bold leading-[.88] tracking-[-.07em]">
-            I build systems<br/>
-            that <span class="text-accent">work hard.</span>
-</h1>
-<div class="hero-reveal mt-5 grid gap-4 border-t border-ink/20 pt-4 sm:grid-cols-[1fr_auto] sm:items-end">
-<p class="max-w-2xl text-base leading-relaxed text-ink/70 sm:text-lg">
-              Brian Alviano is a full-stack Laravel developer crafting scalable ERP platforms, APIs, dashboards, and conversion-focused websites from Indonesia.
-            </p>
-<a class="group inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-ink bg-accent text-xl transition hover:rotate-45" href="#work">
-<i class="ti ti-arrow-down-right transition-transform group-hover:scale-110"></i>
-</a>
-</div>
-</div>
-<div class="hero-visual relative mx-auto w-full max-w-[25.5rem]">
-<div class="absolute -inset-5 rotate-3 rounded-[2.2rem] border-2 border-ink bg-accent"></div>
-<div class="relative overflow-hidden rounded-[2rem] border-2 border-ink bg-ink p-4 text-white shadow-[10px_10px_0_rgba(237,77,43,.35)]">
-<div class="grid-bg relative min-h-[330px] overflow-hidden rounded-2xl bg-[#24211d] p-5 sm:min-h-[360px]">
-<div class="relative z-10 flex items-start justify-between">
-<div>
-<p class="text-xs uppercase tracking-[.25em] text-white/45">Developer profile</p>
-<h2 class="display mt-2 text-2xl font-bold sm:text-3xl">Brian<br/>Alviano</h2>
-</div>
-<span class="rounded-full border border-white/20 px-3 py-1 text-xs">Surabaya, ID</span>
-</div>
-<div class="absolute inset-x-0 bottom-0 flex justify-center">
-<svg aria-label="Abstract developer portrait" class="w-[70%] sm:w-[74%]" fill="none" viewBox="0 0 420 440">
-<circle cx="210" cy="150" fill="#ED4D2B" r="90"></circle>
-<path d="M95 440c8-130 56-195 115-195s108 65 115 195H95Z" fill="#F5F1EB"></path>
-<circle cx="210" cy="153" fill="#D8A47F" r="66"></circle>
-<path d="M143 146c0-68 38-103 92-83 28 10 44 39 39 78-25-14-51-24-78-22-19 2-36 12-53 27Z" fill="#151310"></path>
-<path d="M171 152h-30v-12h30v12Zm108 0h-30v-12h30v12Zm-108-6h78" stroke="#151310" stroke-width="7"></path>
-<path d="M185 193c18 13 33 13 51 0" stroke="#151310" stroke-linecap="round" stroke-width="7"></path>
-<path d="M132 317c47 26 109 26 156 0" stroke="#ED4D2B" stroke-width="15"></path>
-<path d="M130 400h160" stroke="#151310" stroke-width="18"></path>
-</svg>
-</div>
-<div class="absolute bottom-5 left-5 z-20 rounded-xl border border-white/15 bg-black/30 px-4 py-2.5 backdrop-blur">
-<p class="text-xs text-white/50">Primary stack</p>
-<p class="mt-1 font-semibold">Laravel · Svelte · PostgreSQL</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="shrink-0 overflow-hidden border-y-2 border-ink bg-ink py-3 text-white">
-<div class="marquee-track flex w-max gap-12 whitespace-nowrap text-base font-bold uppercase tracking-[.15em] sm:text-lg">
-<span>Backend Engineering ✦ REST API ✦ ERP Systems ✦ Frontend Development ✦ Database Design ✦ DevOps ✦</span>
-<span>Backend Engineering ✦ REST API ✦ ERP Systems ✦ Frontend Development ✦ Database Design ✦ DevOps ✦</span>
-</div>
-</div>
-</section>
-<section class="section-shell py-20 sm:py-24 cv-auto" id="about">
-<div class="grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:items-start">
-<div class="lg:sticky lg:top-28">
-<p class="eyebrow">01 — About me</p>
-<h2 class="display mt-3 text-4xl font-bold tracking-tight sm:text-6xl">A little context behind the work.</h2>
-<p class="mt-5 max-w-md text-sm leading-relaxed text-ink/55">A concise profile, direct contact details, and the places where you can find my work online.</p>
-</div>
-<div class="rounded-[2rem] border-2 border-ink bg-white p-6 shadow-[8px_8px_0_#151310] sm:p-8 lg:p-10">
-<p class="max-w-3xl text-lg leading-relaxed text-ink/78 sm:text-xl">
-            I’m Brian Alviano, a Full-Stack Developer with 6 years of experience specializing in Laravel and Svelte. I build custom ERP systems, internal tools, REST APIs, and scalable web applications from planning and architecture to deployment and support.
-          </p>
-<div class="mt-8 divide-y divide-ink/10 border-y border-ink/10">
-<div class="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:items-center">
-<span class="display font-bold text-accent">Location</span>
-<span class="text-ink/70">Surabaya, East Java, Indonesia</span>
-</div>
-<div class="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:items-center">
-<span class="display font-bold text-accent">Phone</span>
-<a class="w-fit text-ink/70 underline decoration-ink/25 underline-offset-4 transition hover:text-accent" href="tel:+6281370004025">+62 813-7000-4025</a>
-</div>
-<div class="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:items-center">
-<span class="display font-bold text-accent">Email</span>
-<a class="w-fit break-all text-ink/70 underline decoration-ink/25 underline-offset-4 transition hover:text-accent" href="mailto:brianalviano.official@gmail.com">brianalviano.official@gmail.com</a>
-</div>
-</div>
-<div class="mt-8">
-<p class="display text-xl font-bold">Connect with me</p>
-<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-<a class="group rounded-2xl border-2 border-ink bg-[#ffd7e3] p-4 text-center transition hover:-translate-y-1 hover:shadow-[5px_5px_0_#151310]" href="https://instagram.com/vinnoo_" rel="noopener noreferrer" target="_blank">
-<i class="ti ti-brand-instagram text-3xl"></i>
-<span class="mt-3 block text-xs font-bold">@vinnoo_</span>
-</a>
-<a class="group rounded-2xl border-2 border-ink bg-[#d9ecff] p-4 text-center transition hover:-translate-y-1 hover:shadow-[5px_5px_0_#151310]" href="https://linkedin.com/in/brianalviano" rel="noopener noreferrer" target="_blank">
-<i class="ti ti-brand-linkedin text-3xl"></i>
-<span class="mt-3 block text-xs font-bold">@brianalviano</span>
-</a>
-<a class="group rounded-2xl border-2 border-ink bg-[#ececec] p-4 text-center transition hover:-translate-y-1 hover:shadow-[5px_5px_0_#151310]" href="https://github.com/brianalviano" rel="noopener noreferrer" target="_blank">
-<i class="ti ti-brand-github text-3xl"></i>
-<span class="mt-3 block text-xs font-bold">@brianalviano</span>
-</a>
-<a class="group rounded-2xl border-2 border-ink bg-[#dcfce7] p-4 text-center transition hover:-translate-y-1 hover:shadow-[5px_5px_0_#151310]" href="https://wa.me/6281370004025" rel="noopener noreferrer" target="_blank">
-<i class="ti ti-brand-whatsapp text-3xl"></i>
-<span class="mt-3 block text-xs font-bold">WhatsApp</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-<div class="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border-2 border-ink bg-ink lg:grid-cols-4">
-<div class="stat bg-paper p-6 sm:p-8"><strong class="display block text-4xl sm:text-5xl" data-count="23">0</strong><span class="mt-2 block text-sm text-ink/60">Completed projects</span></div>
-<div class="stat bg-paper p-6 sm:p-8"><strong class="display block text-4xl sm:text-5xl" data-count="6">0</strong><span class="mt-2 block text-sm text-ink/60">Years developing</span></div>
-<div class="stat bg-paper p-6 sm:p-8"><strong class="display block text-4xl sm:text-5xl" data-count="18">0</strong><span class="mt-2 block text-sm text-ink/60">Clients served</span></div>
-<div class="stat bg-paper p-6 sm:p-8"><strong class="display block text-4xl sm:text-5xl" data-count="5000">0</strong><span class="mt-2 block text-sm text-ink/60">Platform users</span></div>
-</div>
-</section>
-<section class="border-y-2 border-ink bg-ink py-28 text-white sm:py-36 cv-auto" id="skills">
-<div class="section-shell">
-<div class="mb-16 grid gap-8 lg:grid-cols-[1fr_.65fr] lg:items-end">
-<div><p class="eyebrow">02 — Complete stack</p><h2 class="display mt-3 text-4xl font-bold tracking-tight sm:text-6xl">A practical toolkit for complete product delivery.</h2></div>
-<p class="text-lg leading-relaxed text-white/55">From browser UI and API design to databases, caching, deployment, monitoring, and developer tooling.</p>
-</div>
-<div class="space-y-12">
-<div><div class="mb-5 flex items-center gap-3"><span class="h-px flex-1 bg-white/15"></span><h3 class="display text-lg font-bold">Frontend</h3><span class="h-px flex-1 bg-white/15"></span></div><div class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="HTML5" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/html5/E34F26" width="36"/><h4 class="mt-5 font-bold">HTML5</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="CSS" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/css/663399" width="36"/><h4 class="mt-5 font-bold">CSS</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="JavaScript" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/javascript/F7DF1E" width="36"/><h4 class="mt-5 font-bold">JavaScript</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="TypeScript" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/typescript/3178C6" width="36"/><h4 class="mt-5 font-bold">TypeScript</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Svelte" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/svelte/FF3E00" width="36"/><h4 class="mt-5 font-bold">Svelte</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Tailwind CSS" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="36"/><h4 class="mt-5 font-bold">Tailwind</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><div class="grid h-9 w-9 place-items-center rounded-lg bg-indigo-500 font-black">I</div><h4 class="mt-5 font-bold">Inertia</h4></article>
-</div></div>
-<div><div class="mb-5 flex items-center gap-3"><span class="h-px flex-1 bg-white/15"></span><h3 class="display text-lg font-bold">Backend &amp; data</h3><span class="h-px flex-1 bg-white/15"></span></div><div class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Laravel" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/laravel/FF2D20" width="36"/><h4 class="mt-5 font-bold">Laravel</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="PHP" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/php/777BB4" width="36"/><h4 class="mt-5 font-bold">PHP</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="PostgreSQL" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/postgresql/4169E1" width="36"/><h4 class="mt-5 font-bold">PostgreSQL</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="MySQL" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/mysql/4479A1" width="36"/><h4 class="mt-5 font-bold">MySQL</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Redis" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/redis/FF4438" width="36"/><h4 class="mt-5 font-bold">Redis</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><i class="ti ti-api text-4xl text-accent"></i><h4 class="mt-5 font-bold">REST API</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><i class="ti ti-database text-4xl text-accent"></i><h4 class="mt-5 font-bold">Data Modeling</h4></article>
-</div></div>
-<div><div class="mb-5 flex items-center gap-3"><span class="h-px flex-1 bg-white/15"></span><h3 class="display text-lg font-bold">DevOps &amp; tools</h3><span class="h-px flex-1 bg-white/15"></span></div><div class="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Nginx" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/nginx/009639" width="36"/><h4 class="mt-5 font-bold">Nginx</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Docker" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/docker/2496ED" width="36"/><h4 class="mt-5 font-bold">Docker</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Git" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/git/F05032" width="36"/><h4 class="mt-5 font-bold">Git</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="GitHub" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/github/ffffff" width="36"/><h4 class="mt-5 font-bold">GitHub</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Vite" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/vite/646CFF" width="36"/><h4 class="mt-5 font-bold">Vite</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Bun" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/bun/FBF0DF" width="36"/><h4 class="mt-5 font-bold">Bun</h4></article>
-<article class="skill-card rounded-2xl border border-white/15 bg-white/[.06] p-5"><img alt="Composer" class="h-9 w-9" decoding="async" height="36" loading="lazy" src="https://cdn.simpleicons.org/composer/885630" width="36"/><h4 class="mt-5 font-bold">Composer</h4></article>
-</div></div>
-</div>
-</div>
-</section>
-<section class="section-shell py-28 sm:py-36 cv-auto">
-<div class="mb-16 flex items-end justify-between">
-<div><p class="eyebrow">03 — Services</p><h2 class="display mt-3 text-4xl font-bold sm:text-6xl">From idea to production.</h2></div>
-</div>
-<div class="grid gap-5 md:grid-cols-2">
-<article class="service-card group rounded-3xl border-2 border-ink p-7 transition hover:bg-accent hover:text-white sm:p-9">
-<div class="flex items-start justify-between"><span class="display text-sm font-bold">01</span><i class="ti ti-building-factory-2 text-4xl"></i></div>
-<h3 class="display mt-16 text-3xl font-bold">ERP Systems</h3><p class="mt-3 max-w-xl text-ink/65 transition group-hover:text-white/75">Unified HR, finance, logistics, procurement, inventory, and sales modules built around your actual operations.</p>
-</article>
-<article class="service-card group rounded-3xl border-2 border-ink p-7 transition hover:bg-accent hover:text-white sm:p-9">
-<div class="flex items-start justify-between"><span class="display text-sm font-bold">02</span><i class="ti ti-adjustments-code text-4xl"></i></div>
-<h3 class="display mt-16 text-3xl font-bold">Custom Systems</h3><p class="mt-3 max-w-xl text-ink/65 transition group-hover:text-white/75">Purpose-built web applications that remove repetitive work, connect teams, and scale with the business.</p>
-</article>
-<article class="service-card group rounded-3xl border-2 border-ink p-7 transition hover:bg-accent hover:text-white sm:p-9">
-<div class="flex items-start justify-between"><span class="display text-sm font-bold">03</span><i class="ti ti-world-www text-4xl"></i></div>
-<h3 class="display mt-16 text-3xl font-bold">Company Websites</h3><p class="mt-3 max-w-xl text-ink/65 transition group-hover:text-white/75">Responsive corporate sites that communicate credibility, improve discoverability, and convert visitors.</p>
-</article>
-<article class="service-card group rounded-3xl border-2 border-ink p-7 transition hover:bg-accent hover:text-white sm:p-9">
-<div class="flex items-start justify-between"><span class="display text-sm font-bold">04</span><i class="ti ti-plug-connected text-4xl"></i></div>
-<h3 class="display mt-16 text-3xl font-bold">API &amp; Modernization</h3><p class="mt-3 max-w-xl text-ink/65 transition group-hover:text-white/75">REST APIs, third-party integrations, legacy-system improvements, performance tuning, and maintainability upgrades.</p>
-</article>
-</div>
-</section>
-<section class="border-y-2 border-ink bg-accent py-28 sm:py-36 cv-auto">
-<div class="section-shell">
-<div class="grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
-<div><p class="eyebrow !text-ink/60">04 — Process</p><h2 class="display mt-3 text-4xl font-bold sm:text-6xl">A clear path from ambiguity to a reliable product.</h2></div>
-<p class="text-lg leading-relaxed text-ink/65">Services describe what I deliver. This process shows how I reduce risk, keep communication clear, and move the work forward.</p>
-</div>
-<div class="relative mt-16 grid gap-5 lg:grid-cols-4">
-<div class="absolute left-0 right-0 top-10 hidden h-0.5 bg-ink/25 lg:block"></div>
-<article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
-<span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold">01</span>
-<p class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45">Understand first</p><h3 class="display mt-3 text-3xl font-bold">Discover</h3><p class="mt-4 text-ink/65">Clarify business goals, user needs, constraints, existing workflows, and measurable outcomes.</p>
-</article>
-<article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
-<span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold">02</span>
-<p class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45">Design the system</p><h3 class="display mt-3 text-3xl font-bold">Architect</h3><p class="mt-4 text-ink/65">Define priorities, data flow, modules, technical decisions, milestones, and delivery boundaries.</p>
-</article>
-<article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
-<span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold">03</span>
-<p class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45">Iterate visibly</p><h3 class="display mt-3 text-3xl font-bold">Build &amp; Validate</h3><p class="mt-4 text-ink/65">Develop in focused increments, test critical flows, review progress, and incorporate practical feedback.</p>
-</article>
-<article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
-<span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold">04</span>
-<p class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45">Operate with confidence</p><h3 class="display mt-3 text-3xl font-bold">Launch &amp; Improve</h3><p class="mt-4 text-ink/65">Deploy safely, monitor usage and performance, document the system, and continue improving it.</p>
-</article>
-</div>
-</div>
-</section>
-<section class="section-shell py-28 sm:py-36 cv-auto" id="experience">
-<div class="mb-16 grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
-<div><p class="eyebrow">05 — Experience</p><h2 class="display mt-3 text-4xl font-bold sm:text-6xl">Built through ownership, delivery, and real operations.</h2></div>
-<p class="text-lg leading-relaxed text-ink/60">Professional experience across full-stack development, DevOps responsibility, internal systems, and research-administration software.</p>
-</div>
-<div class="relative border-l-2 border-ink/20 pl-6 sm:pl-10 lg:ml-[30%]">
-<article class="experience-card relative pb-16">
-<span class="absolute -left-[2.15rem] top-1 h-4 w-4 rounded-full border-2 border-ink bg-accent sm:-left-[2.95rem]"></span>
-<div class="grid gap-6 lg:grid-cols-[.55fr_1.45fr]">
-<div><p class="text-sm font-bold uppercase tracking-[.18em] text-accent">August 2020 — March 2026</p><h3 class="display mt-3 text-2xl font-bold">Burningroom Technology</h3><p class="mt-2 text-ink/50">Surabaya, Indonesia</p></div>
-<div class="card-hard rounded-3xl p-7 sm:p-9"><div class="flex flex-wrap items-center justify-between gap-4"><h4 class="display text-2xl font-bold">Full-stack Laravel Developer &amp; DevOps Engineer</h4><i class="ti ti-server-cog text-4xl text-accent"></i></div><p class="mt-5 leading-relaxed text-ink/65">Held end-to-end responsibility across planning, architecture, backend and frontend implementation, deployment, maintenance, and production support for client-facing business systems.</p><div class="mt-6 flex flex-wrap gap-2"><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Laravel</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Svelte</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">PostgreSQL</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Redis</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Nginx</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">DevOps</span></div></div>
-</div>
-</article>
-<article class="experience-card relative">
-<span class="absolute -left-[2.15rem] top-1 h-4 w-4 rounded-full border-2 border-ink bg-paper sm:-left-[2.95rem]"></span>
-<div class="grid gap-6 lg:grid-cols-[.55fr_1.45fr]">
-<div><p class="text-sm font-bold uppercase tracking-[.18em] text-accent">January 2018 — July 2018</p><h3 class="display mt-3 text-2xl font-bold">FKG Universitas Airlangga</h3><p class="mt-2 text-ink/50">Internship</p></div>
-<div class="rounded-3xl border-2 border-ink bg-white p-7 sm:p-9"><div class="flex flex-wrap items-center justify-between gap-4"><h4 class="display text-2xl font-bold">PHP Developer</h4><i class="ti ti-building-hospital text-4xl text-accent"></i></div><p class="mt-5 leading-relaxed text-ink/65">Contributed to a web-based management portal for the Faculty of Dental Medicine, supporting backend and frontend development, administration dashboards, data management, and secure verification workflows.</p><div class="mt-6 flex flex-wrap gap-2"><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">PHP</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Web application</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Admin dashboard</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Data workflows</span></div></div>
-</div>
-</article>
-</div>
-</section>
-<section class="section-shell py-28 sm:py-36 cv-auto" id="work">
-<div class="mb-12 grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
-<div><p class="eyebrow">06 — Selected work</p><h2 class="display mt-3 text-4xl font-bold sm:text-6xl">Case studies, not just screenshots.</h2></div>
-<p class="text-lg leading-relaxed text-ink/60">Each project explains the client context, product goals, major capabilities, technical contribution, and the operational result.</p>
-</div>
-<div class="space-y-8">
-<article class="project overflow-hidden rounded-[2rem] border-2 border-ink bg-white"><div class="p-6 sm:p-8 lg:p-10"><div class="grid gap-7 lg:grid-cols-[1.05fr_.95fr] lg:items-start"><div><div class="flex flex-wrap items-center gap-3"><span class="rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">ERP case study</span><span class="text-sm text-ink/45">Retail · Multi-branch</span></div><h3 class="display mt-5 text-3xl font-bold sm:text-4xl">DAKI Pet Shop</h3><p class="mt-1 font-semibold italic text-ink/55">Custom retail operations platform</p><p class="mt-5 max-w-2xl leading-relaxed text-ink/70"><strong class="text-ink">Project brief: </strong>A unified ERP replacing disconnected branch records with one reliable view of stock, purchasing, sales, suppliers, and revenue.</p><div class="mt-6 grid grid-cols-2 gap-3 text-sm sm:grid-cols-3"><div class="rounded-2xl bg-paper p-3"><span class="block text-xs text-ink/45">Role</span><strong class="mt-1 block">Full-stack lead</strong></div><div class="rounded-2xl bg-paper p-3"><span class="block text-xs text-ink/45">Focus</span><strong class="mt-1 block">Operational visibility</strong></div><div class="rounded-2xl bg-paper p-3"><span class="block text-xs text-ink/45">Format</span><strong class="mt-1 block">Product system</strong></div></div></div><div class="rounded-3xl border border-ink/10 bg-paper p-5 sm:p-6"><h4 class="display text-xl font-bold text-accent">What it handles</h4><ul class="mt-4 grid gap-3 text-sm leading-relaxed text-ink/70"><li class="flex gap-3"><i class="ti ti-circle-check mt-0.5 text-lg text-accent"></i><span>Branch inventory, stock movement, returns, and stock-opname workflows.</span></li><li class="flex gap-3"><i class="ti ti-circle-check mt-0.5 text-lg text-accent"></i><span>Purchase requests, supplier orders, receiving, and purchase history.</span></li><li class="flex gap-3"><i class="ti ti-circle-check mt-0.5 text-lg text-accent"></i><span>Sales reporting with branch-level visibility and role-based access.</span></li></ul><p class="mt-6 text-xs font-bold uppercase tracking-[.16em] text-ink/45">Technology stack</p><div class="mt-3 flex flex-wrap gap-2"><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Laravel</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Svelte</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Tailwind CSS</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">PostgreSQL</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Redis</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">REST API</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Docker</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Nginx</span></div></div></div></div><div class="project-gallery"><div class="project-slider" data-project-slider=""><div class="project-slider-track"><div class="project-slide"><div class="project-screen"><aside class="project-screen-sidebar"><div style="font-family:Space Grotesk;font-weight:800;font-size:.8rem;border:1px solid rgba(255,255,255,.16);border-radius:.6rem;padding:.65rem;text-align:center">Operations</div><div style="margin-top:1.5rem;display:grid;gap:.65rem;font-size:.62rem;color:rgba(255,255,255,.5)"><span style="color:white;background:#ed4d2b;padding:.5rem;border-radius:.45rem">Dashboard</span><span>Inventory</span><span>Purchasing</span><span>Reports</span><span>Settings</span></div></aside><main class="project-screen-main"><div class="project-screen-top"><div><small style="color:#94a3b8">Executive overview</small><div class="project-screen-title">Operations Dashboard</div></div><span style="font-size:.65rem;background:white;border-radius:.6rem;padding:.45rem .65rem">Live system</span></div><div class="project-screen-kpis"><div class="project-screen-card"><small>Products</small><strong style="display:block;font-size:1.35rem;color:#ed4d2b">2,288</strong></div><div class="project-screen-card"><small>Branches</small><strong style="display:block;font-size:1.35rem">9</strong></div><div class="project-screen-card"><small>Suppliers</small><strong style="display:block;font-size:1.35rem">23</strong></div></div><div class="project-screen-grid"><div class="project-screen-card"><strong>Revenue performance</strong><svg style="width:100%;height:190px;margin-top:.5rem" viewBox="0 0 500 190"><path d="M18 150C65 138 74 68 125 96s65 35 108-12 69-70 112-34 78 73 136-8" fill="none" stroke="#ed4d2b" stroke-linecap="round" stroke-width="7"></path><path d="M18 150C65 138 74 68 125 96s65 35 108-12 69-70 112-34 78 73 136-8V178H18Z" fill="#ed4d2b" opacity=".10"></path></svg></div><div class="project-screen-card"><strong>Stock health</strong><div style="height:150px;display:grid;place-items:center"><div style="width:110px;height:110px;border-radius:50%;background:conic-gradient(#ed4d2b 0 72%,#e5e7eb 72%);display:grid;place-items:center"><div style="width:72px;height:72px;border-radius:50%;background:white;display:grid;place-items:center;font-weight:800">72%</div></div></div></div></div></main></div></div><div class="project-slide"><div class="project-screen"><aside class="project-screen-sidebar"><div style="font-family:Space Grotesk;font-weight:800;font-size:.8rem;border:1px solid rgba(255,255,255,.16);border-radius:.6rem;padding:.65rem;text-align:center">Inventory</div><div style="margin-top:1.5rem;display:grid;gap:.65rem;font-size:.62rem;color:rgba(255,255,255,.5)"><span style="color:white;background:#ed4d2b;padding:.5rem;border-radius:.45rem">Dashboard</span><span>Inventory</span><span>Purchasing</span><span>Reports</span><span>Settings</span></div></aside><main class="project-screen-main"><div class="project-screen-top"><div><small style="color:#94a3b8">Stock visibility across branches</small><div class="project-screen-title">Inventory Control</div></div><span style="font-size:.65rem;background:white;border-radius:.6rem;padding:.45rem .65rem">Live system</span></div><div class="project-screen-card"><div style="display:flex;justify-content:space-between;gap:1rem"><strong>Inventory overview</strong><span style="font-size:.7rem;color:#64748b">Updated just now</span></div><div style="margin-top:.7rem"><div class="project-table-row"><strong>Royal Canin Adult</strong><span>Main Store</span><span style="color:#ed4d2b;font-weight:700">124 pcs</span></div><div class="project-table-row"><strong>Cat Choize Tuna</strong><span>Branch 02</span><span style="color:#ed4d2b;font-weight:700">86 pcs</span></div><div class="project-table-row"><strong>Bolt Dog Food</strong><span>Warehouse</span><span style="color:#ed4d2b;font-weight:700">64 pcs</span></div><div class="project-table-row"><strong>Whiskas Junior</strong><span>Branch 04</span><span style="color:#ed4d2b;font-weight:700">41 pcs</span></div></div></div><div class="project-screen-grid"><div class="project-screen-card"><strong>Movement by category</strong><div style="display:flex;align-items:end;gap:10px;height:165px;margin-top:1rem"><span style="flex:1;height:45%;background:#ed4d2b;opacity:0.35;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:76%;background:#ed4d2b;opacity:0.5;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:58%;background:#ed4d2b;opacity:0.65;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:92%;background:#ed4d2b;opacity:1;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:68%;background:#ed4d2b;opacity:0.55;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:81%;background:#ed4d2b;opacity:0.8;border-radius:8px 8px 2px 2px"></span></div></div><div class="project-screen-card"><strong>Low stock</strong><p style="font-size:2.2rem;font-weight:800;color:#ed4d2b;margin-top:2rem">18</p><small>items need attention</small></div></div></main></div></div><div class="project-slide"><div class="project-screen"><aside class="project-screen-sidebar"><div style="font-family:Space Grotesk;font-weight:800;font-size:.8rem;border:1px solid rgba(255,255,255,.16);border-radius:.6rem;padding:.65rem;text-align:center">Procurement</div><div style="margin-top:1.5rem;display:grid;gap:.65rem;font-size:.62rem;color:rgba(255,255,255,.5)"><span style="color:white;background:#ed4d2b;padding:.5rem;border-radius:.45rem">Dashboard</span><span>Inventory</span><span>Purchasing</span><span>Reports</span><span>Settings</span></div></aside><main class="project-screen-main"><div class="project-screen-top"><div><small style="color:#94a3b8">Purchase order lifecycle</small><div class="project-screen-title">Procurement Workflow</div></div><span style="font-size:.65rem;background:white;border-radius:.6rem;padding:.45rem .65rem">Live system</span></div><div class="project-screen-kpis"><div class="project-screen-card"><small>Open purchase orders</small><strong style="display:block;font-size:1.35rem;color:#ed4d2b">17</strong></div><div class="project-screen-card"><small>Awaiting delivery</small><strong style="display:block;font-size:1.35rem">8</strong></div><div class="project-screen-card"><small>Completed</small><strong style="display:block;font-size:1.35rem">42</strong></div></div><div class="project-screen-card" style="margin-top:.8rem"><strong>Procurement pipeline</strong><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:1rem"><div style="background:#ffedd5;border-radius:.75rem;padding:.75rem;min-height:150px"><small>Requested</small><div style="margin-top:.7rem;background:white;border-radius:.6rem;padding:.6rem;font-size:.68rem">PO-120<br/><b>Rp 2.4M</b></div></div><div style="background:#dbeafe;border-radius:.75rem;padding:.75rem;min-height:150px"><small>Approved</small><div style="margin-top:.7rem;background:white;border-radius:.6rem;padding:.6rem;font-size:.68rem">PO-121<br/><b>Rp 6.8M</b></div></div><div style="background:#dcfce7;border-radius:.75rem;padding:.75rem;min-height:150px"><small>Shipped</small><div style="margin-top:.7rem;background:white;border-radius:.6rem;padding:.6rem;font-size:.68rem">PO-122<br/><b>Rp 3.1M</b></div></div><div style="background:#f3e8ff;border-radius:.75rem;padding:.75rem;min-height:150px"><small>Received</small><div style="margin-top:.7rem;background:white;border-radius:.6rem;padding:.6rem;font-size:.68rem">PO-123<br/><b>Rp 7.5M</b></div></div></div></div></main></div></div></div><div class="project-gallery-meta"><div><p style="font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.45)">Product walkthrough</p><p data-slider-caption="" style="font-family:Space Grotesk;font-weight:700;margin-top:.2rem">Operations Dashboard</p></div><div class="project-slider-dots"><button aria-label="Go to slide 1" class="project-slider-dot is-active" type="button"></button><button aria-label="Go to slide 2" class="project-slider-dot" type="button"></button><button aria-label="Go to slide 3" class="project-slider-dot" type="button"></button></div><div class="project-slider-controls"><button aria-label="Previous slide" class="project-slider-btn" data-slider-prev="" type="button"><i class="ti ti-arrow-left"></i></button><button aria-label="Next slide" class="project-slider-btn" data-slider-next="" type="button"><i class="ti ti-arrow-right"></i></button></div></div></div></div></article>
-<article class="project overflow-hidden rounded-[2rem] border-2 border-ink bg-white"><div class="p-6 sm:p-8 lg:p-10"><div class="grid gap-7 lg:grid-cols-[1.05fr_.95fr] lg:items-start"><div><div class="flex flex-wrap items-center gap-3"><span class="rounded-full bg-accent px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">Research system</span><span class="text-sm text-ink/45">University · Workflow</span></div><h3 class="display mt-5 text-3xl font-bold sm:text-4xl">SIMETIK</h3><p class="mt-1 font-semibold italic text-ink/55">Medical research management portal</p><p class="mt-5 max-w-2xl leading-relaxed text-ink/70"><strong class="text-ink">Project brief: </strong>A secure portal digitizing ethical-clearance administration for researchers, reviewers, and administrators in one coordinated workflow.</p><div class="mt-6 grid grid-cols-2 gap-3 text-sm sm:grid-cols-3"><div class="rounded-2xl bg-paper p-3"><span class="block text-xs text-ink/45">Role</span><strong class="mt-1 block">Full-stack developer</strong></div><div class="rounded-2xl bg-paper p-3"><span class="block text-xs text-ink/45">Focus</span><strong class="mt-1 block">Workflow digitization</strong></div><div class="rounded-2xl bg-paper p-3"><span class="block text-xs text-ink/45">Format</span><strong class="mt-1 block">Product system</strong></div></div></div><div class="rounded-3xl border border-ink/10 bg-paper p-5 sm:p-6"><h4 class="display text-xl font-bold text-accent">What it handles</h4><ul class="mt-4 grid gap-3 text-sm leading-relaxed text-ink/70"><li class="flex gap-3"><i class="ti ti-circle-check mt-0.5 text-lg text-accent"></i><span>Structured submissions for human, animal, and non-clinical studies.</span></li><li class="flex gap-3"><i class="ti ti-circle-check mt-0.5 text-lg text-accent"></i><span>Role-based review, revision history, and document validation.</span></li><li class="flex gap-3"><i class="ti ti-circle-check mt-0.5 text-lg text-accent"></i><span>Payment tracking, meeting schedules, progress status, and reporting.</span></li></ul><p class="mt-6 text-xs font-bold uppercase tracking-[.16em] text-ink/45">Technology stack</p><div class="mt-3 flex flex-wrap gap-2"><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">PHP</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Laravel</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">MySQL</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">JavaScript</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">REST API</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Role access</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Document workflow</span><span class="rounded-full border border-ink/15 bg-white px-3 py-1.5 text-xs font-bold">Nginx</span></div></div></div></div><div class="project-gallery"><div class="project-slider" data-project-slider=""><div class="project-slider-track"><div class="project-slide"><div class="project-screen"><aside class="project-screen-sidebar"><div style="font-family:Space Grotesk;font-weight:800;font-size:.8rem;border:1px solid rgba(255,255,255,.16);border-radius:.6rem;padding:.65rem;text-align:center">Research</div><div style="margin-top:1.5rem;display:grid;gap:.65rem;font-size:.62rem;color:rgba(255,255,255,.5)"><span style="color:white;background:#0e7490;padding:.5rem;border-radius:.45rem">Dashboard</span><span>Inventory</span><span>Purchasing</span><span>Reports</span><span>Settings</span></div></aside><main class="project-screen-main"><div class="project-screen-top"><div><small style="color:#94a3b8">Submission and review overview</small><div class="project-screen-title">Research Dashboard</div></div><span style="font-size:.65rem;background:white;border-radius:.6rem;padding:.45rem .65rem">Live system</span></div><div class="project-screen-kpis"><div class="project-screen-card"><small>Products</small><strong style="display:block;font-size:1.35rem;color:#0e7490">2,288</strong></div><div class="project-screen-card"><small>Branches</small><strong style="display:block;font-size:1.35rem">9</strong></div><div class="project-screen-card"><small>Suppliers</small><strong style="display:block;font-size:1.35rem">23</strong></div></div><div class="project-screen-grid"><div class="project-screen-card"><strong>Revenue performance</strong><svg style="width:100%;height:190px;margin-top:.5rem" viewBox="0 0 500 190"><path d="M18 150C65 138 74 68 125 96s65 35 108-12 69-70 112-34 78 73 136-8" fill="none" stroke="#0e7490" stroke-linecap="round" stroke-width="7"></path><path d="M18 150C65 138 74 68 125 96s65 35 108-12 69-70 112-34 78 73 136-8V178H18Z" fill="#0e7490" opacity=".10"></path></svg></div><div class="project-screen-card"><strong>Stock health</strong><div style="height:150px;display:grid;place-items:center"><div style="width:110px;height:110px;border-radius:50%;background:conic-gradient(#0e7490 0 72%,#e5e7eb 72%);display:grid;place-items:center"><div style="width:72px;height:72px;border-radius:50%;background:white;display:grid;place-items:center;font-weight:800">72%</div></div></div></div></div></main></div></div><div class="project-slide"><div class="project-screen"><aside class="project-screen-sidebar"><div style="font-family:Space Grotesk;font-weight:800;font-size:.8rem;border:1px solid rgba(255,255,255,.16);border-radius:.6rem;padding:.65rem;text-align:center">Verification</div><div style="margin-top:1.5rem;display:grid;gap:.65rem;font-size:.62rem;color:rgba(255,255,255,.5)"><span style="color:white;background:#0e7490;padding:.5rem;border-radius:.45rem">Dashboard</span><span>Inventory</span><span>Purchasing</span><span>Reports</span><span>Settings</span></div></aside><main class="project-screen-main"><div class="project-screen-top"><div><small style="color:#94a3b8">Reviewer and revision workflow</small><div class="project-screen-title">Verification Queue</div></div><span style="font-size:.65rem;background:white;border-radius:.6rem;padding:.45rem .65rem">Live system</span></div><div class="project-screen-card"><div style="display:flex;justify-content:space-between;gap:1rem"><strong>Inventory overview</strong><span style="font-size:.7rem;color:#64748b">Updated just now</span></div><div style="margin-top:.7rem"><div class="project-table-row"><strong>Royal Canin Adult</strong><span>Main Store</span><span style="color:#0e7490;font-weight:700">124 pcs</span></div><div class="project-table-row"><strong>Cat Choize Tuna</strong><span>Branch 02</span><span style="color:#0e7490;font-weight:700">86 pcs</span></div><div class="project-table-row"><strong>Bolt Dog Food</strong><span>Warehouse</span><span style="color:#0e7490;font-weight:700">64 pcs</span></div><div class="project-table-row"><strong>Whiskas Junior</strong><span>Branch 04</span><span style="color:#0e7490;font-weight:700">41 pcs</span></div></div></div><div class="project-screen-grid"><div class="project-screen-card"><strong>Movement by category</strong><div style="display:flex;align-items:end;gap:10px;height:165px;margin-top:1rem"><span style="flex:1;height:45%;background:#0e7490;opacity:0.35;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:76%;background:#0e7490;opacity:0.5;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:58%;background:#0e7490;opacity:0.65;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:92%;background:#0e7490;opacity:1;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:68%;background:#0e7490;opacity:0.55;border-radius:8px 8px 2px 2px"></span><span style="flex:1;height:81%;background:#0e7490;opacity:0.8;border-radius:8px 8px 2px 2px"></span></div></div><div class="project-screen-card"><strong>Low stock</strong><p style="font-size:2.2rem;font-weight:800;color:#0e7490;margin-top:2rem">18</p><small>items need attention</small></div></div></main></div></div><div class="project-slide"><div class="project-screen"><aside class="project-screen-sidebar"><div style="font-family:Space Grotesk;font-weight:800;font-size:.8rem;border:1px solid rgba(255,255,255,.16);border-radius:.6rem;padding:.65rem;text-align:center">Administration</div><div style="margin-top:1.5rem;display:grid;gap:.65rem;font-size:.62rem;color:rgba(255,255,255,.5)"><span style="color:white;background:#0e7490;padding:.5rem;border-radius:.45rem">Dashboard</span><span>Inventory</span><span>Purchasing</span><span>Reports</span><span>Settings</span></div></aside><main class="project-screen-main"><div class="project-screen-top"><div><small style="color:#94a3b8">Payments, meetings, and status</small><div class="project-screen-title">Administration Reports</div></div><span style="font-size:.65rem;background:white;border-radius:.6rem;padding:.45rem .65rem">Live system</span></div><div class="project-screen-kpis"><div class="project-screen-card"><small>Open purchase orders</small><strong style="display:block;font-size:1.35rem;color:#0e7490">17</strong></div><div class="project-screen-card"><small>Awaiting delivery</small><strong style="display:block;font-size:1.35rem">8</strong></div><div class="project-screen-card"><small>Completed</small><strong style="display:block;font-size:1.35rem">42</strong></div></div><div class="project-screen-card" style="margin-top:.8rem"><strong>Procurement pipeline</strong><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:1rem"><div style="background:#ffedd5;border-radius:.75rem;padding:.75rem;min-height:150px"><small>Requested</small><div style="margin-top:.7rem;background:white;border-radius:.6rem;padding:.6rem;font-size:.68rem">PO-120<br/><b>Rp 2.4M</b></div></div><div style="background:#dbeafe;border-radius:.75rem;padding:.75rem;min-height:150px"><small>Approved</small><div style="margin-top:.7rem;background:white;border-radius:.6rem;padding:.6rem;font-size:.68rem">PO-121<br/><b>Rp 6.8M</b></div></div><div style="background:#dcfce7;border-radius:.75rem;padding:.75rem;min-height:150px"><small>Shipped</small><div style="margin-top:.7rem;background:white;border-radius:.6rem;padding:.6rem;font-size:.68rem">PO-122<br/><b>Rp 3.1M</b></div></div><div style="background:#f3e8ff;border-radius:.75rem;padding:.75rem;min-height:150px"><small>Received</small><div style="margin-top:.7rem;background:white;border-radius:.6rem;padding:.6rem;font-size:.68rem">PO-123<br/><b>Rp 7.5M</b></div></div></div></div></main></div></div></div><div class="project-gallery-meta"><div><p style="font-size:.68rem;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.45)">Product walkthrough</p><p data-slider-caption="" style="font-family:Space Grotesk;font-weight:700;margin-top:.2rem">Research Dashboard</p></div><div class="project-slider-dots"><button aria-label="Go to slide 1" class="project-slider-dot is-active" type="button"></button><button aria-label="Go to slide 2" class="project-slider-dot" type="button"></button><button aria-label="Go to slide 3" class="project-slider-dot" type="button"></button></div><div class="project-slider-controls"><button aria-label="Previous slide" class="project-slider-btn" data-slider-prev="" type="button"><i class="ti ti-arrow-left"></i></button><button aria-label="Next slide" class="project-slider-btn" data-slider-next="" type="button"><i class="ti ti-arrow-right"></i></button></div></div></div></div></article>
-<div class="grid gap-6 md:grid-cols-2">
-<article class="project rounded-[2rem] border-2 border-ink bg-[#f6d7e6] p-7 sm:p-9"><div class="flex items-start justify-between gap-6"><div><span class="text-xs font-bold uppercase tracking-widest text-ink/45">Corporate website</span><h3 class="display mt-3 text-3xl font-bold">Pelangi UV</h3></div><i class="ti ti-arrow-up-right text-3xl"></i></div><div class="my-8 rounded-2xl border-2 border-ink bg-[#171717] p-4 shadow-[8px_8px_0_#151310]"><div class="h-48 rounded-xl bg-[radial-gradient(circle_at_20%_20%,#ef4444,transparent_25%),radial-gradient(circle_at_70%_45%,#ec4899,transparent_30%),#171717]"></div></div><p class="leading-relaxed text-ink/65">Corporate storytelling, service presentation, product catalog, and lead-generation flow for a printing-finishing company.</p><div class="mt-6 flex flex-wrap gap-2"><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Company profile</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">SEO</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Responsive UI</span></div><div class="mt-5 border-t border-ink/15 pt-5" data-mini-stack="true"><p class="text-xs font-bold uppercase tracking-[.16em] text-ink/45">Stack</p><div class="mt-3 flex flex-wrap gap-2"><span class="rounded-full bg-white/60 px-3 py-1 text-xs font-bold">Laravel</span><span class="rounded-full bg-white/60 px-3 py-1 text-xs font-bold">Tailwind CSS</span><span class="rounded-full bg-white/60 px-3 py-1 text-xs font-bold">JavaScript</span><span class="rounded-full bg-white/60 px-3 py-1 text-xs font-bold">SEO</span></div></div></article>
-<article class="project rounded-[2rem] border-2 border-ink bg-[#f9c8d8] p-7 sm:p-9"><div class="flex items-start justify-between gap-6"><div><span class="text-xs font-bold uppercase tracking-widest text-ink/45">Agency website</span><h3 class="display mt-3 text-3xl font-bold">Maha Koding</h3></div><i class="ti ti-arrow-up-right text-3xl"></i></div><div class="my-8 rounded-2xl border-2 border-ink bg-white p-4 shadow-[8px_8px_0_#151310]"><div class="grid h-48 grid-cols-[1.2fr_.8fr] gap-3"><div class="rounded-xl bg-pink-100 p-5"><div class="h-3 w-20 rounded bg-pink-400"></div><div class="mt-5 h-8 w-4/5 rounded bg-pink-300"></div><div class="mt-3 h-3 w-3/5 rounded bg-pink-200"></div></div><div class="rounded-xl bg-pink-200"></div></div></div><p class="leading-relaxed text-ink/65">Conversion-focused service website with clear packages, transparent pricing, FAQs, and portfolio presentation.</p><div class="mt-6 flex flex-wrap gap-2"><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Landing page</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Pricing</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Lead conversion</span></div><div class="mt-5 border-t border-ink/15 pt-5" data-mini-stack="true"><p class="text-xs font-bold uppercase tracking-[.16em] text-ink/45">Stack</p><div class="mt-3 flex flex-wrap gap-2"><span class="rounded-full bg-white/60 px-3 py-1 text-xs font-bold">Laravel</span><span class="rounded-full bg-white/60 px-3 py-1 text-xs font-bold">Tailwind CSS</span><span class="rounded-full bg-white/60 px-3 py-1 text-xs font-bold">Alpine.js</span><span class="rounded-full bg-white/60 px-3 py-1 text-xs font-bold">Responsive UI</span></div></div></article>
-</div>
-</div>
-</section>
-<section class="section-shell py-24 sm:py-32 cv-auto" id="insights">
-<div class="mb-12 grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
-<div>
-<p class="eyebrow">07 — Insights</p>
-<h2 class="display mt-3 text-4xl font-bold sm:text-6xl">Notes from building real systems.</h2>
-</div>
-<div>
-<p class="text-lg leading-relaxed text-ink/60">Engineering notes, architecture decisions, and practical guides for teams considering custom software.</p>
-<a class="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent transition hover:gap-3" href="/insights">View all articles <i class="ti ti-arrow-up-right"></i></a>
-</div>
-</div>
-<div class="grid gap-5 lg:grid-cols-12">
-<article class="group overflow-hidden rounded-[2rem] border-2 border-ink bg-ink text-white lg:col-span-7">
-<a class="block h-full p-7 sm:p-9" href="/insights/laravel-maintainable-architecture">
-<div class="flex items-center justify-between gap-4 text-xs font-bold uppercase tracking-[.18em] text-white/50">
-<span>Engineering note</span><span>8 min read</span>
-</div>
-<div class="mt-16 sm:mt-24">
-<span class="inline-grid h-12 w-12 place-items-center rounded-full border border-white/20 text-2xl text-accent transition group-hover:rotate-45 group-hover:bg-accent group-hover:text-white"><i class="ti ti-arrow-up-right"></i></span>
-<h3 class="display mt-7 max-w-2xl text-3xl font-bold leading-tight sm:text-5xl">Structuring Laravel applications for long-term maintenance.</h3>
-<p class="mt-5 max-w-xl leading-relaxed text-white/60">A practical approach to boundaries, services, validation, data access, and keeping business logic understandable as a product grows.</p>
-</div>
-</a>
-</article>
-<div class="grid gap-5 lg:col-span-5">
-<article class="group rounded-[2rem] border-2 border-ink bg-accent p-7 text-white sm:p-8">
-<a class="block" href="/insights/custom-erp-vs-off-the-shelf">
-<div class="flex items-center justify-between gap-4 text-xs font-bold uppercase tracking-[.18em] text-white/70"><span>Business guide</span><span>6 min read</span></div>
-<h3 class="display mt-12 text-3xl font-bold leading-tight">Custom ERP or off-the-shelf software?</h3>
-<p class="mt-4 leading-relaxed text-white/75">A decision framework based on workflow fit, integration needs, ownership, cost, and operational complexity.</p>
-<span class="mt-7 inline-flex items-center gap-2 text-sm font-bold transition group-hover:gap-3">Read article <i class="ti ti-arrow-right"></i></span>
-</a>
-</article>
-<article class="group rounded-[2rem] border-2 border-ink bg-white p-7 sm:p-8">
-<a class="block" href="/insights/reliable-rest-api-design">
-<div class="flex items-center justify-between gap-4 text-xs font-bold uppercase tracking-[.18em] text-ink/45"><span>API design</span><span>7 min read</span></div>
-<h3 class="display mt-12 text-3xl font-bold leading-tight">Designing REST APIs that remain predictable.</h3>
-<p class="mt-4 leading-relaxed text-ink/60">Consistency in resources, errors, validation, pagination, permissions, and versioning.</p>
-<span class="mt-7 inline-flex items-center gap-2 text-sm font-bold text-accent transition group-hover:gap-3">Read article <i class="ti ti-arrow-right"></i></span>
-</a>
-</article>
-</div>
-</div>
-</section><section class="border-y-2 border-ink bg-white py-20 sm:py-24 cv-auto" id="clients">
-<div class="section-shell">
-<div class="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
-<div>
-<p class="eyebrow">08 — Selected clients</p>
-<h2 class="display mt-3 text-4xl font-bold tracking-tight sm:text-6xl">Built across different industries.</h2>
-</div>
-<p class="max-w-2xl text-lg leading-relaxed text-ink/60">From retail operations and logistics to education, research, printing, and technology teams. Each engagement starts with understanding the real workflow—not forcing the same template onto every business.</p>
-</div>
-<div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-<article class="group rounded-[1.75rem] border-2 border-ink bg-[#f4d9d0] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
-<div class="flex items-start justify-between"><span class="display text-3xl font-bold">Pelangi UV</span><i class="ti ti-printer text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Printing &amp; manufacturing</p>
-</article>
-<article class="group rounded-[1.75rem] border-2 border-ink bg-[#dce7f4] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
-<div class="flex items-start justify-between"><span class="display text-3xl font-bold">Awniraya</span><i class="ti ti-truck-delivery text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Logistics &amp; freight</p>
-</article>
-<article class="group rounded-[1.75rem] border-2 border-ink bg-[#f5e0a9] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
-<div class="flex items-start justify-between"><span class="display text-3xl font-bold">DAKI Pet Shop</span><i class="ti ti-paw text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Multi-branch retail</p>
-</article>
-<article class="group rounded-[1.75rem] border-2 border-ink bg-[#dcebdc] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
-<div class="flex items-start justify-between"><span class="display text-3xl font-bold">Universitas Airlangga</span><i class="ti ti-school text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Education &amp; research</p>
-</article>
-<article class="group rounded-[1.75rem] border-2 border-ink bg-[#eadcf1] p-7 transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#151310]">
-<div class="flex items-start justify-between"><span class="display text-3xl font-bold">GAPALA</span><i class="ti ti-building-bank text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-ink/45">Financial operations</p>
-</article>
-<article class="group rounded-[1.75rem] border-2 border-ink bg-ink p-7 text-white transition duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0_#ed4d2b]">
-<div class="flex items-start justify-between"><span class="display text-3xl font-bold">Burningroom</span><i class="ti ti-code text-3xl text-accent"></i></div><p class="mt-8 text-sm font-bold uppercase tracking-[.16em] text-white/45">Technology partner</p>
-</article>
-</div>
-<div class="mt-8 flex flex-col gap-4 rounded-3xl border border-ink/15 bg-paper p-6 sm:flex-row sm:items-center sm:justify-between">
-<p class="text-sm leading-relaxed text-ink/60">Also worked with healthcare, contractors, local businesses, and institutional teams across Indonesia.</p>
-<a class="inline-flex shrink-0 items-center gap-2 font-bold text-accent" href="#contact">Discuss your project <i class="ti ti-arrow-up-right"></i></a>
-</div>
-</div>
-</section>
-<section class="relative overflow-hidden border-t-2 border-ink bg-paper py-24 sm:py-32 cv-auto" id="contact">
-<div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-55">
-<svg class="absolute -left-20 -top-24 h-72 w-72 text-accent/20" fill="none" viewBox="0 0 200 200"><circle cx="100" cy="100" r="62" stroke="currentColor" stroke-width="18"></circle><circle cx="100" cy="100" r="28" stroke="currentColor" stroke-width="8"></circle></svg>
-<svg class="absolute -bottom-20 -right-16 h-72 w-72 text-ink/10" fill="none" viewBox="0 0 200 200"><path d="M20 100h160M100 20v160M42 42l116 116M158 42L42 158" stroke="currentColor" stroke-width="14"></path></svg>
-</div>
-<div class="section-shell relative z-10">
-<div class="mb-10 grid gap-6 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
-<div>
-<p class="eyebrow">Get in touch</p>
-<h2 class="display mt-4 text-5xl font-bold leading-[.95] tracking-tight sm:text-7xl">Let’s build something useful.</h2>
-</div>
-<p class="max-w-2xl text-lg leading-relaxed text-ink/60 lg:justify-self-end">Have a workflow to automate, an ERP to improve, or a product to launch? Share the context below and I’ll reply with a practical next step.</p>
-</div>
-<div class="cta-panel grid overflow-hidden rounded-[2rem] border-2 border-ink bg-white shadow-[12px_12px_0_#151310] lg:grid-cols-[.72fr_1.28fr]">
-<aside class="flex flex-col justify-between bg-accent p-8 text-white sm:p-10 lg:p-12">
-<div>
-<div class="grid h-14 w-14 place-items-center rounded-2xl border-2 border-ink bg-white text-ink shadow-[5px_5px_0_#151310]"><i class="ti ti-message-code text-3xl text-accent"></i></div>
-<h3 class="display mt-8 text-3xl font-bold">A good brief does not need to be long.</h3>
-<p class="mt-4 leading-relaxed text-white/75">Tell me the problem, who uses the system, and what a successful result should look like.</p>
-<ul class="mt-8 space-y-4 text-sm leading-relaxed">
-<li class="flex gap-3"><span class="font-bold text-white/60">01</span><span>Business problem or product goal</span></li>
-<li class="flex gap-3"><span class="font-bold text-white/60">02</span><span>Users and current workflow</span></li>
-<li class="flex gap-3"><span class="font-bold text-white/60">03</span><span>Timeline and existing system</span></li>
-</ul>
-</div>
-<div class="mt-10 border-t border-white/25 pt-6">
-<p class="text-xs font-bold uppercase tracking-[.18em] text-white/55">Prefer direct contact?</p>
-<div class="mt-4 flex flex-wrap gap-3">
-<a class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-sm font-bold text-ink transition hover:-translate-y-0.5" href="https://wa.me/6281370004025" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
-<a class="inline-flex items-center gap-2 rounded-full border border-white/45 px-4 py-2.5 text-sm font-bold transition hover:-translate-y-0.5 hover:bg-white hover:text-ink" href="mailto:brianalviano.official@gmail.com"><i class="ti ti-mail"></i> Email</a>
-</div>
-</div>
-</aside>
-<form class="grid gap-5 p-7 sm:grid-cols-2 sm:p-10 lg:p-12" id="contact-form" novalidate="">
-<div>
-<label class="mb-2 block text-sm font-bold" for="contact-name">Your name</label>
-<input autocomplete="name" class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-name" name="name" placeholder="Your name" required="" type="text"/>
-</div>
-<div>
-<label class="mb-2 block text-sm font-bold" for="contact-email">Email address</label>
-<input autocomplete="email" class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-email" inputmode="email" name="email" placeholder="you@company.com" required="" type="email"/>
-</div>
-<div>
-<label class="mb-2 block text-sm font-bold" for="contact-type">Project type</label>
-<select class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-type" name="type" required="">
-<option value="">Choose one</option>
-<option>ERP / Business System</option>
-<option>Custom Web Application</option>
-<option>Company Website / Landing Page</option>
-<option>API / System Integration</option>
-<option>Maintenance / Modernization</option>
-<option>Other</option>
-</select>
-</div>
-<div>
-<label class="mb-2 block text-sm font-bold" for="contact-timeline">Target timeline</label>
-<select class="w-full rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-timeline" name="timeline">
-<option>Flexible / Not decided</option>
-<option>Less than 1 month</option>
-<option>1–3 months</option>
-<option>3–6 months</option>
-<option>More than 6 months</option>
-</select>
-</div>
-<div class="sm:col-span-2">
-<label class="mb-2 block text-sm font-bold" for="contact-message">Tell me about the project</label>
-<textarea autocomplete="off" class="w-full resize-y rounded-xl border-2 border-ink bg-paper px-4 py-3.5 outline-none transition focus:-translate-y-0.5 focus:shadow-[4px_4px_0_#151310]" id="contact-message" name="message" placeholder="What are you trying to build or improve? Who will use it, and what is currently slowing you down?" required="" rows="6"></textarea>
-</div>
-<div class="sm:col-span-2 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-<p aria-live="polite" class="text-sm text-ink/50" id="form-status">Submitting opens your email app with the brief already prepared.</p>
-<button class="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-4 font-bold text-white transition hover:-translate-y-1 hover:bg-accent" type="submit">
-                Send project brief <i class="ti ti-arrow-up-right"></i>
-</button>
-</div>
-</form>
-</div>
-</div>
-</section>
-</main>
-<footer class="overflow-hidden bg-ink pb-8 pt-20 text-white">
-<div class="section-shell">
-<div class="flex flex-col justify-between gap-8 border-b border-white/15 pb-10 md:flex-row md:items-end">
-<div><p class="text-xs font-bold uppercase tracking-[.24em] text-accent">Independent full-stack developer</p><p class="mt-3 max-w-xl text-lg leading-relaxed text-white/55">ERP systems, custom web applications, integrations, and dependable product delivery from Indonesia.</p></div>
-<div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold"><a class="transition hover:text-accent" href="mailto:brianalviano.official@gmail.com">Email</a><a class="transition hover:text-accent" href="https://github.com/brianalviano" rel="noopener noreferrer" target="_blank">GitHub</a><a class="transition hover:text-accent" href="https://linkedin.com/in/brianalviano" rel="noopener noreferrer" target="_blank">LinkedIn</a><a class="transition hover:text-accent" href="https://instagram.com/vinnoo_" rel="noopener noreferrer" target="_blank">Instagram</a><a class="transition hover:text-accent" href="#home">Back to top ↑</a></div>
-</div>
-<a aria-label="Back to top" class="footer-name group relative mt-5 block overflow-hidden py-3" href="#home">
-<span class="display block whitespace-nowrap text-center text-[clamp(3.6rem,13.4vw,13rem)] font-bold leading-none tracking-[-.075em] text-white/95">BRIAN ALVIANO</span>
-<span aria-hidden="true" class="footer-shine display pointer-events-none absolute inset-0 block whitespace-nowrap py-3 text-center text-[clamp(3.6rem,13.4vw,13rem)] font-bold leading-none tracking-[-.075em]">BRIAN ALVIANO</span>
-</a>
-<div class="mt-6 flex flex-col justify-between gap-3 border-t border-white/15 pt-6 text-xs text-white/40 sm:flex-row sm:items-center"><p>© <span id="year"></span> Brian Alviano. All rights reserved.</p><p>HTML · Tailwind CSS 4 · Tabler Icons · GSAP</p></div>
-</div>
-</footer>
-<div class="fixed bottom-5 right-5 z-[70] h-14 w-14 sm:bottom-7 sm:right-7" id="floating-actions">
-<a aria-label="Chat with Brian on WhatsApp" class="absolute inset-0 grid place-items-center rounded-full border-2 border-ink bg-[#25D366] text-white shadow-[5px_5px_0_#151310] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/30" href="https://wa.me/6281370004025" id="floating-whatsapp" rel="noopener noreferrer" target="_blank">
-<i class="ti ti-brand-whatsapp text-2xl"></i>
-</a>
-<a aria-label="Scroll to top" class="pointer-events-none absolute inset-0 grid translate-y-4 scale-90 place-items-center rounded-full border-2 border-ink bg-white text-xl text-ink opacity-0 shadow-[4px_4px_0_#151310] transition-[opacity,transform] duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/30" href="#home" id="scroll-top">
-<i class="ti ti-arrow-up"></i>
-</a>
-</div>
-<script is:inline>
+  <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-ink focus:shadow-lg" href="#main-content">Skip to main content</a>
+  <noscript>This portfolio remains readable without JavaScript, but animations, sliders, and the contact helper require JavaScript.</noscript>
+  <div class="pointer-events-none fixed left-0 top-0 z-[100] hidden h-5 w-5 rounded-full border border-ink mix-blend-difference lg:block" id="cursor"></div>
+
+  <Header />
+
+  <main id="main-content" tabindex="-1">
+    <Hero />
+    <About />
+    <Skills />
+    <Experience />
+    <Work />
+    <InsightsSection />
+    <Footer />
+  </main>
+
+  <div class="fixed bottom-5 right-5 z-[70] h-14 w-14 sm:bottom-7 sm:right-7" id="floating-actions">
+    <a aria-label="Chat with Brian on WhatsApp" class="absolute inset-0 grid place-items-center rounded-full border-2 border-ink bg-[#25D366] text-white shadow-[5px_5px_0_#151310] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/30" href="https://wa.me/6281370004025" id="floating-whatsapp" rel="noopener noreferrer" target="_blank">
+      <i class="ti ti-brand-whatsapp text-2xl"></i>
+    </a>
+    <a aria-label="Scroll to top" class="pointer-events-none absolute inset-0 grid translate-y-4 scale-90 place-items-center rounded-full border-2 border-ink bg-white text-xl text-ink opacity-0 shadow-[4px_4px_0_#151310] transition-[opacity,transform] duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/30" href="#home" id="scroll-top">
+      <i class="ti ti-arrow-up"></i>
+    </a>
+  </div>
+
+  <script is:inline>
   window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -499,7 +87,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       formStatus.textContent = 'Opening your email app…';
       window.location.href = `mailto:brianalviano.official@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
-
 
     document.querySelectorAll('[data-project-slider]').forEach((slider) => {
       const track = slider.querySelector('.project-slider-track');
@@ -559,7 +146,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         }
       });
 
-
       const footerName = document.querySelector('.footer-name');
       const footerShine = document.querySelector('.footer-shine');
       if (footerName && footerShine) {
@@ -615,7 +201,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1, duration: .2 }));
       });
     } else {
-      // Graceful fallback when GSAP cannot be loaded (for example while opening a local file offline).
       const formatCounter = (el) => {
         const target = Number(el.dataset.count || 0);
         el.textContent = target.toLocaleString() + (target < 100 ? '+' : '');
@@ -638,5 +223,4 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   });
   </script>
-
 </BaseLayout>

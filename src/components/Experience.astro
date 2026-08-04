@@ -1,71 +1,25 @@
 ---
-import { IconBriefcase, IconCalendar, IconMapPin } from '@tabler/icons-svelte';
-
-const experiences = [
-	{
-		role: 'Full-Stack Laravel & System Engineer',
-		type: 'Freelance / Consultant',
-		period: '2022 — Present',
-		location: 'Surabaya, Indonesia',
-		description: 'Architecting and delivering custom ERP systems, POS integrations, inventory platforms, and REST APIs for Indonesian enterprises & SMBs.',
-		achievements: [
-			'Designed multi-branch inventory engine processing 50k+ daily transactions with sub-150ms latency.',
-			'Built custom POS API integration with offline-first synchronization capabilities.',
-			'Implemented Redis caching & queue strategies cutting server costs by 40%.',
-		],
-	},
-	{
-		role: 'Lead Web Developer',
-		type: 'Project Contract',
-		period: '2021 — 2022',
-		location: 'Indonesia',
-		description: 'Led full-stack application development using Laravel, Inertia, and MySQL for business logistics and marketing platforms.',
-		achievements: [
-			'Refactored legacy monolith into clean Action Pattern & DTO structure.',
-			'Automated database migrations, backups, and staging deployments.',
-		],
-	},
-];
 ---
 
-<section class="py-20 border-t-2 border-ink bg-paper" id="experience">
-	<div class="section-shell space-y-12">
-		<div class="space-y-3">
-			<p class="eyebrow">Track Record</p>
-			<h2 class="display text-3xl sm:text-5xl font-bold tracking-tight text-ink">
-				Professional Experience
-			</h2>
-		</div>
-
-		<div class="space-y-6">
-			{experiences.map((exp) => (
-				<div class="card-hard rounded-3xl p-6 sm:p-8 space-y-4">
-					<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-ink/10 pb-4">
-						<div>
-							<span class="text-xs font-bold uppercase tracking-wider text-accent">{exp.type}</span>
-							<h3 class="display text-2xl font-bold text-ink">{exp.role}</h3>
-						</div>
-						<div class="flex items-center gap-4 text-xs font-bold text-ink/70">
-							<span class="flex items-center gap-1"><IconCalendar size={16} /> {exp.period}</span>
-							<span class="flex items-center gap-1"><IconMapPin size={16} /> {exp.location}</span>
-						</div>
-					</div>
-
-					<p class="text-sm sm:text-base text-ink/75 leading-relaxed">{exp.description}</p>
-
-					<div class="pt-2">
-						<p class="text-xs font-bold uppercase tracking-wider text-ink/50 mb-2">Key Accomplishments</p>
-						<ul class="space-y-2 text-sm font-semibold text-ink/80">
-							{exp.achievements.map((ach) => (
-								<li class="flex items-start gap-2">
-									<span class="text-accent font-bold">→</span>
-									<span>{ach}</span>
-								</li>
-							))}
-						</ul>
-					</div>
-				</div>
-			))}
-		</div>
-	</div>
+<section class="section-shell py-28 sm:py-36 cv-auto" id="experience">
+  <div class="mb-16 grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
+    <div><p class="eyebrow">05 — Experience</p><h2 class="display mt-3 text-4xl font-bold sm:text-6xl">Built through ownership, delivery, and real operations.</h2></div>
+    <p class="text-lg leading-relaxed text-ink/60">Professional experience across full-stack development, DevOps responsibility, internal systems, and research-administration software.</p>
+  </div>
+  <div class="relative border-l-2 border-ink/20 pl-6 sm:pl-10 lg:ml-[30%]">
+    <article class="experience-card relative pb-16">
+      <span class="absolute -left-[2.15rem] top-1 h-4 w-4 rounded-full border-2 border-ink bg-accent sm:-left-[2.95rem]"></span>
+      <div class="grid gap-6 lg:grid-cols-[.55fr_1.45fr]">
+        <div><p class="text-sm font-bold uppercase tracking-[.18em] text-accent">August 2020 — March 2026</p><h3 class="display mt-3 text-2xl font-bold">Burningroom Technology</h3><p class="mt-2 text-ink/50">Surabaya, Indonesia</p></div>
+        <div class="card-hard rounded-3xl p-7 sm:p-9"><div class="flex flex-wrap items-center justify-between gap-4"><h4 class="display text-2xl font-bold">Full-stack Laravel Developer &amp; DevOps Engineer</h4><i class="ti ti-server-cog text-4xl text-accent"></i></div><p class="mt-5 leading-relaxed text-ink/65">Held end-to-end responsibility across planning, architecture, backend and frontend implementation, deployment, maintenance, and production support for client-facing business systems.</p><div class="mt-6 flex flex-wrap gap-2"><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Laravel</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Svelte</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">PostgreSQL</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Redis</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Nginx</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">DevOps</span></div></div>
+      </div>
+    </article>
+    <article class="experience-card relative">
+      <span class="absolute -left-[2.15rem] top-1 h-4 w-4 rounded-full border-2 border-ink bg-paper sm:-left-[2.95rem]"></span>
+      <div class="grid gap-6 lg:grid-cols-[.55fr_1.45fr]">
+        <div><p class="text-sm font-bold uppercase tracking-[.18em] text-accent">January 2018 — July 2018</p><h3 class="display mt-3 text-2xl font-bold">FKG Universitas Airlangga</h3><p class="mt-2 text-ink/50">Internship</p></div>
+        <div class="rounded-3xl border-2 border-ink bg-white p-7 sm:p-9"><div class="flex flex-wrap items-center justify-between gap-4"><h4 class="display text-2xl font-bold">PHP Developer</h4><i class="ti ti-building-hospital text-4xl text-accent"></i></div><p class="mt-5 leading-relaxed text-ink/65">Contributed to a web-based management portal for the Faculty of Dental Medicine, supporting backend and frontend development, administration dashboards, data management, and secure verification workflows.</p><div class="mt-6 flex flex-wrap gap-2"><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">PHP</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Web application</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Admin dashboard</span><span class="rounded-full border border-ink/20 px-3 py-1 text-xs">Data workflows</span></div></div>
+      </div>
+    </article>
+  </div>
 </section>

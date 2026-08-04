@@ -1,36 +1,22 @@
 ---
-import MobileNav from './MobileNav.svelte';
 ---
 
 <header class="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-paper/85 backdrop-blur-xl">
-	<nav class="section-shell flex h-20 items-center justify-between">
-		<a class="group flex items-center gap-3" href="/#home">
-			<span class="display grid h-11 w-11 place-items-center rounded-xl bg-ink text-lg font-bold text-white transition-transform group-hover:-rotate-6">
-				BA
-			</span>
-			<span class="display hidden text-sm font-bold leading-tight sm:block">
-				BRIAN<br />ALVIANO
-			</span>
-		</a>
-
-		<div class="hidden items-center gap-7 text-sm font-semibold md:flex">
-			<a class="transition-colors hover:text-accent" href="/#about">About</a>
-			<a class="transition-colors hover:text-accent" href="/#skills">Skills</a>
-			<a class="transition-colors hover:text-accent" href="/#experience">Experience</a>
-			<a class="transition-colors hover:text-accent" href="/#work">Work</a>
-			<a class="transition-colors hover:text-accent" href="/insights">Insights</a>
-			<a class="transition-colors hover:text-accent" href="/#contact">Contact</a>
-		</div>
-
-		<div class="flex items-center gap-3">
-			<a
-				class="hidden sm:inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-accent"
-				href="/#contact"
-			>
-				Let’s talk →
-			</a>
-
-			<MobileNav client:idle />
-		</div>
-	</nav>
+  <nav class="section-shell flex h-20 items-center justify-between">
+    <a class="group flex items-center gap-3" href="#home">
+      <span class="display grid h-11 w-11 place-items-center rounded-xl bg-ink text-lg font-bold text-white transition-transform group-hover:-rotate-6">BA</span>
+      <span class="display hidden text-sm font-bold leading-tight sm:block">BRIAN<br/>ALVIANO</span>
+    </a>
+    <div class="hidden items-center gap-7 text-sm font-semibold md:flex">
+      <a class="transition-colors hover:text-accent" href="#about">About</a>
+      <a class="transition-colors hover:text-accent" href="#skills">Skills</a>
+      <a class="transition-colors hover:text-accent" href="#experience">Experience</a>
+      <a class="transition-colors hover:text-accent" href="#work">Work</a>
+      <a class="transition-colors hover:text-accent" href="#insights">Insights</a>
+      <a class="transition-colors hover:text-accent" href="#contact">Contact</a>
+    </div>
+    <a class="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-accent" href="#contact">
+      Let’s talk <i class="ti ti-arrow-up-right"></i>
+    </a>
+  </nav>
 </header>
