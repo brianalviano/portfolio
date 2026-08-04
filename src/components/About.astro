@@ -1,0 +1,53 @@
+---
+import { IconCheck, IconCode, IconCpu, IconServer } from '@tabler/icons-svelte';
+---
+
+<section class="py-20 border-t-2 border-ink bg-paper" id="about">
+	<div class="section-shell grid gap-12 lg:grid-cols-2 lg:items-center">
+		<div class="space-y-6">
+			<p class="eyebrow">About & Philosophy</p>
+			<h2 class="display text-3xl sm:text-5xl font-bold tracking-tight text-ink">
+				Building software that supports operations, not headaches.
+			</h2>
+			<p class="text-base sm:text-lg text-ink/75 leading-relaxed">
+				I specialize in custom ERP platforms, multi-warehouse inventory systems, robust REST APIs, and modern full-stack web applications. I focus on clear database design, clean architecture boundaries, and reliable user interfaces.
+			</p>
+			<div class="grid grid-cols-2 gap-4 pt-2">
+				<div class="card-hard rounded-2xl p-4 flex items-center gap-3">
+					<IconServer size={24} class="text-accent shrink-0" />
+					<div>
+						<p class="text-xs uppercase font-bold text-ink/50">Core Engine</p>
+						<p class="font-bold text-sm">Laravel & PHP 8.4</p>
+					</div>
+				</div>
+				<div class="card-hard rounded-2xl p-4 flex items-center gap-3">
+					<IconCpu size={24} class="text-accent shrink-0" />
+					<div>
+						<p class="text-xs uppercase font-bold text-ink/50">UI Hydration</p>
+						<p class="font-bold text-sm">Svelte 5 & Tailwind</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="space-y-4">
+			<div class="card-hard rounded-3xl p-6 sm:p-8 space-y-4">
+				<h3 class="display text-xl font-bold text-ink border-b border-ink/10 pb-3">My Development Commitments</h3>
+				<ul class="space-y-3 text-sm font-semibold text-ink/80">
+					<li class="flex items-start gap-3">
+						<span class="grid place-items-center w-6 h-6 rounded-full bg-accent/10 text-accent font-bold shrink-0">✓</span>
+						<span><strong>Maintainable Architecture:</strong> Modular monorail with clear Actions, DTOs, and explicit boundaries.</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="grid place-items-center w-6 h-6 rounded-full bg-accent/10 text-accent font-bold shrink-0">✓</span>
+						<span><strong>High Performance:</strong> Aggressive Redis caching, query optimization, and zero unused JS bloat.</span>
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="grid place-items-center w-6 h-6 rounded-full bg-accent/10 text-accent font-bold shrink-0">✓</span>
+						<span><strong>Bulletproof Security:</strong> Strict input validation, Policy/Gate authorization, and CSRF protection.</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>

@@ -12,6 +12,9 @@ export default defineConfig({
   integrations: [svelte(), mdx(), sitemap()],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ['gsap', 'gsap/ScrollTrigger']
+    }
   }
 });

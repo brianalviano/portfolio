@@ -3,6 +3,7 @@ dist/
 
 # generated types
 .astro/
+.svelte-check/
 
 # dependencies
 node_modules/

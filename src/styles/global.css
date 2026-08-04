@@ -1,1 +1,110 @@
 @import "tailwindcss";
+@import "@tabler/icons-webfont/dist/tabler-icons.min.css";
+
+@theme {
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --color-ink: #151310;
+  --color-paper: #f5f1eb;
+  --color-accent: #ed4d2b;
+  --color-muted: #a8a099;
+  --shadow-hard: 8px 8px 0 #151310;
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+  }
+  body {
+    color: var(--color-ink);
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 900px;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+  @media (max-width: 767px) {
+    .cv-auto {
+      contain-intrinsic-size: 1200px;
+    }
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-12;
+  }
+  .display {
+    font-family: var(--font-display);
+  }
+  .card-hard {
+    @apply border-2 border-ink bg-white shadow-[8px_8px_0_#151310];
+  }
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-accent;
+  }
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  }
+  .grid-bg {
+    background-image: linear-gradient(rgba(21, 19, 16, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(21, 19, 16, 0.08) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+  .marquee-track {
+    animation: marquee 22s linear infinite;
+  }
+  .footer-shine {
+    --shine-x: 50%;
+    --shine-y: 50%;
+    color: transparent;
+    background: radial-gradient(
+        circle 16vw at var(--shine-x) var(--shine-y),
+        #ffffff 0%,
+        #ffd8cf 14%,
+        rgba(255, 255, 255, 0.72) 28%,
+        rgba(255, 255, 255, 0.12) 48%,
+        transparent 68%
+      ),
+      linear-gradient(
+        105deg,
+        transparent 22%,
+        rgba(255, 255, 255, 0.1) 40%,
+        rgba(255, 255, 255, 0.22) 50%,
+        rgba(255, 255, 255, 0.08) 60%,
+        transparent 78%
+      );
+    -webkit-background-clip: text;
+    background-clip: text;
+    opacity: 0;
+    will-change: opacity, filter, transform;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.08));
+  }
+  .footer-name:hover .footer-shine,
+  .footer-name:focus-visible .footer-shine {
+    opacity: 1;
+  }
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .marquee-track {
+      animation: none;
+    }
+  }
+}

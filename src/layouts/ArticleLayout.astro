@@ -1,0 +1,68 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+	title: string;
+	description: string;
+	category: string;
+	readTime: string;
+	pubDate: Date;
+	headings?: { depth: number; slug: string; text: string }[];
+}
+
+const { title, description, category, readTime, headings = [] } = Astro.props;
+
+const tocHeadings = headings.filter((h) => h.depth === 2);
+---
+
+<BaseLayout
+	seo={{
+		title: `${title} | Brian Alviano`,
+		description,
+		type: 'article',
+	}}
+>
+	<Header slot="header" />
+
+	<article>
+		<section class="hero border-b-2 border-ink py-20 pt-32 bg-paper">
+			<div class="section-shell">
+				<p class="eyebrow mb-3">{category} · {readTime}</p>
+				<h1 class="display max-w-4xl text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[0.95] tracking-tight mb-6">
+					{title}
+				</h1>
+				<p class="max-w-2xl text-lg sm:text-xl text-ink/70 leading-relaxed">
+					{description}
+				</p>
+			</div>
+		</section>
+
+		<div class="section-shell article-layout grid grid-cols-1 lg:grid-cols-[220px_minmax(0,760px)] gap-12 justify-center py-16">
+			{tocHeadings.length > 0 && (
+				<aside class="toc sticky top-28 align-self-start border-l-2 border-ink pl-4 hidden lg:block">
+					<strong class="display text-sm font-bold uppercase tracking-wider block mb-3 text-ink">In this article</strong>
+					<nav class="space-y-2 text-sm text-ink/60">
+						{tocHeadings.map((h) => (
+							<a href={`#${h.slug}`} class="block hover:text-accent transition-colors">
+								{h.text}
+							</a>
+						))}
+					</nav>
+				</aside>
+			)}
+
+			<div class="prose prose-lg max-w-none text-ink/80 leading-relaxed font-sans [&_h2]:display [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-ink [&_p]:mb-6 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:mb-6 [&_blockquote]:border-l-4 [&_blockquote]:border-accent [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:my-6">
+				<slot />
+
+				<div class="mt-16 pt-8 border-t border-ink/10 flex justify-between items-center text-sm font-bold">
+					<a href="/insights" class="hover:text-accent transition-colors">← Back to all insights</a>
+					<a href="/#contact" class="hover:text-accent transition-colors">Discuss a project →</a>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<Footer slot="footer" />
+</BaseLayout>

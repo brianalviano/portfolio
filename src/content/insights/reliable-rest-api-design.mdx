@@ -1,0 +1,38 @@
+---
+title: "Designing REST APIs that remain predictable."
+description: "Practical conventions for resources, validation, errors, pagination, permissions, and change management."
+pubDate: 2026-07-28
+readTime: "7 min read"
+category: "API design"
+featured: true
+---
+
+## Model resources consistently
+
+URLs should describe resources rather than implementation details. Consistent naming and nesting reduce the amount of special knowledge clients need.
+
+A predictable API uses the same conventions for identifiers, timestamps, relationships, and collection responses.
+
+## Make validation errors useful
+
+A client should be able to identify which field failed, why it failed, and how the error relates to the submitted request. Use a stable error shape rather than returning a different format for each endpoint.
+
+Do not expose stack traces or internal database details in public responses.
+
+## Design pagination and filtering early
+
+Large collections need clear pagination, ordering, and filtering rules. Cursor pagination is useful for frequently changing datasets, while page-based pagination can be easier for admin interfaces and reports.
+
+Document defaults and limits so clients can make efficient requests.
+
+## Separate authentication from authorization
+
+Authentication establishes identity. Authorization decides whether that identity may perform an action on a resource. Both should be enforced consistently and tested at resource boundaries.
+
+Avoid relying only on hidden UI controls; the API must enforce permissions independently.
+
+## Change without surprising clients
+
+Prefer additive changes where possible. When a breaking change is unavoidable, communicate it, version deliberately, and provide a migration window.
+
+Reliability comes from consistent behavior, useful documentation, monitoring, and clear ownership—not only from choosing correct HTTP verbs.

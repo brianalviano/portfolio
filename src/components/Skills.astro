@@ -1,0 +1,78 @@
+---
+import {
+	IconBrandLaravel,
+	IconBrandPhp,
+	IconBrandSvelte,
+	IconBrandTailwind,
+	IconBrandMysql,
+	IconDatabase,
+	IconBrandGit,
+	IconBrandDocker,
+} from '@tabler/icons-svelte';
+
+const skillCategories = [
+	{
+		title: 'Backend & Architecture',
+		skills: [
+			{ name: 'Laravel 11 / 12', level: 'Expert', icon: IconBrandLaravel },
+			{ name: 'PHP 8.4 (Hooks & Types)', level: 'Expert', icon: IconBrandPhp },
+			{ name: 'REST APIs & Webhooks', level: 'Expert', icon: IconDatabase },
+			{ name: 'PostgreSQL & MySQL', level: 'Advanced', icon: IconBrandMysql },
+			{ name: 'Redis (Caching & PubSub)', level: 'Advanced', icon: IconDatabase },
+		],
+	},
+	{
+		title: 'Frontend & UI Strategy',
+		skills: [
+			{ name: 'Svelte 5 (Runes)', level: 'Advanced', icon: IconBrandSvelte },
+			{ name: 'Tailwind CSS v4', level: 'Expert', icon: IconBrandTailwind },
+			{ name: 'Inertia.js Integration', level: 'Advanced', icon: IconBrandSvelte },
+			{ name: 'TypeScript & Biome', level: 'Advanced', icon: IconBrandGit },
+		],
+	},
+	{
+		title: 'Infrastructure & Tooling',
+		skills: [
+			{ name: 'Bun Runtime', level: 'Advanced', icon: IconBrandDocker },
+			{ name: 'Git & GitHub Actions', level: 'Advanced', icon: IconBrandGit },
+			{ name: 'Docker Containerization', level: 'Intermediate', icon: IconBrandDocker },
+		],
+	},
+];
+---
+
+<section class="py-20 border-t-2 border-ink bg-paper" id="skills">
+	<div class="section-shell space-y-12">
+		<div class="space-y-3">
+			<p class="eyebrow">Technical Mastery</p>
+			<h2 class="display text-3xl sm:text-5xl font-bold tracking-tight text-ink">
+				Core Skills & Stack Capabilities
+			</h2>
+		</div>
+
+		<div class="grid gap-8 md:grid-cols-3">
+			{skillCategories.map((cat) => (
+				<div class="card-hard rounded-3xl p-6 space-y-6 flex flex-col justify-between">
+					<div>
+						<h3 class="display text-xl font-bold text-ink border-b-2 border-ink/10 pb-3 mb-4">
+							{cat.title}
+						</h3>
+						<ul class="space-y-3">
+							{cat.skills.map((skill) => (
+								<li class="flex items-center justify-between p-3 rounded-xl bg-paper/60 border border-ink/10">
+									<div class="flex items-center gap-3">
+										<skill.icon size={22} class="text-accent shrink-0" />
+										<span class="font-bold text-sm text-ink">{skill.name}</span>
+									</div>
+									<span class="text-[11px] font-bold uppercase tracking-wider bg-white px-2 py-0.5 rounded-md border border-ink/10 text-ink/70">
+										{skill.level}
+									</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

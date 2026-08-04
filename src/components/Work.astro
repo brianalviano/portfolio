@@ -1,0 +1,20 @@
+---
+import ProjectSlider from './ProjectSlider.svelte';
+---
+
+<section class="py-20 border-t-2 border-ink bg-paper" id="work">
+	<div class="section-shell space-y-8">
+		<div class="space-y-3">
+			<p class="eyebrow">Featured Work</p>
+			<h2 class="display text-3xl sm:text-5xl font-bold tracking-tight text-ink">
+				Systems & Projects Gallery
+			</h2>
+			<p class="max-w-2xl text-base sm:text-lg text-ink/75">
+				Explore recent enterprise ERP implementations, high-throughput REST APIs, and logistics dashboards.
+			</p>
+		</div>
+
+		<!-- Interactive Svelte 5 Slider Island -->
+		<ProjectSlider client:visible />
+	</div>
+</section>

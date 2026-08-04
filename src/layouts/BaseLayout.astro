@@ -1,0 +1,31 @@
+---
+import SEO, { type Props as SEOProps } from '../components/SEO.astro';
+import '../styles/global.css';
+
+export interface Props {
+	seo?: SEOProps;
+}
+
+const { seo } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<SEO {...seo} />
+	</head>
+	<body class="noise bg-paper antialiased">
+		<slot />
+
+		<script>
+			import { gsap } from 'gsap';
+			import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+			if (typeof window !== 'undefined') {
+				(window as any).gsap = gsap;
+				(window as any).ScrollTrigger = ScrollTrigger;
+				gsap.registerPlugin(ScrollTrigger);
+			}
+		</script>
+	</body>
+</html>

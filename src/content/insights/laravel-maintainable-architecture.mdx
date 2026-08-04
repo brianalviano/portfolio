@@ -1,0 +1,40 @@
+---
+title: "Structuring Laravel applications for long-term maintenance."
+description: "A practical approach to organizing business logic so a Laravel codebase remains understandable as features, integrations, and teams grow."
+pubDate: 2026-07-20
+readTime: "8 min read"
+category: "Engineering note"
+featured: true
+---
+
+## Start with business boundaries
+
+A maintainable application is easier to reason about when its modules reflect real business areas rather than technical folders alone. Inventory, purchasing, sales, billing, and identity each have their own language and rules.
+
+The goal is not to create a complex architecture on day one. The goal is to keep unrelated decisions from becoming tightly coupled.
+
+## Keep controllers thin
+
+Controllers should translate an HTTP request into an application action, then translate the result into an HTTP response. Validation, authorization, and orchestration belong close to the request boundary, while reusable business rules belong elsewhere.
+
+When a controller contains calculations, database updates, notification logic, and integration calls, testing and reuse become unnecessarily difficult.
+
+> **Practical principle:** Prefer clear boundaries and explicit behavior over architecture that is complex only for appearance.
+
+## Use application services for workflows
+
+A service or action class is useful when one operation coordinates several steps: validate a state transition, update multiple records, write an audit entry, and dispatch follow-up work.
+
+Each class should express one meaningful operation, not become a general container for unrelated helpers.
+
+## Treat data access deliberately
+
+Eloquent is productive, but query behavior still needs attention. Select only required columns, avoid hidden N+1 queries, use database constraints, and keep reporting queries separate from transactional workflows when their needs differ.
+
+Indexes should follow real query patterns rather than being added by guesswork.
+
+## Make correctness observable
+
+Tests protect critical rules, while logs, metrics, and audit trails help explain production behavior. Validation messages should be useful to users, and exceptions should preserve enough context for diagnosis without exposing sensitive details.
+
+Maintainability is not only folder structure. It is the ability to understand, change, and verify the system with confidence.
