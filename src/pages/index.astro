@@ -132,24 +132,20 @@ import Footer from '../components/Footer.astro';
         x: 70, opacity: 0, rotate: 4, duration: 1.2, delay: .25, ease: 'power3.out'
       });
 
-      gsap.utils.toArray('.skill-card, .service-card, .process-card, .testimonial-card, .experience-card, .project, .cta-panel, .insight-card').forEach((item) => {
-        gsap.fromTo(item,
-          { y: 35, opacity: 0 },
-          {
-            y: 0, opacity: 1, duration: 0.65, ease: 'power2.out',
-            scrollTrigger: {
-              trigger: item,
-              start: 'top 93%',
-              once: true,
-              onEnter: () => gsap.set(item, { opacity: 1, y: 0 })
-            }
+      // Native IntersectionObserver for 120fps GPU scroll reveal
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            revealObserver.unobserve(entry.target);
           }
-        );
-      });
+        });
+      }, { rootMargin: '0px 0px -30px 0px', threshold: 0.05 });
 
-      setTimeout(() => {
-        if (window.ScrollTrigger) ScrollTrigger.refresh();
-      }, 350);
+      document.querySelectorAll('.skill-card, .service-card, .process-card, .testimonial-card, .experience-card, .project, .cta-panel, .insight-card').forEach((el) => {
+        el.classList.add('reveal-item');
+        revealObserver.observe(el);
+      });
 
       ScrollTrigger.create({
         trigger: '.stat', start: 'top 85%', once: true,
