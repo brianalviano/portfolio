@@ -16,7 +16,7 @@ import Footer from '../components/Footer.astro';
 <BaseLayout>
   <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-ink focus:shadow-lg" href="#main-content">Skip to main content</a>
   <noscript>This portfolio remains readable without JavaScript, but animations, sliders, and the contact helper require JavaScript.</noscript>
-  <div class="pointer-events-none fixed left-0 top-0 z-[100] hidden h-5 w-5 rounded-full border border-ink mix-blend-difference lg:block" id="cursor"></div>
+  <div class="pointer-events-none fixed left-0 top-0 z-[100] hidden h-5 w-5 rounded-full border-2 border-accent bg-accent/20 opacity-60 lg:block" id="cursor"></div>
 
   <Header />
 
@@ -209,16 +209,25 @@ import Footer from '../components/Footer.astro';
       }
 
       const cursor = document.getElementById('cursor');
-      const cursorX = gsap.quickTo(cursor, 'x', { duration: .15, ease: 'power2.out' });
-      const cursorY = gsap.quickTo(cursor, 'y', { duration: .15, ease: 'power2.out' });
-      window.addEventListener('pointermove', (event) => {
-        cursorX(event.clientX - 10);
-        cursorY(event.clientY - 10);
-      }, { passive: true });
-      document.querySelectorAll('a, button, .skill-card, .service-card, .process-card, .experience-card').forEach((el) => {
-        el.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 2.2, duration: .2 }));
-        el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1, duration: .2 }));
-      });
+      if (cursor && window.innerWidth >= 1024) {
+        const cursorX = gsap.quickTo(cursor, 'x', { duration: .12, ease: 'power2.out' });
+        const cursorY = gsap.quickTo(cursor, 'y', { duration: .12, ease: 'power2.out' });
+        window.addEventListener('pointermove', (event) => {
+          cursorX(event.clientX - 10);
+          cursorY(event.clientY - 10);
+        }, { passive: true });
+
+        document.addEventListener('mouseover', (e) => {
+          if (e.target && e.target.closest('a, button, .skill-card, .service-card, .process-card, .project, .testimonial-card, .insight-card')) {
+            gsap.to(cursor, { scale: 1.8, opacity: 0.8, duration: 0.15 });
+          }
+        }, { passive: true });
+        document.addEventListener('mouseout', (e) => {
+          if (e.target && e.target.closest('a, button, .skill-card, .service-card, .process-card, .project, .testimonial-card, .insight-card')) {
+            gsap.to(cursor, { scale: 1, opacity: 0.6, duration: 0.15 });
+          }
+        }, { passive: true });
+      }
     } else {
       const formatCounter = (el) => {
         const target = Number(el.dataset.count || 0);
