@@ -52,10 +52,28 @@
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+
+  /* Native GPU Hero Entrance Animation */
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .hero-fade-1 { animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both; }
+  .hero-fade-2 { animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both; }
+  .hero-fade-3 { animation: heroFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both; }
+  .hero-fade-visual { animation: heroFadeUp 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+
   @media (prefers-reduced-motion: reduce) {
-    .reveal-item {
+    .reveal-item, .hero-fade-1, .hero-fade-2, .hero-fade-3, .hero-fade-visual {
       opacity: 1;
       transform: none;
+      animation: none;
       transition: none;
     }
   }
@@ -81,7 +99,9 @@
     background-size: 34px 34px;
   }
   .marquee-track {
-    animation: marquee 22s linear infinite;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
   .footer-shine {
     --shine-x: 50%;

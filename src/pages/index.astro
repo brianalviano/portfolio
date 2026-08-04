@@ -121,18 +121,9 @@ import Footer from '../components/Footer.astro';
       });
     });
 
+    // Native IntersectionObserver for 120fps GPU scroll reveal (independent of GSAP)
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reducedMotion && window.gsap) {
-      gsap.registerPlugin(ScrollTrigger);
-
-      gsap.from('.hero-reveal', {
-        y: 25, opacity: 0, duration: 0.65, stagger: 0.08, ease: 'power2.out', clearProps: 'transform,opacity'
-      });
-      gsap.from('.hero-visual', {
-        y: 25, opacity: 0, duration: 0.75, delay: 0.12, ease: 'power2.out', clearProps: 'transform,opacity'
-      });
-
-      // Native IntersectionObserver for 120fps GPU scroll reveal
+    if (!reducedMotion && 'IntersectionObserver' in window) {
       const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -146,6 +137,11 @@ import Footer from '../components/Footer.astro';
         el.classList.add('reveal-item');
         revealObserver.observe(el);
       });
+    }
+
+    // GSAP is retained exclusively for number counter interpolation and interactive footer hover
+    if (!reducedMotion && window.gsap) {
+      gsap.registerPlugin(ScrollTrigger);
 
       ScrollTrigger.create({
         trigger: '.stat', start: 'top 85%', once: true,
