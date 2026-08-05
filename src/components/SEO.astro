@@ -4,58 +4,60 @@ export interface Props {
 	description?: string;
 	image?: string;
 	canonicalURL?: string;
-	type?: 'website' | 'article';
+	type?: "website" | "article";
 	publishedTime?: string;
 	jsonLd?: Record<string, any>;
-	lang?: 'en' | 'id';
+	lang?: "en" | "id";
 }
 
 const {
-	title = 'Brian Alviano | Full-Stack Developer & Custom ERP Systems',
-	description = 'Brian Alviano is a full-stack developer in Indonesia building custom ERP platforms, REST APIs, internal tools, and high-performance business applications.',
-	image = '/og-brian-alviano.png',
+	title = "Brian Alviano | Full-Stack Developer & Custom ERP Systems",
+	description = "Brian Alviano is a full-stack developer in Indonesia building custom ERP platforms, REST APIs, internal tools, and high-performance business applications.",
+	image = "/og-brian-alviano.png",
 	canonicalURL = Astro.url.href,
-	type = 'website',
+	type = "website",
 	publishedTime,
 	jsonLd,
-	lang = 'en'
+	lang = "en",
 } = Astro.props;
 
-const siteTitle = title.includes('Brian Alviano') ? title : `${title} | Brian Alviano`;
+const siteTitle = title.includes("Brian Alviano")
+	? title
+	: `${title} | Brian Alviano`;
 const siteOrigin = Astro.site ? Astro.site.origin : Astro.url.origin;
 const enUrl = `${siteOrigin}/`;
 const idUrl = `${siteOrigin}/id/`;
 
 const defaultPersonSchema = {
-	'@context': 'https://schema.org',
-	'@type': 'Person',
-	name: 'Brian Alviano',
-	jobTitle: 'Full-Stack Developer',
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Brian Alviano",
+	jobTitle: "Full-Stack Developer",
 	description:
-		'Full-stack developer specializing in Laravel, Svelte, ERP systems, REST APIs, internal tools, dashboards, and scalable web applications.',
-	email: 'mailto:brianalviano.official@gmail.com',
-	telephone: '+62-813-7000-4025',
+		"Full-stack developer specializing in Laravel, Svelte, ERP systems, REST APIs, internal tools, dashboards, and scalable web applications.",
+	email: "mailto:brianalviano.official@gmail.com",
+	telephone: "+62-813-7000-4025",
 	address: {
-		'@type': 'PostalAddress',
-		addressLocality: 'Surabaya',
-		addressRegion: 'East Java',
-		addressCountry: 'ID',
+		"@type": "PostalAddress",
+		addressLocality: "Surabaya",
+		addressRegion: "East Java",
+		addressCountry: "ID",
 	},
 	knowsAbout: [
-		'Laravel',
-		'PHP',
-		'Svelte',
-		'Tailwind CSS',
-		'PostgreSQL',
-		'REST APIs',
-		'ERP systems',
-		'DevOps',
-		'Database design',
+		"Laravel",
+		"PHP",
+		"Svelte",
+		"Tailwind CSS",
+		"PostgreSQL",
+		"REST APIs",
+		"ERP systems",
+		"DevOps",
+		"Database design",
 	],
 	sameAs: [
-		'https://instagram.com/vinnoo_',
-		'https://linkedin.com/in/brianalviano',
-		'https://github.com/brianalviano',
+		"https://instagram.com/vinnoo_",
+		"https://linkedin.com/in/brianalviano",
+		"https://github.com/brianalviano",
 	],
 };
 

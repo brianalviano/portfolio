@@ -1,11 +1,11 @@
 ---
 interface Props {
-  currentLang?: 'en' | 'id';
+	currentLang?: "en" | "id";
 }
-const { currentLang = 'en' } = Astro.props;
+const { currentLang = "en" } = Astro.props;
 
-const enHref = '/';
-const idHref = '/id';
+const enHref = "/";
+const idHref = "/id";
 ---
 
 <header class="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-paper/92 backdrop-blur-md">

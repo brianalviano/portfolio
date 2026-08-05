@@ -1,53 +1,58 @@
 <script lang="ts">
-	import { IconSend, IconCheck, IconMail } from '@tabler/icons-svelte';
+import { IconSend, IconCheck, IconMail } from "@tabler/icons-svelte";
 
-	let name = $state('');
-	let email = $state('');
-	let projectType = $state('ERP & Business System');
-	let timeline = $state('1 - 2 Months');
-	let message = $state('');
-	let statusMessage = $state('');
-	let isSubmitting = $state(false);
+let name = $state("");
+let email = $state("");
+let projectType = $state("ERP & Business System");
+let timeline = $state("1 - 2 Months");
+let message = $state("");
+let statusMessage = $state("");
+let isSubmitting = $state(false);
 
-	const projectTypes = [
-		'ERP & Business System',
-		'REST API & Backend Service',
-		'Internal Tool / Dashboard',
-		'High-Performance Web App',
-		'Architecture Audit & Consulting'
-	];
+const projectTypes = [
+	"ERP & Business System",
+	"REST API & Backend Service",
+	"Internal Tool / Dashboard",
+	"High-Performance Web App",
+	"Architecture Audit & Consulting",
+];
 
-	const timelines = ['< 1 Month', '1 - 2 Months', '3+ Months', 'Ongoing Retainer'];
+const timelines = [
+	"< 1 Month",
+	"1 - 2 Months",
+	"3+ Months",
+	"Ongoing Retainer",
+];
 
-	function handleSubmit(e: SubmitEvent) {
-		e.preventDefault();
-		if (!name || !email || !message) {
-			statusMessage = 'Please complete all required fields.';
-			return;
-		}
-
-		isSubmitting = true;
-		statusMessage = 'Preparing email inquiry…';
-
-		const subject = `Project inquiry — ${projectType}`;
-		const body = [
-			`Hi Brian,`,
-			``,
-			`My name is ${name}.`,
-			`Email: ${email}`,
-			`Project type: ${projectType}`,
-			`Target timeline: ${timeline}`,
-			``,
-			`Project details:`,
-			`${message}`
-		].join('\n');
-
-		setTimeout(() => {
-			window.location.href = `mailto:brianalviano.official@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-			statusMessage = 'Opening your email client…';
-			isSubmitting = false;
-		}, 400);
+function handleSubmit(e: SubmitEvent) {
+	e.preventDefault();
+	if (!name || !email || !message) {
+		statusMessage = "Please complete all required fields.";
+		return;
 	}
+
+	isSubmitting = true;
+	statusMessage = "Preparing email inquiry…";
+
+	const subject = `Project inquiry — ${projectType}`;
+	const body = [
+		`Hi Brian,`,
+		``,
+		`My name is ${name}.`,
+		`Email: ${email}`,
+		`Project type: ${projectType}`,
+		`Target timeline: ${timeline}`,
+		``,
+		`Project details:`,
+		`${message}`,
+	].join("\n");
+
+	setTimeout(() => {
+		window.location.href = `mailto:brianalviano.official@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+		statusMessage = "Opening your email client…";
+		isSubmitting = false;
+	}, 400);
+}
 </script>
 
 <form onsubmit={handleSubmit} class="card-hard rounded-3xl p-6 sm:p-10 space-y-6">

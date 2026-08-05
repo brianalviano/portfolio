@@ -1,13 +1,13 @@
 ---
-import SEO, { type Props as SEOProps } from '../components/SEO.astro';
-import '../styles/global.css';
+import SEO, { type Props as SEOProps } from "../components/SEO.astro";
+import "../styles/global.css";
 
 export interface Props {
 	seo?: SEOProps;
-	lang?: 'en' | 'id';
+	lang?: "en" | "id";
 }
 
-const { seo, lang = 'en' } = Astro.props;
+const { seo, lang = "en" } = Astro.props;
 ---
 
 <!doctype html>

@@ -1,9 +1,9 @@
-import { defineCollection } from 'astro:content';
-import { z } from 'astro/zod';
-import { glob } from 'astro/loaders';
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
+import { glob } from "astro/loaders";
 
 const insights = defineCollection({
-	loader: glob({ pattern: '**/*.mdx', base: './src/content/insights' }),
+	loader: glob({ pattern: "**/*.mdx", base: "./src/content/insights" }),
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),

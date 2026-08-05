@@ -1,91 +1,109 @@
 <script lang="ts">
-	import {
-		IconChevronLeft,
-		IconChevronRight,
-		IconExternalLink,
-		IconLayoutDashboard,
-		IconDatabase,
-		IconServer,
-		IconCheck,
-		IconBuildingStore
-	} from '@tabler/icons-svelte';
+import {
+	IconChevronLeft,
+	IconChevronRight,
+	IconExternalLink,
+	IconLayoutDashboard,
+	IconDatabase,
+	IconServer,
+	IconCheck,
+	IconBuildingStore,
+} from "@tabler/icons-svelte";
 
-	interface ProjectSlide {
-		id: string;
-		title: string;
-		type: string;
-		description: string;
-		kpis: { label: string; value: string }[];
-		features: string[];
+interface ProjectSlide {
+	id: string;
+	title: string;
+	type: string;
+	description: string;
+	kpis: { label: string; value: string }[];
+	features: string[];
+}
+
+const projects: ProjectSlide[] = [
+	{
+		id: "erp",
+		title: "Multi-Branch Inventory & ERP System",
+		type: "Enterprise ERP",
+		description:
+			"Real-time multi-location warehouse sync, automated purchase orders, and audit trail for 50k+ daily SKUs.",
+		kpis: [
+			{ label: "Sync Speed", value: "< 120ms" },
+			{ label: "Daily SKU Flow", value: "50,000+" },
+			{ label: "Uptime", value: "99.98%" },
+		],
+		features: [
+			"PostgreSQL Partitioning",
+			"Redis Caching Layer",
+			"InertiaJS + Svelte UI",
+			"Role Policies",
+		],
+	},
+	{
+		id: "pos",
+		title: "High-Throughput Retail POS & Rest API",
+		type: "POS & API Integration",
+		description:
+			"Offline-first POS integration with central REST API, transaction queuing, and IDR currency calculation.",
+		kpis: [
+			{ label: "Throughput", value: "1,500 req/min" },
+			{ label: "POS Terminal Sync", value: "Instant" },
+			{ label: "Failure Rate", value: "0.001%" },
+		],
+		features: [
+			"Laravel Actions Pattern",
+			"Idempotent API Tokens",
+			"Atomic Transactions",
+			"Queue Worker Sync",
+		],
+	},
+	{
+		id: "analytics",
+		title: "Executive Logistics & Financial Dashboard",
+		type: "Analytics & Reporting",
+		description:
+			"Real-time margin calculation, shipment tracking status, and exportable financial reports.",
+		kpis: [
+			{ label: "Report Generation", value: "Instant" },
+			{ label: "Live Data Feeds", value: "Realtime" },
+			{ label: "Data Points", value: "1M+" },
+		],
+		features: [
+			"Sorted Sets Caching",
+			"Custom Chart Renderer",
+			"Excel & PDF Export",
+			"Role Guard Access",
+		],
+	},
+];
+
+let currentIndex = $state(0);
+let startX = $state(0);
+
+let currentProject = $derived(projects[currentIndex]);
+
+function prevSlide() {
+	currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+}
+
+function nextSlide() {
+	currentIndex = (currentIndex + 1) % projects.length;
+}
+
+function goToSlide(index: number) {
+	currentIndex = index;
+}
+
+function handlePointerDown(e: PointerEvent) {
+	startX = e.clientX;
+}
+
+function handlePointerUp(e: PointerEvent) {
+	const distance = e.clientX - startX;
+	if (Math.abs(distance) > 50) {
+		if (distance < 0) nextSlide();
+		else prevSlide();
 	}
-
-	const projects: ProjectSlide[] = [
-		{
-			id: 'erp',
-			title: 'Multi-Branch Inventory & ERP System',
-			type: 'Enterprise ERP',
-			description: 'Real-time multi-location warehouse sync, automated purchase orders, and audit trail for 50k+ daily SKUs.',
-			kpis: [
-				{ label: 'Sync Speed', value: '< 120ms' },
-				{ label: 'Daily SKU Flow', value: '50,000+' },
-				{ label: 'Uptime', value: '99.98%' }
-			],
-			features: ['PostgreSQL Partitioning', 'Redis Caching Layer', 'InertiaJS + Svelte UI', 'Role Policies']
-		},
-		{
-			id: 'pos',
-			title: 'High-Throughput Retail POS & Rest API',
-			type: 'POS & API Integration',
-			description: 'Offline-first POS integration with central REST API, transaction queuing, and IDR currency calculation.',
-			kpis: [
-				{ label: 'Throughput', value: '1,500 req/min' },
-				{ label: 'POS Terminal Sync', value: 'Instant' },
-				{ label: 'Failure Rate', value: '0.001%' }
-			],
-			features: ['Laravel Actions Pattern', 'Idempotent API Tokens', 'Atomic Transactions', 'Queue Worker Sync']
-		},
-		{
-			id: 'analytics',
-			title: 'Executive Logistics & Financial Dashboard',
-			type: 'Analytics & Reporting',
-			description: 'Real-time margin calculation, shipment tracking status, and exportable financial reports.',
-			kpis: [
-				{ label: 'Report Generation', value: 'Instant' },
-				{ label: 'Live Data Feeds', value: 'Realtime' },
-				{ label: 'Data Points', value: '1M+' }
-			],
-			features: ['Sorted Sets Caching', 'Custom Chart Renderer', 'Excel & PDF Export', 'Role Guard Access']
-		}
-	];
-
-	let currentIndex = $state(0);
-	let startX = $state(0);
-
-	let currentProject = $derived(projects[currentIndex]);
-
-	function prevSlide() {
-		currentIndex = (currentIndex - 1 + projects.length) % projects.length;
-	}
-
-	function nextSlide() {
-		currentIndex = (currentIndex + 1) % projects.length;
-	}
-
-	function goToSlide(index: number) {
-		currentIndex = index;
-	}
-
-	function handlePointerDown(e: PointerEvent) {
-		startX = e.clientX;
-	}
-
-	function handlePointerUp(e: PointerEvent) {
-		const distance = e.clientX - startX;
-		if (Math.abs(distance) > 50) {
-			if (distance < 0) nextSlide();
-			else prevSlide();
-		}
-	}
+}
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->

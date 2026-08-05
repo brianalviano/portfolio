@@ -1,11 +1,11 @@
 ---
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from "../data/portfolioData";
 const { footer } = portfolioData;
 
 interface Props {
-  currentLang?: 'en' | 'id';
+	currentLang?: "en" | "id";
 }
-const { currentLang = 'en' } = Astro.props;
+const { currentLang = "en" } = Astro.props;
 ---
 
 <footer class="overflow-hidden bg-ink pb-8 pt-20 text-white border-t-2 border-ink">

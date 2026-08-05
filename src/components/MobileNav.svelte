@@ -1,15 +1,15 @@
 <script lang="ts">
-	import { IconMenu2, IconX, IconArrowUpRight } from '@tabler/icons-svelte';
+import { IconMenu2, IconX, IconArrowUpRight } from "@tabler/icons-svelte";
 
-	let isOpen = $state(false);
+let isOpen = $state(false);
 
-	function toggleMenu() {
-		isOpen = !isOpen;
-	}
+function toggleMenu() {
+	isOpen = !isOpen;
+}
 
-	function closeMenu() {
-		isOpen = false;
-	}
+function closeMenu() {
+	isOpen = false;
+}
 </script>
 
 <div class="md:hidden">

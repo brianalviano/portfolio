@@ -1,12 +1,14 @@
 ---
-import { getCollection, render } from 'astro:content';
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getCollection, render } from "astro:content";
+import ArticleLayout from "../../layouts/ArticleLayout.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection('insights');
+	const posts = await getCollection("insights");
 
 	// Order posts chronologically or by date descending to match static HTML structure
-	const sortedPosts = [...posts].sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+	const sortedPosts = [...posts].sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+	);
 
 	return sortedPosts.map((post, i) => ({
 		params: { slug: post.id },

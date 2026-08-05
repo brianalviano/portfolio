@@ -1,19 +1,25 @@
 <script lang="ts">
-	let shineX = $state(50);
-	let shineY = $state(50);
-	let isHovered = $state(false);
+let shineX = $state(50);
+let shineY = $state(50);
+let isHovered = $state(false);
 
-	function handlePointerMove(e: PointerEvent) {
-		const target = e.currentTarget as HTMLElement;
-		const rect = target.getBoundingClientRect();
-		shineX = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
-		shineY = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
-		isHovered = true;
-	}
+function handlePointerMove(e: PointerEvent) {
+	const target = e.currentTarget as HTMLElement;
+	const rect = target.getBoundingClientRect();
+	shineX = Math.max(
+		0,
+		Math.min(100, ((e.clientX - rect.left) / rect.width) * 100),
+	);
+	shineY = Math.max(
+		0,
+		Math.min(100, ((e.clientY - rect.top) / rect.height) * 100),
+	);
+	isHovered = true;
+}
 
-	function handlePointerLeave() {
-		isHovered = false;
-	}
+function handlePointerLeave() {
+	isHovered = false;
+}
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
