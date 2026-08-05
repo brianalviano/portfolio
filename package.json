@@ -10,7 +10,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"check": "svelte-check --tsgo --tsconfig ./tsconfig.json",
+		"check": "bun run format && svelte-check --tsgo --tsconfig ./tsconfig.json",
 		"lint": "biome check .",
 		"format:astro": "prettier --write \"src/**/*.astro\"",
 		"format": "biome format --write . && prettier --write \"src/**/*.astro\""
