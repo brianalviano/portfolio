@@ -116,7 +116,8 @@ export const portfolioData = {
 		list: [
 			{
 				num: "01",
-				icon: "ti-building-factory-2",
+				icon: "ti-sitemap",
+				badge: { en: "MOST REQUESTED", id: "PALING DIMINATI" },
 				title: { en: "ERP Systems", id: "Sistem ERP" },
 				desc: {
 					en: "Unified HR, finance, logistics, procurement, inventory, and sales modules tailored to your actual operational workflows.",
