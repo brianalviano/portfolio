@@ -12,8 +12,8 @@
 		"astro": "astro",
 		"check": "bun run format && svelte-check --tsgo --tsconfig ./tsconfig.json",
 		"lint": "biome check .",
-		"format:astro": "prettier --write \"src/**/*.astro\"",
-		"format": "biome format --write . && prettier --write \"src/**/*.astro\""
+		"format:astro": "prettier --write --log-level warn \"src/**/*.astro\"",
+		"format": "biome format --write . && bun run format:astro"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^7.0.5",
