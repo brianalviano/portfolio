@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import personalPhoto from "@assets/personal-photo.png";
 import { portfolioData } from "@data/portfolioData";
 const { hero } = portfolioData;
 ---
@@ -87,31 +89,13 @@ const { hero } = portfolioData;
 							>{hero.location}</span
 						>
 					</div>
-					<div class="absolute inset-x-0 bottom-0 flex justify-center">
-						<svg
-							aria-label="Abstract developer portrait"
-							class="w-[70%] sm:w-[74%]"
-							fill="none"
-							viewBox="0 0 420 440"
-						>
-							<circle cx="210" cy="150" fill="#ED4D2B" r="90"></circle>
-							<path d="M95 440c8-130 56-195 115-195s108 65 115 195H95Z" fill="#F5F1EB"></path>
-							<circle cx="210" cy="153" fill="#D8A47F" r="66"></circle>
-							<path
-								d="M143 146c0-68 38-103 92-83 28 10 44 39 39 78-25-14-51-24-78-22-19 2-36 12-53 27Z"
-								fill="#151310"></path>
-							<path
-								d="M171 152h-30v-12h30v12Zm108 0h-30v-12h30v12Zm-108-6h78"
-								stroke="#151310"
-								stroke-width="7"></path>
-							<path
-								d="M185 193c18 13 33 13 51 0"
-								stroke="#151310"
-								stroke-linecap="round"
-								stroke-width="7"></path>
-							<path d="M132 317c47 26 109 26 156 0" stroke="#ED4D2B" stroke-width="15"></path>
-							<path d="M130 400h160" stroke="#151310" stroke-width="18"></path>
-						</svg>
+					<div class="absolute inset-x-0 bottom-0 flex justify-center pointer-events-none">
+						<Image
+							src={personalPhoto}
+							alt="Brian Alviano"
+							class="h-auto max-h-[290px] w-auto max-w-[85%] object-contain object-bottom sm:max-h-[320px]"
+							loading="eager"
+						/>
 					</div>
 					<div
 						class="absolute bottom-5 left-5 z-20 rounded-xl border border-white/20 bg-[#151310]/85 px-4 py-2.5 shadow-md"
