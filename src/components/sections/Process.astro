@@ -3,13 +3,13 @@ import { portfolioData } from "@data/portfolioData";
 const { process } = portfolioData;
 ---
 
-<section class="border-y-2 border-ink bg-accent py-24 sm:py-32" id="process">
+<section class="border-y-2 border-ink bg-accent py-20 sm:py-28" id="process">
 	<div class="section-shell">
 		<div class="grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
 			<div>
-				<p class="eyebrow !text-ink/60">{process.eyebrow}</p>
+				<p class="eyebrow !text-ink font-bold">{process.eyebrow}</p>
 				<h2
-					class="display mt-3 text-4xl font-bold sm:text-6xl text-ink"
+					class="display mt-3 text-4xl font-bold text-ink sm:text-6xl"
 					data-i18n-en={process.heading.en}
 					data-i18n-id={process.heading.id}
 				>
@@ -17,41 +17,99 @@ const { process } = portfolioData;
 				</h2>
 			</div>
 			<p
-				class="text-lg leading-relaxed text-ink/75 font-medium"
+				class="text-base font-medium leading-relaxed text-ink/85 sm:text-lg"
 				data-i18n-en={process.subtext.en}
 				data-i18n-id={process.subtext.id}
 			>
 				{process.subtext.en}
 			</p>
 		</div>
-		<div class="relative mt-16 grid gap-5 lg:grid-cols-4">
-			<div class="absolute left-0 right-0 top-10 hidden h-0.5 bg-ink/25 lg:block"></div>
+
+		<div class="relative mt-14 grid gap-6 lg:grid-cols-4">
+			{/* Flow connector line for desktop */}
+			<div class="absolute left-12 right-12 top-14 hidden h-0.5 border-t-2 border-dashed border-ink/40 lg:block z-0"></div>
+
 			{
-				process.steps.map((st) => (
-					<article class="process-card relative rounded-3xl border-2 border-ink bg-paper p-7 shadow-[7px_7px_0_#151310]">
-						<span class="display relative z-10 grid h-20 w-20 place-items-center rounded-full border-2 border-ink bg-accent text-3xl font-bold text-white">
-							{st.num}
-						</span>
-						<p
-							class="mt-9 text-xs font-bold uppercase tracking-[.2em] text-ink/45"
-							data-i18n-en={st.tag.en}
-							data-i18n-id={st.tag.id}
-						>
-							{st.tag.en}
-						</p>
-						<h3
-							class="display mt-3 text-3xl font-bold"
-							data-i18n-en={st.title.en}
-							data-i18n-id={st.title.id}
-						>
-							{st.title.en}
-						</h3>
-						<p class="mt-4 text-ink/65" data-i18n-en={st.desc.en} data-i18n-id={st.desc.id}>
-							{st.desc.en}
-						</p>
+				process.steps.map((st, idx) => (
+					<article class="process-card group relative z-10 flex flex-col justify-between rounded-3xl border-2 border-ink bg-paper p-6 sm:p-7 shadow-[7px_7px_0_#151310] transition-all duration-300 hover:-translate-y-1 hover:shadow-[9px_9px_0_#151310]">
+						<div>
+							{/* Card Header: Icon + Num & Timeline badge */}
+							<div class="flex items-center justify-between gap-2">
+								<div class="flex items-center gap-3">
+									<span class="display grid h-14 w-14 place-items-center rounded-2xl border-2 border-ink bg-accent text-2xl text-white shadow-[3px_3px_0_#151310] transition-transform duration-300 group-hover:rotate-3">
+										<i class={`ti ${st.icon}`}></i>
+									</span>
+									<span class="display text-xl font-black text-ink/35">{st.num}</span>
+								</div>
+
+								{/* Timeline badge */}
+								<span
+									class="inline-flex items-center gap-1.5 rounded-full border border-ink/20 bg-white/90 px-3 py-1 text-[11px] font-bold text-ink shadow-sm"
+									data-i18n-en={st.timeline.en}
+									data-i18n-id={st.timeline.id}
+								>
+									<i class="ti ti-clock text-accent text-xs"></i>
+									<span>{st.timeline.en}</span>
+								</span>
+							</div>
+
+							{/* Kicker tag */}
+							<p
+								class="mt-6 text-[11px] font-bold uppercase tracking-[.18em] text-ink/60"
+								data-i18n-en={st.tag.en}
+								data-i18n-id={st.tag.id}
+							>
+								{st.tag.en}
+							</p>
+
+							{/* Step Title */}
+							<h3
+								class="display mt-1.5 text-2xl font-bold text-ink sm:text-3xl"
+								data-i18n-en={st.title.en}
+								data-i18n-id={st.title.id}
+							>
+								{st.title.en}
+							</h3>
+
+							{/* Step Description */}
+							<p
+								class="mt-3 text-xs leading-relaxed text-ink/75 sm:text-sm"
+								data-i18n-en={st.desc.en}
+								data-i18n-id={st.desc.id}
+							>
+								{st.desc.en}
+							</p>
+						</div>
+
+						{/* Deliverable Section */}
+						<div class="mt-6 border-t border-ink/15 pt-4">
+							<span
+								class="block text-[10px] font-bold uppercase tracking-wider text-ink/50"
+								data-i18n-en="Deliverable"
+								data-i18n-id="Hasil Deliverable"
+							>
+								Deliverable
+							</span>
+							<p
+								class="mt-1.5 flex items-start gap-2 text-xs font-bold text-ink"
+								data-i18n-en={st.deliverable.en}
+								data-i18n-id={st.deliverable.id}
+							>
+								<i class="ti ti-circle-check-filled text-accent text-sm shrink-0 mt-0.5"></i>
+								<span>{st.deliverable.en}</span>
+							</p>
+						</div>
+
+						{/* Flow Arrow for desktop */}
+						{idx < process.steps.length - 1 && (
+							<div class="hidden lg:flex absolute -right-4 top-11 z-20 h-7 w-7 items-center justify-center rounded-full border border-ink bg-white text-ink text-xs shadow-sm">
+								<i class="ti ti-arrow-right"></i>
+							</div>
+						)}
 					</article>
 				))
 			}
 		</div>
 	</div>
 </section>
+

@@ -166,38 +166,62 @@ export const portfolioData = {
 		steps: [
 			{
 				num: "01",
-				tag: { en: "Understand first", id: "Pahami Kebutuhan" },
+				icon: "ti-search",
+				tag: { en: "UNDERSTAND FIRST", id: "PAHAMI KEBUTUHAN" },
 				title: { en: "Discover", id: "Riset & Analisis" },
+				timeline: { en: "3-5 days", id: "3-5 hari" },
 				desc: {
 					en: "Clarify business goals, user constraints, existing bottlenecks, and measurable project outcomes.",
 					id: "Memperjelas tujuan bisnis, kendala pengguna, kendala sistem yang ada, dan target proyek yang terukur.",
 				},
+				deliverable: {
+					en: "Project brief & scope document",
+					id: "Dokumen brief & lingkup proyek",
+				},
 			},
 			{
 				num: "02",
-				tag: { en: "Design the system", id: "Rancang Sistem" },
+				icon: "ti-sitemap",
+				tag: { en: "DESIGN THE SYSTEM", id: "RANCANG SISTEM" },
 				title: { en: "Architect", id: "Arsitektur" },
+				timeline: { en: "1 week", id: "1 minggu" },
 				desc: {
 					en: "Define data structures, API endpoints, module boundaries, technical stack, and milestone roadmaps.",
 					id: "Menentukan struktur data, endpoint API, batasan modul, stack teknis, dan tahapan peluncuran.",
 				},
+				deliverable: {
+					en: "System architecture & wireframes",
+					id: "Arsitektur sistem & wireframe",
+				},
 			},
 			{
 				num: "03",
-				tag: { en: "Iterate visibly", id: "Iterasi Transparan" },
+				icon: "ti-code",
+				tag: { en: "ITERATE VISIBLY", id: "ITERASI TRANSPARAN" },
 				title: { en: "Build & Validate", id: "Pengembangan & Uji" },
+				timeline: { en: "2-4 weeks", id: "2-4 minggu" },
 				desc: {
 					en: "Develop in focused sprints, validate core user flows, incorporate feedback, and maintain code quality.",
 					id: "Mengembangkan dalam iterasi terfokus, menguji alur kerja utama, dan menerapkan masukan secara bertahap.",
 				},
+				deliverable: {
+					en: "Production codebase & QA report",
+					id: "Codebase produksi & laporan QA",
+				},
 			},
 			{
 				num: "04",
-				tag: { en: "Operate with confidence", id: "Peluncuran Aman" },
+				icon: "ti-rocket",
+				tag: { en: "OPERATE WITH CONFIDENCE", id: "PELUNCURAN AMAN" },
 				title: { en: "Launch & Support", id: "Rilis & Pemeliharaan" },
+				timeline: { en: "1 week + ongoing", id: "1 minggu + berkala" },
 				desc: {
 					en: "Deploy safely to production servers, configure monitoring, document workflows, and ensure ongoing stability.",
 					id: "Merilis aplikasi ke server produksi secara aman, mengkonfigurasi pemantauan, dan memastikan stabilitas sistem.",
+				},
+				deliverable: {
+					en: "Deployment, docs & maintenance",
+					id: "Deployment, dokumentasi & pemeliharaan",
 				},
 			},
 		],
