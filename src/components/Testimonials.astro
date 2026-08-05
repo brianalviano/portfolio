@@ -4,43 +4,64 @@ const { testimonials } = portfolioData;
 ---
 
 <section class="section-shell py-20 sm:py-28" id="testimonials">
-  <div class="mb-12 grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
-    <div>
-      <p class="eyebrow">{testimonials.eyebrow}</p>
-      <h2 class="display mt-3 text-4xl font-bold sm:text-6xl" data-i18n-en={testimonials.heading.en} data-i18n-id={testimonials.heading.id}>
-        {testimonials.heading.en}
-      </h2>
-    </div>
-    <p class="text-lg leading-relaxed text-ink/60" data-i18n-en={testimonials.subtext.en} data-i18n-id={testimonials.subtext.id}>
-      {testimonials.subtext.en}
-    </p>
-  </div>
+	<div class="mb-12 grid gap-8 lg:grid-cols-[1fr_.7fr] lg:items-end">
+		<div>
+			<p class="eyebrow">{testimonials.eyebrow}</p>
+			<h2
+				class="display mt-3 text-4xl font-bold sm:text-6xl"
+				data-i18n-en={testimonials.heading.en}
+				data-i18n-id={testimonials.heading.id}
+			>
+				{testimonials.heading.en}
+			</h2>
+		</div>
+		<p
+			class="text-lg leading-relaxed text-ink/60"
+			data-i18n-en={testimonials.subtext.en}
+			data-i18n-id={testimonials.subtext.id}
+		>
+			{testimonials.subtext.en}
+		</p>
+	</div>
 
-  <div class="grid gap-6 md:grid-cols-3">
-    {testimonials.list.map((t, idx) => (
-      <article class={`testimonial-card rounded-3xl border-2 border-ink p-7 sm:p-8 shadow-[6px_6px_0_#151310] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0_#ed4d2b] ${t.accentBg}`}>
-        <div>
-          <div class="flex items-center justify-between mb-6">
-            <span class="display text-3xl font-black text-ink/20">0{idx + 1}</span>
-            <div class="flex gap-1 text-accent">
-              <i class="ti ti-star-filled text-sm"></i>
-              <i class="ti ti-star-filled text-sm"></i>
-              <i class="ti ti-star-filled text-sm"></i>
-              <i class="ti ti-star-filled text-sm"></i>
-              <i class="ti ti-star-filled text-sm"></i>
-            </div>
-          </div>
-          <p class="text-sm sm:text-base leading-relaxed font-medium text-ink/85 italic" data-i18n-en={`"${t.quote.en}"`} data-i18n-id={`"${t.quote.id}"`}>
-            "{t.quote.en}"
-          </p>
-        </div>
-        <div class="mt-8 border-t border-ink/15 pt-5 flex items-center justify-between">
-          <div>
-            <strong class="display block text-base font-bold text-ink">{t.author}</strong>
-            <span class="text-xs font-semibold text-ink/60">{t.company} · <span data-i18n-en={t.role.en} data-i18n-id={t.role.id}>{t.role.en}</span></span>
-          </div>
-        </div>
-      </article>
-    ))}
-  </div>
+	<div class="grid gap-6 md:grid-cols-3">
+		{
+			testimonials.list.map((t, idx) => (
+				<article
+					class={`testimonial-card rounded-3xl border-2 border-ink p-7 sm:p-8 shadow-[6px_6px_0_#151310] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0_#ed4d2b] ${t.accentBg}`}
+				>
+					<div>
+						<div class="flex items-center justify-between mb-6">
+							<span class="display text-3xl font-black text-ink/20">0{idx + 1}</span>
+							<div class="flex gap-1 text-accent">
+								<i class="ti ti-star-filled text-sm" />
+								<i class="ti ti-star-filled text-sm" />
+								<i class="ti ti-star-filled text-sm" />
+								<i class="ti ti-star-filled text-sm" />
+								<i class="ti ti-star-filled text-sm" />
+							</div>
+						</div>
+						<p
+							class="text-sm sm:text-base leading-relaxed font-medium text-ink/85 italic"
+							data-i18n-en={`"${t.quote.en}"`}
+							data-i18n-id={`"${t.quote.id}"`}
+						>
+							"{t.quote.en}"
+						</p>
+					</div>
+					<div class="mt-8 border-t border-ink/15 pt-5 flex items-center justify-between">
+						<div>
+							<strong class="display block text-base font-bold text-ink">{t.author}</strong>
+							<span class="text-xs font-semibold text-ink/60">
+								{t.company} ·{" "}
+								<span data-i18n-en={t.role.en} data-i18n-id={t.role.id}>
+									{t.role.en}
+								</span>
+							</span>
+						</div>
+					</div>
+				</article>
+			))
+		}
+	</div>
 </section>

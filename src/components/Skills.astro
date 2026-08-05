@@ -4,133 +4,343 @@ const { skills } = portfolioData;
 ---
 
 <section class="border-y-2 border-ink bg-ink py-20 text-white sm:py-24" id="skills">
-  <div class="section-shell">
-    <div class="mb-12 grid gap-8 lg:grid-cols-[1fr_.65fr] lg:items-end">
-      <div>
-        <p class="eyebrow">{skills.eyebrow}</p>
-        <h2 class="display mt-3 text-4xl font-bold tracking-tight sm:text-5xl" data-i18n-en={skills.heading.en} data-i18n-id={skills.heading.id}>
-          {skills.heading.en}
-        </h2>
-      </div>
-      <p class="text-base leading-relaxed text-white/55" data-i18n-en={skills.subtext.en} data-i18n-id={skills.subtext.id}>
-        {skills.subtext.en}
-      </p>
-    </div>
+	<div class="section-shell">
+		<div class="mb-12 grid gap-8 lg:grid-cols-[1fr_.65fr] lg:items-end">
+			<div>
+				<p class="eyebrow">{skills.eyebrow}</p>
+				<h2
+					class="display mt-3 text-4xl font-bold tracking-tight sm:text-5xl"
+					data-i18n-en={skills.heading.en}
+					data-i18n-id={skills.heading.id}
+				>
+					{skills.heading.en}
+				</h2>
+			</div>
+			<p
+				class="text-base leading-relaxed text-white/55"
+				data-i18n-en={skills.subtext.en}
+				data-i18n-id={skills.subtext.id}
+			>
+				{skills.subtext.en}
+			</p>
+		</div>
 
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      <!-- Frontend Card -->
-      <article class="skill-card rounded-3xl border border-white/15 bg-white/[.04] p-6 backdrop-blur transition hover:border-white/25">
-        <div class="mb-5 flex items-center gap-3 border-b border-white/10 pb-4">
-          <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent text-white font-bold"><i class="ti ti-layout-dashboard text-lg"></i></span>
-          <h3 class="display text-xl font-bold">Frontend</h3>
-        </div>
-        <div class="grid grid-cols-2 gap-2.5">
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="HTML5" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/html5/E34F26" width="20"/>
-            <span class="text-xs font-bold text-white">HTML5</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="CSS" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/css/663399" width="20"/>
-            <span class="text-xs font-bold text-white">CSS</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="JavaScript" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/javascript/F7DF1E" width="20"/>
-            <span class="text-xs font-bold text-white">JavaScript</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="TypeScript" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/typescript/3178C6" width="20"/>
-            <span class="text-xs font-bold text-white">TypeScript</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="Svelte" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/svelte/FF3E00" width="20"/>
-            <span class="text-xs font-bold text-white">Svelte</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="Tailwind CSS" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="20"/>
-            <span class="text-xs font-bold text-white">Tailwind</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15 col-span-2 sm:col-span-1">
-            <div class="grid h-5 w-5 place-items-center rounded bg-indigo-500 text-[10px] font-black text-white shrink-0">I</div>
-            <span class="text-xs font-bold text-white">Inertia</span>
-          </div>
-        </div>
-      </article>
+		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+			<!-- Frontend Card -->
+			<article
+				class="skill-card rounded-3xl border border-white/15 bg-white/[.04] p-6 backdrop-blur transition hover:border-white/25"
+			>
+				<div class="mb-5 flex items-center gap-3 border-b border-white/10 pb-4">
+					<span class="grid h-9 w-9 place-items-center rounded-xl bg-accent text-white font-bold"
+						><i class="ti ti-layout-dashboard text-lg"></i></span
+					>
+					<h3 class="display text-xl font-bold">Frontend</h3>
+				</div>
+				<div class="grid grid-cols-2 gap-2.5">
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="HTML5"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/html5/E34F26"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">HTML5</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="CSS"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/css/663399"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">CSS</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="JavaScript"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/javascript/F7DF1E"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">JavaScript</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="TypeScript"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/typescript/3178C6"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">TypeScript</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="Svelte"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/svelte/FF3E00"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Svelte</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="Tailwind CSS"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/tailwindcss/06B6D4"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Tailwind</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15 col-span-2 sm:col-span-1"
+					>
+						<div
+							class="grid h-5 w-5 place-items-center rounded bg-indigo-500 text-[10px] font-black text-white shrink-0"
+						>
+							I
+						</div>
+						<span class="text-xs font-bold text-white">Inertia</span>
+					</div>
+				</div>
+			</article>
 
-      <!-- Backend & Data Card -->
-      <article class="skill-card rounded-3xl border border-white/15 bg-white/[.04] p-6 backdrop-blur transition hover:border-white/25">
-        <div class="mb-5 flex items-center gap-3 border-b border-white/10 pb-4">
-          <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent text-white font-bold"><i class="ti ti-database text-lg"></i></span>
-          <h3 class="display text-xl font-bold">Backend &amp; Data</h3>
-        </div>
-        <div class="grid grid-cols-2 gap-2.5">
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="Laravel" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/laravel/FF2D20" width="20"/>
-            <span class="text-xs font-bold text-white">Laravel</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="PHP" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/php/777BB4" width="20"/>
-            <span class="text-xs font-bold text-white">PHP</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="PostgreSQL" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/postgresql/4169E1" width="20"/>
-            <span class="text-xs font-bold text-white">PostgreSQL</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="MySQL" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/mysql/4479A1" width="20"/>
-            <span class="text-xs font-bold text-white">MySQL</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="Redis" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/redis/FF4438" width="20"/>
-            <span class="text-xs font-bold text-white">Redis</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <i class="ti ti-api text-lg text-accent shrink-0"></i>
-            <span class="text-xs font-bold text-white">REST API</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15 col-span-2 sm:col-span-1">
-            <i class="ti ti-table-alias text-lg text-accent shrink-0"></i>
-            <span class="text-xs font-bold text-white truncate">Data Model</span>
-          </div>
-        </div>
-      </article>
+			<!-- Backend & Data Card -->
+			<article
+				class="skill-card rounded-3xl border border-white/15 bg-white/[.04] p-6 backdrop-blur transition hover:border-white/25"
+			>
+				<div class="mb-5 flex items-center gap-3 border-b border-white/10 pb-4">
+					<span class="grid h-9 w-9 place-items-center rounded-xl bg-accent text-white font-bold"
+						><i class="ti ti-database text-lg"></i></span
+					>
+					<h3 class="display text-xl font-bold">Backend &amp; Data</h3>
+				</div>
+				<div class="grid grid-cols-2 gap-2.5">
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="Laravel"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/laravel/FF2D20"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Laravel</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="PHP"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/php/777BB4"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">PHP</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="PostgreSQL"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/postgresql/4169E1"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">PostgreSQL</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="MySQL"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/mysql/4479A1"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">MySQL</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="Redis"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/redis/FF4438"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Redis</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<i class="ti ti-api text-lg text-accent shrink-0"></i>
+						<span class="text-xs font-bold text-white">REST API</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15 col-span-2 sm:col-span-1"
+					>
+						<i class="ti ti-table-alias text-lg text-accent shrink-0"></i>
+						<span class="text-xs font-bold text-white truncate">Data Model</span>
+					</div>
+				</div>
+			</article>
 
-      <!-- DevOps & Tools Card -->
-      <article class="skill-card rounded-3xl border border-white/15 bg-white/[.04] p-6 backdrop-blur transition hover:border-white/25">
-        <div class="mb-5 flex items-center gap-3 border-b border-white/10 pb-4">
-          <span class="grid h-9 w-9 place-items-center rounded-xl bg-accent text-white font-bold"><i class="ti ti-server-cog text-lg"></i></span>
-          <h3 class="display text-xl font-bold">DevOps &amp; Tools</h3>
-        </div>
-        <div class="grid grid-cols-2 gap-2.5">
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="Nginx" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/nginx/009639" width="20"/>
-            <span class="text-xs font-bold text-white">Nginx</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="Docker" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/docker/2496ED" width="20"/>
-            <span class="text-xs font-bold text-white">Docker</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="Git" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/git/F05032" width="20"/>
-            <span class="text-xs font-bold text-white">Git</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="GitHub" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/github/ffffff" width="20"/>
-            <span class="text-xs font-bold text-white">GitHub</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="Vite" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/vite/646CFF" width="20"/>
-            <span class="text-xs font-bold text-white">Vite</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15">
-            <img alt="Bun" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/bun/FBF0DF" width="20"/>
-            <span class="text-xs font-bold text-white">Bun</span>
-          </div>
-          <div class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15 col-span-2 sm:col-span-1">
-            <img alt="Composer" class="h-5 w-5 shrink-0" decoding="async" height="20" loading="lazy" src="https://cdn.simpleicons.org/composer/885630" width="20"/>
-            <span class="text-xs font-bold text-white">Composer</span>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
+			<!-- DevOps & Tools Card -->
+			<article
+				class="skill-card rounded-3xl border border-white/15 bg-white/[.04] p-6 backdrop-blur transition hover:border-white/25"
+			>
+				<div class="mb-5 flex items-center gap-3 border-b border-white/10 pb-4">
+					<span class="grid h-9 w-9 place-items-center rounded-xl bg-accent text-white font-bold"
+						><i class="ti ti-server-cog text-lg"></i></span
+					>
+					<h3 class="display text-xl font-bold">DevOps &amp; Tools</h3>
+				</div>
+				<div class="grid grid-cols-2 gap-2.5">
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="Nginx"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/nginx/009639"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Nginx</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="Docker"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/docker/2496ED"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Docker</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="Git"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/git/F05032"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Git</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="GitHub"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/github/ffffff"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">GitHub</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="Vite"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/vite/646CFF"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Vite</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15"
+					>
+						<img
+							alt="Bun"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/bun/FBF0DF"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Bun</span>
+					</div>
+					<div
+						class="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.05] px-3 py-2 transition hover:border-accent/50 hover:bg-accent/15 col-span-2 sm:col-span-1"
+					>
+						<img
+							alt="Composer"
+							class="h-5 w-5 shrink-0"
+							decoding="async"
+							height="20"
+							loading="lazy"
+							src="https://cdn.simpleicons.org/composer/885630"
+							width="20"
+						/>
+						<span class="text-xs font-bold text-white">Composer</span>
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
 </section>

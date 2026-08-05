@@ -19,10 +19,10 @@ const { seo, lang = "en" } = Astro.props;
 		<slot />
 
 		<script>
-			import { gsap } from 'gsap';
-			import { ScrollTrigger } from 'gsap/ScrollTrigger';
+			import { gsap } from "gsap";
+			import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-			if (typeof window !== 'undefined') {
+			if (typeof window !== "undefined") {
 				(window as any).gsap = gsap;
 				(window as any).ScrollTrigger = ScrollTrigger;
 				gsap.registerPlugin(ScrollTrigger);

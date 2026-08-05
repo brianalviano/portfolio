@@ -13,229 +13,304 @@ import Cta from "../../components/Cta.astro";
 import Footer from "../../components/Footer.astro";
 ---
 
-<BaseLayout lang="id" seo={{ title: 'Brian Alviano | Full-Stack Developer & Sistem ERP Surabaya', description: 'Brian Alviano adalah full-stack developer di Indonesia yang membangun sistem ERP kustom, REST API, alat manajemen internal, dan aplikasi bisnis.' }}>
-  <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-ink focus:shadow-lg" href="#main-content">Skip to main content</a>
-  <noscript>This portfolio remains readable without JavaScript, but animations, sliders, and the contact helper require JavaScript.</noscript>
-  <div class="pointer-events-none fixed left-0 top-0 z-[100] hidden h-5 w-5 rounded-full border-2 border-accent bg-accent/20 opacity-0 transition-opacity duration-300 lg:block" id="cursor"></div>
+<BaseLayout
+	lang="id"
+	seo={{
+		title: "Brian Alviano | Full-Stack Developer & Sistem ERP Surabaya",
+		description:
+			"Brian Alviano adalah full-stack developer di Indonesia yang membangun sistem ERP kustom, REST API, alat manajemen internal, dan aplikasi bisnis.",
+	}}
+>
+	<a
+		class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-ink focus:shadow-lg"
+		href="#main-content">Skip to main content</a
+	>
+	<noscript
+		>This portfolio remains readable without JavaScript, but animations, sliders, and the contact
+		helper require JavaScript.</noscript
+	>
+	<div
+		class="pointer-events-none fixed left-0 top-0 z-[100] hidden h-5 w-5 rounded-full border-2 border-accent bg-accent/20 opacity-0 transition-opacity duration-300 lg:block"
+		id="cursor"
+	>
+	</div>
 
-  <Header currentLang="id" />
+	<Header currentLang="id" />
 
-  <main id="main-content" tabindex="-1">
-    <Hero />
-    <About />
-    <Services />
-    <Process />
-    <Skills />
-    <Work />
-    <Testimonials />
-    <InsightsSection />
-    <Cta />
-  </main>
+	<main id="main-content" tabindex="-1">
+		<Hero />
+		<About />
+		<Services />
+		<Process />
+		<Skills />
+		<Work />
+		<Testimonials />
+		<InsightsSection />
+		<Cta />
+	</main>
 
-  <Footer />
+	<Footer />
 
-  <div class="fixed bottom-5 right-5 z-[70] h-14 w-14 sm:bottom-7 sm:right-7" id="floating-actions">
-    <a aria-label="Chat with Brian on WhatsApp" class="absolute inset-0 grid place-items-center rounded-full border-2 border-ink bg-[#25D366] text-white shadow-[5px_5px_0_#151310] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/30" href="https://wa.me/6281370004025" id="floating-whatsapp" rel="noopener noreferrer" target="_blank">
-      <i class="ti ti-brand-whatsapp text-2xl"></i>
-    </a>
-    <a aria-label="Scroll to top" class="pointer-events-none absolute inset-0 grid translate-y-4 scale-90 place-items-center rounded-full border-2 border-ink bg-white text-xl text-ink opacity-0 shadow-[4px_4px_0_#151310] transition-[opacity,transform] duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/30" href="#home" id="scroll-top">
-      <i class="ti ti-arrow-up"></i>
-    </a>
-  </div>
+	<div class="fixed bottom-5 right-5 z-[70] h-14 w-14 sm:bottom-7 sm:right-7" id="floating-actions">
+		<a
+			aria-label="Chat with Brian on WhatsApp"
+			class="absolute inset-0 grid place-items-center rounded-full border-2 border-ink bg-[#25D366] text-white shadow-[5px_5px_0_#151310] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/30"
+			href="https://wa.me/6281370004025"
+			id="floating-whatsapp"
+			rel="noopener noreferrer"
+			target="_blank"
+		>
+			<i class="ti ti-brand-whatsapp text-2xl"></i>
+		</a>
+		<a
+			aria-label="Scroll to top"
+			class="pointer-events-none absolute inset-0 grid translate-y-4 scale-90 place-items-center rounded-full border-2 border-ink bg-white text-xl text-ink opacity-0 shadow-[4px_4px_0_#151310] transition-[opacity,transform] duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/30"
+			href="#home"
+			id="scroll-top"
+		>
+			<i class="ti ti-arrow-up"></i>
+		</a>
+	</div>
 
-  <script is:inline>
-  window.addEventListener('DOMContentLoaded', () => {
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+	<script is:inline>
+		window.addEventListener("DOMContentLoaded", () => {
+			const yearEl = document.getElementById("year");
+			if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    const scrollTopButton = document.getElementById('scroll-top');
-    const floatingWhatsapp = document.getElementById('floating-whatsapp');
-    const updateFloatingActions = () => {
-      const isScrolled = window.scrollY > 180;
-      scrollTopButton?.classList.toggle('opacity-0', !isScrolled);
-      scrollTopButton?.classList.toggle('translate-y-4', !isScrolled);
-      scrollTopButton?.classList.toggle('scale-90', !isScrolled);
-      scrollTopButton?.classList.toggle('pointer-events-none', !isScrolled);
-      scrollTopButton?.classList.toggle('opacity-100', isScrolled);
-      scrollTopButton?.classList.toggle('translate-y-0', isScrolled);
-      scrollTopButton?.classList.toggle('scale-100', isScrolled);
-      if (floatingWhatsapp) floatingWhatsapp.style.transform = isScrolled ? 'translateY(-68px)' : 'translateY(0)';
-    };
-    updateFloatingActions();
-    window.addEventListener('scroll', updateFloatingActions, { passive: true });
-    scrollTopButton?.addEventListener('click', (event) => {
-      event.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+			const scrollTopButton = document.getElementById("scroll-top");
+			const floatingWhatsapp = document.getElementById("floating-whatsapp");
+			const updateFloatingActions = () => {
+				const isScrolled = window.scrollY > 180;
+				scrollTopButton?.classList.toggle("opacity-0", !isScrolled);
+				scrollTopButton?.classList.toggle("translate-y-4", !isScrolled);
+				scrollTopButton?.classList.toggle("scale-90", !isScrolled);
+				scrollTopButton?.classList.toggle("pointer-events-none", !isScrolled);
+				scrollTopButton?.classList.toggle("opacity-100", isScrolled);
+				scrollTopButton?.classList.toggle("translate-y-0", isScrolled);
+				scrollTopButton?.classList.toggle("scale-100", isScrolled);
+				if (floatingWhatsapp)
+					floatingWhatsapp.style.transform = isScrolled ? "translateY(-68px)" : "translateY(0)";
+			};
+			updateFloatingActions();
+			window.addEventListener("scroll", updateFloatingActions, { passive: true });
+			scrollTopButton?.addEventListener("click", (event) => {
+				event.preventDefault();
+				window.scrollTo({ top: 0, behavior: "smooth" });
+			});
 
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-    contactForm?.addEventListener('submit', (event) => {
-      event.preventDefault();
-      if (!contactForm.checkValidity()) {
-        contactForm.reportValidity();
-        if (formStatus) formStatus.textContent = 'Harap lengkapi semua kolom yang wajib diisi.';
-        return;
-      }
+			const contactForm = document.getElementById("contact-form");
+			const formStatus = document.getElementById("form-status");
+			contactForm?.addEventListener("submit", (event) => {
+				event.preventDefault();
+				if (!contactForm.checkValidity()) {
+					contactForm.reportValidity();
+					if (formStatus) formStatus.textContent = "Harap lengkapi semua kolom yang wajib diisi.";
+					return;
+				}
 
-      const data = new FormData(contactForm);
-      const subject = `Pertanyaan Proyek — ${data.get('type')}`;
-      const body = [
-        `Halo Brian,`,
-        ``,
-        `Nama saya ${data.get('name')}.`,
-        `Email: ${data.get('email')}`,
-        `Jenis Proyek: ${data.get('type')}`,
-        `Target Timeline: ${data.get('timeline')}`,
-        ``,
-        `Rincian Proyek:`,
-        `${data.get('message')}`
-      ].join('\n');
+				const data = new FormData(contactForm);
+				const subject = `Pertanyaan Proyek — ${data.get("type")}`;
+				const body = [
+					`Halo Brian,`,
+					``,
+					`Nama saya ${data.get("name")}.`,
+					`Email: ${data.get("email")}`,
+					`Jenis Proyek: ${data.get("type")}`,
+					`Target Timeline: ${data.get("timeline")}`,
+					``,
+					`Rincian Proyek:`,
+					`${data.get("message")}`,
+				].join("\n");
 
-      if (formStatus) formStatus.textContent = 'Membuka aplikasi email Anda…';
-      window.location.href = `mailto:brianalviano.official@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    });
+				if (formStatus) formStatus.textContent = "Membuka aplikasi email Anda…";
+				window.location.href = `mailto:brianalviano.official@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+			});
 
-    document.querySelectorAll('[data-project-slider]').forEach((slider) => {
-      const track = slider.querySelector('.project-slider-track');
-      const slides = Array.from(slider.querySelectorAll('.project-slide'));
-      const dots = Array.from(slider.querySelectorAll('.project-slider-dot'));
-      const caption = slider.querySelector('[data-slider-caption]');
-      let index = 0;
-      let startX = 0;
+			document.querySelectorAll("[data-project-slider]").forEach((slider) => {
+				const track = slider.querySelector(".project-slider-track");
+				const slides = Array.from(slider.querySelectorAll(".project-slide"));
+				const dots = Array.from(slider.querySelectorAll(".project-slider-dot"));
+				const caption = slider.querySelector("[data-slider-caption]");
+				let index = 0;
+				let startX = 0;
 
-      const update = (nextIndex) => {
-        if (slides.length === 0) return;
-        index = (nextIndex + slides.length) % slides.length;
-        if (track) track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === index));
-        const screenTitle = slides[index]?.querySelector('.project-screen-title');
-        if (caption && screenTitle) caption.textContent = screenTitle.textContent || '';
-      };
+				const update = (nextIndex) => {
+					if (slides.length === 0) return;
+					index = (nextIndex + slides.length) % slides.length;
+					if (track) track.style.transform = `translateX(-${index * 100}%)`;
+					dots.forEach((dot, dotIndex) => dot.classList.toggle("is-active", dotIndex === index));
+					const screenTitle = slides[index]?.querySelector(".project-screen-title");
+					if (caption && screenTitle) caption.textContent = screenTitle.textContent || "";
+				};
 
-      slider.querySelector('[data-slider-prev]')?.addEventListener('click', () => update(index - 1));
-      slider.querySelector('[data-slider-next]')?.addEventListener('click', () => update(index + 1));
-      dots.forEach((dot, dotIndex) => dot.addEventListener('click', () => update(dotIndex)));
-      slider.addEventListener('pointerdown', (event) => { startX = event.clientX; });
-      slider.addEventListener('pointerup', (event) => {
-        const distance = event.clientX - startX;
-        if (Math.abs(distance) > 55) update(index + (distance < 0 ? 1 : -1));
-      });
-    });
+				slider
+					.querySelector("[data-slider-prev]")
+					?.addEventListener("click", () => update(index - 1));
+				slider
+					.querySelector("[data-slider-next]")
+					?.addEventListener("click", () => update(index + 1));
+				dots.forEach((dot, dotIndex) => dot.addEventListener("click", () => update(dotIndex)));
+				slider.addEventListener("pointerdown", (event) => {
+					startX = event.clientX;
+				});
+				slider.addEventListener("pointerup", (event) => {
+					const distance = event.clientX - startX;
+					if (Math.abs(distance) > 55) update(index + (distance < 0 ? 1 : -1));
+				});
+			});
 
-    // Dynamic i18n Engine (URL Subpath Routing)
-    const applyLanguage = (lang) => {
-      document.documentElement.lang = lang;
-      localStorage.setItem('preferred_lang', lang);
+			// Dynamic i18n Engine (URL Subpath Routing)
+			const applyLanguage = (lang) => {
+				document.documentElement.lang = lang;
+				localStorage.setItem("preferred_lang", lang);
 
-      // Update element text
-      document.querySelectorAll('[data-i18n-en][data-i18n-id]').forEach((el) => {
-        if (!el) return;
-        const text = el.getAttribute(`data-i18n-${lang}`);
-        if (text !== null && text !== undefined) {
-          if (el.children.length > 0) {
-            el.innerHTML = text;
-          } else {
-            el.textContent = text;
-          }
-        }
-      });
+				// Update element text
+				document.querySelectorAll("[data-i18n-en][data-i18n-id]").forEach((el) => {
+					if (!el) return;
+					const text = el.getAttribute(`data-i18n-${lang}`);
+					if (text !== null && text !== undefined) {
+						if (el.children.length > 0) {
+							el.innerHTML = text;
+						} else {
+							el.textContent = text;
+						}
+					}
+				});
 
-      // Update placeholders
-      document.querySelectorAll('[data-i18n-ph-en][data-i18n-ph-id]').forEach((el) => {
-        if (!el) return;
-        const ph = el.getAttribute(`data-i18n-ph-${lang}`);
-        if (ph) el.setAttribute('placeholder', ph);
-      });
-    };
+				// Update placeholders
+				document.querySelectorAll("[data-i18n-ph-en][data-i18n-ph-id]").forEach((el) => {
+					if (!el) return;
+					const ph = el.getAttribute(`data-i18n-ph-${lang}`);
+					if (ph) el.setAttribute("placeholder", ph);
+				});
+			};
 
-    applyLanguage('id');
+			applyLanguage("id");
 
-    // Standalone Custom Cursor
-    const cursor = document.getElementById('cursor');
-    if (cursor && window.innerWidth >= 1024) {
-      let isVisible = false;
-      let posX = -100;
-      let posY = -100;
+			// Standalone Custom Cursor
+			const cursor = document.getElementById("cursor");
+			if (cursor && window.innerWidth >= 1024) {
+				let isVisible = false;
+				let posX = -100;
+				let posY = -100;
 
-      window.addEventListener('pointermove', (e) => {
-        posX = e.clientX - 10;
-        posY = e.clientY - 10;
-        cursor.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
-        if (!isVisible) {
-          isVisible = true;
-          cursor.style.opacity = '0.7';
-        }
-      }, { passive: true });
+				window.addEventListener(
+					"pointermove",
+					(e) => {
+						posX = e.clientX - 10;
+						posY = e.clientY - 10;
+						cursor.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+						if (!isVisible) {
+							isVisible = true;
+							cursor.style.opacity = "0.7";
+						}
+					},
+					{ passive: true },
+				);
 
-      document.addEventListener('pointerleave', () => {
-        cursor.style.opacity = '0';
-        isVisible = false;
-      });
+				document.addEventListener("pointerleave", () => {
+					cursor.style.opacity = "0";
+					isVisible = false;
+				});
 
-      document.addEventListener('mouseover', (e) => {
-        if (e.target && e.target.closest('a, button, [data-lang-btn], .skill-card, .service-card, .process-card, .project, .testimonial-card, .insight-card')) {
-          cursor.style.transform = `translate3d(${posX}px, ${posY}px, 0) scale(1.75)`;
-          cursor.style.opacity = '0.9';
-        }
-      }, { passive: true });
+				document.addEventListener(
+					"mouseover",
+					(e) => {
+						if (
+							e.target &&
+							e.target.closest(
+								"a, button, [data-lang-btn], .skill-card, .service-card, .process-card, .project, .testimonial-card, .insight-card",
+							)
+						) {
+							cursor.style.transform = `translate3d(${posX}px, ${posY}px, 0) scale(1.75)`;
+							cursor.style.opacity = "0.9";
+						}
+					},
+					{ passive: true },
+				);
 
-      document.addEventListener('mouseout', (e) => {
-        if (e.target && e.target.closest('a, button, [data-lang-btn], .skill-card, .service-card, .process-card, .project, .testimonial-card, .insight-card')) {
-          cursor.style.transform = `translate3d(${posX}px, ${posY}px, 0) scale(1)`;
-          cursor.style.opacity = '0.7';
-        }
-      }, { passive: true });
-    }
+				document.addEventListener(
+					"mouseout",
+					(e) => {
+						if (
+							e.target &&
+							e.target.closest(
+								"a, button, [data-lang-btn], .skill-card, .service-card, .process-card, .project, .testimonial-card, .insight-card",
+							)
+						) {
+							cursor.style.transform = `translate3d(${posX}px, ${posY}px, 0) scale(1)`;
+							cursor.style.opacity = "0.7";
+						}
+					},
+					{ passive: true },
+				);
+			}
 
-    // Native IntersectionObserver for 120fps GPU scroll reveal
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reducedMotion && 'IntersectionObserver' in window) {
-      const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '0px 0px -30px 0px', threshold: 0.05 });
+			// Native IntersectionObserver for 120fps GPU scroll reveal
+			const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+			if (!reducedMotion && "IntersectionObserver" in window) {
+				const revealObserver = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("is-revealed");
+								revealObserver.unobserve(entry.target);
+							}
+						});
+					},
+					{ rootMargin: "0px 0px -30px 0px", threshold: 0.05 },
+				);
 
-      document.querySelectorAll('.skill-card, .service-card, .process-card, .testimonial-card, .experience-card, .project, .cta-panel, .insight-card').forEach((el) => {
-        el.classList.add('reveal-item');
-        revealObserver.observe(el);
-      });
-    }
+				document
+					.querySelectorAll(
+						".skill-card, .service-card, .process-card, .testimonial-card, .experience-card, .project, .cta-panel, .insight-card",
+					)
+					.forEach((el) => {
+						el.classList.add("reveal-item");
+						revealObserver.observe(el);
+					});
+			}
 
-    // GSAP is retained exclusively for number counter interpolation
-    if (!reducedMotion && window.gsap) {
-      gsap.registerPlugin(ScrollTrigger);
+			// GSAP is retained exclusively for number counter interpolation
+			if (!reducedMotion && window.gsap) {
+				gsap.registerPlugin(ScrollTrigger);
 
-      ScrollTrigger.create({
-        trigger: '.stat', start: 'top 85%', once: true,
-        onEnter: () => {
-          document.querySelectorAll('[data-count]').forEach((el) => {
-            const target = Number(el.dataset.count);
-            const obj = { value: 0 };
-            gsap.to(obj, {
-              value: target, duration: 1.8, ease: 'power2.out',
-              onUpdate: () => el.textContent = Math.round(obj.value).toLocaleString() + (target < 100 ? '+' : '')
-            });
-          });
-        }
-      });
-    }
+				ScrollTrigger.create({
+					trigger: ".stat",
+					start: "top 85%",
+					once: true,
+					onEnter: () => {
+						document.querySelectorAll("[data-count]").forEach((el) => {
+							const target = Number(el.dataset.count);
+							const obj = { value: 0 };
+							gsap.to(obj, {
+								value: target,
+								duration: 1.8,
+								ease: "power2.out",
+								onUpdate: () =>
+									(el.textContent =
+										Math.round(obj.value).toLocaleString() + (target < 100 ? "+" : "")),
+							});
+						});
+					},
+				});
+			}
 
-    const footerName = document.querySelector('.footer-name');
-    const footerShine = document.querySelector('.footer-shine');
-    if (footerName && footerShine) {
-      footerName.addEventListener('pointermove', (event) => {
-        const rect = footerName.getBoundingClientRect();
-        const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
-        const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
-        footerShine.style.setProperty('--shine-x', `${x}%`);
-        footerShine.style.setProperty('--shine-y', `${y}%`);
-      }, { passive: true });
-    }
-  });
-  </script>
+			const footerName = document.querySelector(".footer-name");
+			const footerShine = document.querySelector(".footer-shine");
+			if (footerName && footerShine) {
+				footerName.addEventListener(
+					"pointermove",
+					(event) => {
+						const rect = footerName.getBoundingClientRect();
+						const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
+						const y = Math.max(0, Math.min(100, ((event.clientY - rect.top) / rect.height) * 100));
+						footerShine.style.setProperty("--shine-x", `${x}%`);
+						footerShine.style.setProperty("--shine-y", `${y}%`);
+					},
+					{ passive: true },
+				);
+			}
+		});
+	</script>
 </BaseLayout>

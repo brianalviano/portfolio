@@ -9,32 +9,97 @@ const idHref = "/id";
 ---
 
 <header class="fixed inset-x-0 top-0 z-50 border-b border-ink/10 bg-paper/92 backdrop-blur-md">
-  <nav class="section-shell flex h-20 items-center justify-between">
-    <a class="group flex items-center gap-3" href={currentLang === 'id' ? '/id#home' : '#home'}>
-      <span class="display grid h-11 w-11 place-items-center rounded-xl bg-ink text-lg font-bold text-white transition-transform group-hover:-rotate-6">BA</span>
-      <span class="display hidden text-sm font-bold leading-tight sm:block">BRIAN<br/>ALVIANO</span>
-    </a>
-    <div class="hidden items-center gap-6 text-sm font-semibold md:flex">
-      <a class="transition-colors hover:text-accent" href={currentLang === 'id' ? '/id#about' : '#about'} data-i18n-en="About" data-i18n-id="Tentang">{currentLang === 'id' ? 'Tentang' : 'About'}</a>
-      <a class="transition-colors hover:text-accent" href={currentLang === 'id' ? '/id#services' : '#services'} data-i18n-en="Services" data-i18n-id="Layanan">{currentLang === 'id' ? 'Layanan' : 'Services'}</a>
-      <a class="transition-colors hover:text-accent" href={currentLang === 'id' ? '/id#process' : '#process'} data-i18n-en="Process" data-i18n-id="Proses">{currentLang === 'id' ? 'Proses' : 'Process'}</a>
-      <a class="transition-colors hover:text-accent" href={currentLang === 'id' ? '/id#skills' : '#skills'} data-i18n-en="Skills" data-i18n-id="Keahlian">{currentLang === 'id' ? 'Keahlian' : 'Skills'}</a>
-      <a class="transition-colors hover:text-accent" href={currentLang === 'id' ? '/id#work' : '#work'} data-i18n-en="Work" data-i18n-id="Portfolio">{currentLang === 'id' ? 'Portfolio' : 'Work'}</a>
-      <a class="transition-colors hover:text-accent" href={currentLang === 'id' ? '/id#testimonials' : '#testimonials'} data-i18n-en="Testimonials" data-i18n-id="Testimoni">{currentLang === 'id' ? 'Testimoni' : 'Testimonials'}</a>
-      <a class="transition-colors hover:text-accent" href={currentLang === 'id' ? '/id#insights' : '#insights'} data-i18n-en="Insights" data-i18n-id="Artikel">{currentLang === 'id' ? 'Artikel' : 'Insights'}</a>
-      <a class="transition-colors hover:text-accent" href={currentLang === 'id' ? '/id#contact' : '#contact'} data-i18n-en="Contact" data-i18n-id="Kontak">{currentLang === 'id' ? 'Kontak' : 'Contact'}</a>
-    </div>
-    
-    <div class="flex items-center gap-3">
-      <!-- Language Switcher URL Links (Metode 1 Standar Internasional) -->
-      <div class="flex items-center rounded-full border-2 border-ink bg-white p-1 text-xs font-extrabold shadow-[2px_2px_0_#151310]" id="lang-switcher">
-        <a href={enHref} onclick="localStorage.setItem('preferred_lang', 'en')" data-lang-btn="en" aria-label="Switch to English" class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === 'en' ? 'bg-ink text-white' : 'text-ink/60 hover:text-ink'}`}>EN</a>
-        <a href={idHref} onclick="localStorage.setItem('preferred_lang', 'id')" data-lang-btn="id" aria-label="Switch to Indonesian" class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === 'id' ? 'bg-ink text-white' : 'text-ink/60 hover:text-ink'}`}>ID</a>
-      </div>
+	<nav class="section-shell flex h-20 items-center justify-between">
+		<a class="group flex items-center gap-3" href={currentLang === "id" ? "/id#home" : "#home"}>
+			<span
+				class="display grid h-11 w-11 place-items-center rounded-xl bg-ink text-lg font-bold text-white transition-transform group-hover:-rotate-6"
+				>BA</span
+			>
+			<span class="display hidden text-sm font-bold leading-tight sm:block">BRIAN<br />ALVIANO</span
+			>
+		</a>
+		<div class="hidden items-center gap-6 text-sm font-semibold md:flex">
+			<a
+				class="transition-colors hover:text-accent"
+				href={currentLang === "id" ? "/id#about" : "#about"}
+				data-i18n-en="About"
+				data-i18n-id="Tentang">{currentLang === "id" ? "Tentang" : "About"}</a
+			>
+			<a
+				class="transition-colors hover:text-accent"
+				href={currentLang === "id" ? "/id#services" : "#services"}
+				data-i18n-en="Services"
+				data-i18n-id="Layanan">{currentLang === "id" ? "Layanan" : "Services"}</a
+			>
+			<a
+				class="transition-colors hover:text-accent"
+				href={currentLang === "id" ? "/id#process" : "#process"}
+				data-i18n-en="Process"
+				data-i18n-id="Proses">{currentLang === "id" ? "Proses" : "Process"}</a
+			>
+			<a
+				class="transition-colors hover:text-accent"
+				href={currentLang === "id" ? "/id#skills" : "#skills"}
+				data-i18n-en="Skills"
+				data-i18n-id="Keahlian">{currentLang === "id" ? "Keahlian" : "Skills"}</a
+			>
+			<a
+				class="transition-colors hover:text-accent"
+				href={currentLang === "id" ? "/id#work" : "#work"}
+				data-i18n-en="Work"
+				data-i18n-id="Portfolio">{currentLang === "id" ? "Portfolio" : "Work"}</a
+			>
+			<a
+				class="transition-colors hover:text-accent"
+				href={currentLang === "id" ? "/id#testimonials" : "#testimonials"}
+				data-i18n-en="Testimonials"
+				data-i18n-id="Testimoni">{currentLang === "id" ? "Testimoni" : "Testimonials"}</a
+			>
+			<a
+				class="transition-colors hover:text-accent"
+				href={currentLang === "id" ? "/id#insights" : "#insights"}
+				data-i18n-en="Insights"
+				data-i18n-id="Artikel">{currentLang === "id" ? "Artikel" : "Insights"}</a
+			>
+			<a
+				class="transition-colors hover:text-accent"
+				href={currentLang === "id" ? "/id#contact" : "#contact"}
+				data-i18n-en="Contact"
+				data-i18n-id="Kontak">{currentLang === "id" ? "Kontak" : "Contact"}</a
+			>
+		</div>
 
-      <a class="inline-flex items-center gap-2 rounded-full bg-ink px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-accent" href={currentLang === 'id' ? '/id#contact' : '#contact'}>
-        <span>{currentLang === 'id' ? 'Diskusi' : 'Let’s talk'}</span> <i class="ti ti-arrow-up-right"></i>
-      </a>
-    </div>
-  </nav>
+		<div class="flex items-center gap-3">
+			<!-- Language Switcher URL Links (Metode 1 Standar Internasional) -->
+			<div
+				class="flex items-center rounded-full border-2 border-ink bg-white p-1 text-xs font-extrabold shadow-[2px_2px_0_#151310]"
+				id="lang-switcher"
+			>
+				<a
+					href={enHref}
+					onclick="localStorage.setItem('preferred_lang', 'en')"
+					data-lang-btn="en"
+					aria-label="Switch to English"
+					class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === "en" ? "bg-ink text-white" : "text-ink/60 hover:text-ink"}`}
+					>EN</a
+				>
+				<a
+					href={idHref}
+					onclick="localStorage.setItem('preferred_lang', 'id')"
+					data-lang-btn="id"
+					aria-label="Switch to Indonesian"
+					class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === "id" ? "bg-ink text-white" : "text-ink/60 hover:text-ink"}`}
+					>ID</a
+				>
+			</div>
+
+			<a
+				class="inline-flex items-center gap-2 rounded-full bg-ink px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-accent"
+				href={currentLang === "id" ? "/id#contact" : "#contact"}
+			>
+				<span>{currentLang === "id" ? "Diskusi" : "Let’s talk"}</span>
+				<i class="ti ti-arrow-up-right"></i>
+			</a>
+		</div>
+	</nav>
 </header>

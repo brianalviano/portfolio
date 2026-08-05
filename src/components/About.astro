@@ -4,65 +4,130 @@ const { about } = portfolioData;
 ---
 
 <section class="section-shell pt-14 pb-6 sm:pt-16 sm:pb-8" id="about">
-  <div class="grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-start">
-    <div>
-      <p class="eyebrow">{about.eyebrow}</p>
-      <h2 class="display mt-3 text-3xl font-bold tracking-tight sm:text-5xl" data-i18n-en={about.heading.en} data-i18n-id={about.heading.id}>
-        {about.heading.en}
-      </h2>
-      <p class="mt-4 text-sm leading-relaxed text-ink/60" data-i18n-en={about.subtext.en} data-i18n-id={about.subtext.id}>
-        {about.subtext.en}
-      </p>
+	<div class="grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-start">
+		<div>
+			<p class="eyebrow">{about.eyebrow}</p>
+			<h2
+				class="display mt-3 text-3xl font-bold tracking-tight sm:text-5xl"
+				data-i18n-en={about.heading.en}
+				data-i18n-id={about.heading.id}
+			>
+				{about.heading.en}
+			</h2>
+			<p
+				class="mt-4 text-sm leading-relaxed text-ink/60"
+				data-i18n-en={about.subtext.en}
+				data-i18n-id={about.subtext.id}
+			>
+				{about.subtext.en}
+			</p>
 
-      <div class="mt-8 grid grid-cols-2 gap-3">
-        {about.stats.map((s) => (
-          <div class="stat rounded-2xl border-2 border-ink bg-paper p-4 shadow-[4px_4px_0_#151310]">
-            <strong class={`display block text-3xl font-bold sm:text-4xl ${s.accent ? 'text-accent' : 'text-ink'}`} data-count={s.count}>0</strong>
-            <span class="mt-1 block text-xs font-semibold text-ink/70" data-i18n-en={s.label.en} data-i18n-id={s.label.id}>{s.label.en}</span>
-          </div>
-        ))}
-      </div>
-    </div>
+			<div class="mt-8 grid grid-cols-2 gap-3">
+				{
+					about.stats.map((s) => (
+						<div class="stat rounded-2xl border-2 border-ink bg-paper p-4 shadow-[4px_4px_0_#151310]">
+							<strong
+								class={`display block text-3xl font-bold sm:text-4xl ${s.accent ? "text-accent" : "text-ink"}`}
+								data-count={s.count}
+							>
+								0
+							</strong>
+							<span
+								class="mt-1 block text-xs font-semibold text-ink/70"
+								data-i18n-en={s.label.en}
+								data-i18n-id={s.label.id}
+							>
+								{s.label.en}
+							</span>
+						</div>
+					))
+				}
+			</div>
+		</div>
 
-    <div class="rounded-3xl border-2 border-ink bg-white p-6 shadow-[8px_8px_0_#151310] sm:p-8">
-      <p class="text-base leading-relaxed text-ink/80 sm:text-lg" data-i18n-en="I’m Brian Alviano, a Full-Stack Developer with 6 years of experience specializing in Laravel & Svelte. I build custom ERP systems, internal tools, REST APIs, and scalable web applications." data-i18n-id="Saya Brian Alviano, Full-Stack Developer dengan 6 tahun pengalaman berfokus pada Laravel & Svelte. Saya membangun sistem ERP kustom, alat manajemen internal, REST API, dan aplikasi web.">
-        I’m <strong class="text-ink">Brian Alviano</strong>, a Full-Stack Developer with 6 years of experience specializing in <strong class="text-accent">Laravel</strong> &amp; <strong class="text-accent">Svelte</strong>. I build custom ERP systems, internal tools, REST APIs, and scalable web applications.
-      </p>
+		<div class="rounded-3xl border-2 border-ink bg-white p-6 shadow-[8px_8px_0_#151310] sm:p-8">
+			<p
+				class="text-base leading-relaxed text-ink/80 sm:text-lg"
+				data-i18n-en="I’m Brian Alviano, a Full-Stack Developer with 6 years of experience specializing in Laravel & Svelte. I build custom ERP systems, internal tools, REST APIs, and scalable web applications."
+				data-i18n-id="Saya Brian Alviano, Full-Stack Developer dengan 6 tahun pengalaman berfokus pada Laravel & Svelte. Saya membangun sistem ERP kustom, alat manajemen internal, REST API, dan aplikasi web."
+			>
+				I’m <strong class="text-ink">Brian Alviano</strong>, a Full-Stack Developer with 6 years of
+				experience specializing in <strong class="text-accent">Laravel</strong> &amp; <strong
+					class="text-accent">Svelte</strong
+				>. I build custom ERP systems, internal tools, REST APIs, and scalable web applications.
+			</p>
 
-      <div class="mt-6 space-y-2.5 border-t border-ink/10 pt-5 text-xs sm:text-sm">
-        {about.contactQuickList.map((item) => (
-          <div class="flex flex-wrap items-center justify-between gap-2">
-            <span class="font-bold text-ink/50 uppercase tracking-wider text-[11px]" data-i18n-en={item.label.en} data-i18n-id={item.label.id}>{item.label.en}</span>
-            {item.href ? (
-              <a class="font-bold text-ink hover:text-accent transition-colors underline decoration-ink/25 break-all" href={item.href}>{item.value}</a>
-            ) : (
-              <span class="font-bold text-ink">{item.value}</span>
-            )}
-          </div>
-        ))}
-      </div>
+			<div class="mt-6 space-y-2.5 border-t border-ink/10 pt-5 text-xs sm:text-sm">
+				{
+					about.contactQuickList.map((item) => (
+						<div class="flex flex-wrap items-center justify-between gap-2">
+							<span
+								class="font-bold text-ink/50 uppercase tracking-wider text-[11px]"
+								data-i18n-en={item.label.en}
+								data-i18n-id={item.label.id}
+							>
+								{item.label.en}
+							</span>
+							{item.href ? (
+								<a
+									class="font-bold text-ink hover:text-accent transition-colors underline decoration-ink/25 break-all"
+									href={item.href}
+								>
+									{item.value}
+								</a>
+							) : (
+								<span class="font-bold text-ink">{item.value}</span>
+							)}
+						</div>
+					))
+				}
+			</div>
 
-      <div class="mt-6 border-t border-ink/10 pt-5">
-        <span class="text-xs font-bold text-ink/50 uppercase tracking-wider block mb-3 text-[11px]" data-i18n-en={about.connectOnline.en} data-i18n-id={about.connectOnline.id}>{about.connectOnline.en}</span>
-        <div class="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-          <a class="flex items-center justify-center gap-2 rounded-xl border border-ink/20 bg-[#ffd7e3] px-3 py-2.5 text-xs font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0_#151310]" href="https://instagram.com/vinnoo_" rel="noopener noreferrer" target="_blank">
-            <i class="ti ti-brand-instagram text-lg"></i>
-            <span>Instagram</span>
-          </a>
-          <a class="flex items-center justify-center gap-2 rounded-xl border border-ink/20 bg-[#d9ecff] px-3 py-2.5 text-xs font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0_#151310]" href="https://linkedin.com/in/brianalviano" rel="noopener noreferrer" target="_blank">
-            <i class="ti ti-brand-linkedin text-lg"></i>
-            <span>LinkedIn</span>
-          </a>
-          <a class="flex items-center justify-center gap-2 rounded-xl border border-ink/20 bg-[#ececec] px-3 py-2.5 text-xs font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0_#151310]" href="https://github.com/brianalviano" rel="noopener noreferrer" target="_blank">
-            <i class="ti ti-brand-github text-lg"></i>
-            <span>GitHub</span>
-          </a>
-          <a class="flex items-center justify-center gap-2 rounded-xl border border-ink/20 bg-[#dcfce7] px-3 py-2.5 text-xs font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0_#151310]" href="https://wa.me/6281370004025" rel="noopener noreferrer" target="_blank">
-            <i class="ti ti-brand-whatsapp text-lg"></i>
-            <span>WhatsApp</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+			<div class="mt-6 border-t border-ink/10 pt-5">
+				<span
+					class="text-xs font-bold text-ink/50 uppercase tracking-wider block mb-3 text-[11px]"
+					data-i18n-en={about.connectOnline.en}
+					data-i18n-id={about.connectOnline.id}>{about.connectOnline.en}</span
+				>
+				<div class="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+					<a
+						class="flex items-center justify-center gap-2 rounded-xl border border-ink/20 bg-[#ffd7e3] px-3 py-2.5 text-xs font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0_#151310]"
+						href="https://instagram.com/vinnoo_"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<i class="ti ti-brand-instagram text-lg"></i>
+						<span>Instagram</span>
+					</a>
+					<a
+						class="flex items-center justify-center gap-2 rounded-xl border border-ink/20 bg-[#d9ecff] px-3 py-2.5 text-xs font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0_#151310]"
+						href="https://linkedin.com/in/brianalviano"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<i class="ti ti-brand-linkedin text-lg"></i>
+						<span>LinkedIn</span>
+					</a>
+					<a
+						class="flex items-center justify-center gap-2 rounded-xl border border-ink/20 bg-[#ececec] px-3 py-2.5 text-xs font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0_#151310]"
+						href="https://github.com/brianalviano"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<i class="ti ti-brand-github text-lg"></i>
+						<span>GitHub</span>
+					</a>
+					<a
+						class="flex items-center justify-center gap-2 rounded-xl border border-ink/20 bg-[#dcfce7] px-3 py-2.5 text-xs font-bold text-ink transition hover:-translate-y-0.5 hover:shadow-[3px_3px_0_#151310]"
+						href="https://wa.me/6281370004025"
+						rel="noopener noreferrer"
+						target="_blank"
+					>
+						<i class="ti ti-brand-whatsapp text-lg"></i>
+						<span>WhatsApp</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

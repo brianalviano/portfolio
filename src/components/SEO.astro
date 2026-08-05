@@ -21,9 +21,7 @@ const {
 	lang = "en",
 } = Astro.props;
 
-const siteTitle = title.includes("Brian Alviano")
-	? title
-	: `${title} | Brian Alviano`;
+const siteTitle = title.includes("Brian Alviano") ? title : `${title} | Brian Alviano`;
 const siteOrigin = Astro.site ? Astro.site.origin : Astro.url.origin;
 const enUrl = `${siteOrigin}/`;
 const idUrl = `${siteOrigin}/id/`;
@@ -69,7 +67,10 @@ const finalJsonLd = jsonLd || defaultPersonSchema;
 <title>{siteTitle}</title>
 <meta name="description" content={description} />
 <meta name="author" content="Brian Alviano" />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta
+	name="robots"
+	content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+/>
 <meta name="theme-color" content="#f5f1eb" />
 <meta name="color-scheme" content="light" />
 <meta name="format-detection" content="telephone=yes" />
@@ -84,7 +85,7 @@ const finalJsonLd = jsonLd || defaultPersonSchema;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />
-<meta property="og:locale" content={lang === 'id' ? 'id_ID' : 'en_US'} />
+<meta property="og:locale" content={lang === "id" ? "id_ID" : "en_US"} />
 <meta property="og:site_name" content="Brian Alviano" />
 <meta property="og:title" content={siteTitle} />
 <meta property="og:description" content={description} />
@@ -107,8 +108,8 @@ const finalJsonLd = jsonLd || defaultPersonSchema;
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-  rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+	rel="stylesheet"
 />
 
 <!-- Structured Data (JSON-LD) -->
