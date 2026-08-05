@@ -258,34 +258,47 @@ export function initUI(initialLang: "en" | "id" = "en") {
 				});
 		}
 
-		// GSAP counter interpolation
-		if (!reducedMotion && window.gsap) {
-			const gsap = window.gsap;
-			const ScrollTrigger = window.ScrollTrigger;
-			if (ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+		// Animated Counter via IntersectionObserver (bulletproof & 120fps smooth)
+		if (!reducedMotion && "IntersectionObserver" in window) {
+			const statObserver = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const el = entry.target as HTMLElement;
+							const target = Number(el.dataset.count) || 0;
+							if (target > 0) {
+								const duration = 1600;
+								const startTime = performance.now();
+								const animate = (currentTime: number) => {
+									const elapsed = currentTime - startTime;
+									const progress = Math.min(elapsed / duration, 1);
+									const easeOut = 1 - Math.pow(1 - progress, 3);
+									const currentVal = Math.round(target * easeOut);
+									el.textContent = currentVal.toLocaleString() + "+";
 
-			ScrollTrigger.create({
-				trigger: ".stat",
-				start: "top 85%",
-				once: true,
-				onEnter: () => {
-					document
-						.querySelectorAll<HTMLElement>("[data-count]")
-						.forEach((el) => {
-							const target = Number(el.dataset.count);
-							const obj = { value: 0 };
-							gsap.to(obj, {
-								value: target,
-								duration: 1.8,
-								ease: "power2.out",
-								onUpdate: () =>
-									(el.textContent =
-										Math.round(obj.value).toLocaleString() +
-										(target < 100 ? "+" : "")),
-							});
-						});
+									if (progress < 1) {
+										requestAnimationFrame(animate);
+									}
+								};
+								requestAnimationFrame(animate);
+							}
+							statObserver.unobserve(el);
+						}
+					});
 				},
-			});
+				{ rootMargin: "0px 0px -40px 0px", threshold: 0.15 },
+			);
+
+			document
+				.querySelectorAll<HTMLElement>("[data-count]")
+				.forEach((el) => statObserver.observe(el));
+		} else {
+			document
+				.querySelectorAll<HTMLElement>("[data-count]")
+				.forEach((el) => {
+					const target = Number(el.dataset.count) || 0;
+					el.textContent = target.toLocaleString() + "+";
+				});
 		}
 
 		const footerName = document.querySelector<HTMLElement>(".footer-name");
