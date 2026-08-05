@@ -1,0 +1,38 @@
+---
+title: "Merancang REST API yang Andal dan Konsisten"
+description: "Konvensi praktis untuk resource, validasi, penanganan error, paginasi, hak akses, dan manajemen perubahan."
+pubDate: 2026-07-28
+readTime: "7 menit baca"
+category: "Desain API"
+featured: true
+---
+
+## Pemodelan Resource yang Konsisten
+
+URL harus mendeskripsikan resource bisnis, bukan detail implementasi internal. Penamaan dan penataan hirarki yang konsisten mengurangi pengetahuan khusus yang harus dihafal oleh klien (frontend/mobile).
+
+API yang prediktif menerapkan konvensi yang sama untuk identifier, timestamp, relasi, dan respons koleksi.
+
+## Buat Pesan Validasi Error yang Berguna
+
+Klien harus dapat mengidentifikasi input mana yang gagal, mengapa gagal, dan bagaimana kaitannya dengan permintaan yang dikirimkan. Gunakan struktur error yang konsisten daripada mengembalikan format berbeda di setiap endpoint.
+
+Jangan pernah membocorkan stack trace atau detail database internal pada respons publik.
+
+## Rancang Paginasi dan Filter Sejak Awal
+
+Koleksi data berukuran besar membutuhkan aturan paginasi, urutan, dan penyaringan yang jelas. Cursor pagination sangat cocok untuk dataset yang sering berubah, sementara page-based pagination lebih mudah untuk antarmuka admin dan laporan.
+
+Dokumentasikan batas default dan maksimum agar klien dapat melakukan permintaan secara efisien.
+
+## Pisahkan Otentikasi dari Otorisasi
+
+Otentikasi menetapkan identitas pengguna. Otorisasi menentukan apakah identitas tersebut diizinkan melakukan tindakan pada resource tertentu. Kedua hal ini harus diterapkan secara konsisten dan diuji di tingkat resource.
+
+Jangan hanya mengandalkan kontrol antarmuka pengguna (UI) yang tersembunyi; API wajib menegakkan hak akses secara mandiri.
+
+## Kelola Perubahan Tanpa Membingungkan Klien
+
+Utamakan perubahan yang bersifat aditif (tidak merusak). Ketika perubahan breaking tidak dapat dihindari, komunikasikan lebih awal, tentukan versi secara eksplisit, dan sediakan jendela waktu migrasi.
+
+Keandalan lahir dari perilaku yang konsisten, dokumentasi yang jelas, pemantauan aktif, dan kepemilikan yang bertanggung jawab.

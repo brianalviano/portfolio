@@ -1,0 +1,40 @@
+---
+title: "Merancang Arsitektur Aplikasi Laravel untuk Jangka Panjang"
+description: "Pendekatan praktis mengorganisir logika bisnis agar codebase Laravel tetap rapi dan mudah dipahami seiring bertambahnya fitur dan tim."
+pubDate: 2026-07-20
+readTime: "8 menit baca"
+category: "Catatan Rekayasa"
+featured: true
+---
+
+## Mulai dari Batasan Domain Bisnis
+
+Aplikasi yang mudah dipelihara (maintainable) lebih gampang dipahami ketika modul-modulnya mencerminkan area bisnis nyata, bukan sekadar folder teknis. Inventaris, pembelian, penjualan, penagihan, dan identitas masing-masing memiliki istilah dan aturan tersendiri.
+
+Tujuannya bukanlah membuat arsitektur rumit sejak hari pertama, melainkan mencegah keputusan yang tidak berhubungan menjadi saling terikat (tightly coupled).
+
+## Jaga Controller Tetap Tipis (Thin Controllers)
+
+Controller harus menerjemahkan permintaan HTTP menjadi aksi aplikasi, lalu menerjemahkan hasilnya menjadi respons HTTP. Validasi, otorisasi, dan orkestrasi berada dekat dengan batas permintaan, sedangkan aturan bisnis yang reusable berada di tempat terpisah.
+
+Ketika controller berisi perhitungan, pembaruan database, logika notifikasi, dan panggilan integrasi, pengujian dan penggunaan ulang menjadi sangat sulit.
+
+> **Prinsip Praktis:** Utamakan batasan yang jelas dan perilaku eksplisit daripada arsitektur yang tampak rumit hanya demi estetika.
+
+## Gunakan Service/Action Classes untuk Alur Kerja Kompleks
+
+Service atau Action class sangat berguna ketika satu operasi mengoordinasikan beberapa langkah: memvalidasi transisi status, memperbarui beberapa baris data, mencatat entri audit, dan memicu pekerjaan lanjutan (jobs).
+
+Setiap class harus mengekspresikan satu operasi bermakna, bukan menjadi wadah umum untuk helper yang tidak berhubungan.
+
+## Kelola Akses Data Secara Bijak
+
+Eloquent sangat produktif, namun perilaku query tetap memerlukan perhatian. Ambil hanya kolom yang dibutuhkan, hindari query N+1 tersembunyi, gunakan constraint database, dan pisahkan query laporan dari alur transaksi jika kebutuhannya berbeda.
+
+Indeks database harus mengikuti pola query nyata, bukan ditambahkan berdasarkan tebakan.
+
+## Pastikan Kebenaran Sistem Dapat Diamati (Observability)
+
+Pengujian (testing) melindungi aturan penting, sementara log, metrik, dan jejak audit membantu menjelaskan perilaku aplikasi di produksi. Pesan validasi harus berguna bagi pengguna, dan pengecualian (exceptions) harus menyimpan cukup konteks untuk diagnosis tanpa membocorkan data sensitif.
+
+Kemudahan pemeliharaan bukan hanya soal struktur folder. Ini adalah kemampuan untuk memahami, mengubah, dan memverifikasi sistem dengan percaya diri.

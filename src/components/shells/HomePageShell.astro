@@ -1,0 +1,80 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/layout/Header.astro";
+import Footer from "@components/layout/Footer.astro";
+import Hero from "@components/sections/Hero.astro";
+import About from "@components/sections/About.astro";
+import Services from "@components/sections/Services.astro";
+import Process from "@components/sections/Process.astro";
+import Skills from "@components/sections/Skills.astro";
+import Work from "@components/sections/Work.astro";
+import Testimonials from "@components/sections/Testimonials.astro";
+import InsightsSection from "@components/sections/InsightsSection.astro";
+import Cta from "@components/sections/Cta.astro";
+
+interface Props {
+	lang?: "en" | "id";
+	seo?: { title: string; description: string };
+}
+
+const { lang = "en", seo } = Astro.props;
+---
+
+<BaseLayout lang={lang} seo={seo}>
+	<a
+		class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:text-ink focus:shadow-lg"
+		href="#main-content">Skip to main content</a
+	>
+	<noscript
+		>This portfolio remains readable without JavaScript, but animations, sliders, and the contact
+		helper require JavaScript.</noscript
+	>
+	<div
+		class="pointer-events-none fixed left-0 top-0 z-[100] hidden h-5 w-5 rounded-full border-2 border-accent bg-accent/20 opacity-0 transition-opacity duration-300 lg:block"
+		id="cursor"
+	>
+	</div>
+
+	<Header currentLang={lang} />
+
+	<main id="main-content" tabindex="-1">
+		<Hero />
+		<About />
+		<Services />
+		<Process />
+		<Skills />
+		<Work />
+		<Testimonials />
+		<InsightsSection />
+		<Cta />
+	</main>
+
+	<Footer currentLang={lang} />
+
+	<div class="fixed bottom-5 right-5 z-[70] h-14 w-14 sm:bottom-7 sm:right-7" id="floating-actions">
+		<a
+			aria-label="Chat with Brian on WhatsApp"
+			class="absolute inset-0 grid place-items-center rounded-full border-2 border-ink bg-[#25D366] text-white shadow-[5px_5px_0_#151310] transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/30"
+			href="https://wa.me/6281370004025"
+			id="floating-whatsapp"
+			rel="noopener noreferrer"
+			target="_blank"
+		>
+			<i class="ti ti-brand-whatsapp text-2xl"></i>
+		</a>
+		<a
+			aria-label="Scroll to top"
+			class="pointer-events-none absolute inset-0 grid translate-y-4 scale-90 place-items-center rounded-full border-2 border-ink bg-white text-xl text-ink opacity-0 shadow-[4px_4px_0_#151310] transition-[opacity,transform] duration-300 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/30"
+			href="#home"
+			id="scroll-top"
+		>
+			<i class="ti ti-arrow-up"></i>
+		</a>
+	</div>
+
+	<script>
+		import { initUI } from "@scripts/ui";
+		const lang = (document.documentElement.lang || "en") as "en" | "id";
+		initUI(lang);
+	</script>
+</BaseLayout>

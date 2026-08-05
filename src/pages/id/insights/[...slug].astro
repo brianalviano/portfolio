@@ -4,7 +4,7 @@ import ArticleLayout from "@layouts/ArticleLayout.astro";
 import { getInsightStaticPaths } from "@/utils/insights";
 
 export async function getStaticPaths() {
-	return getInsightStaticPaths("en");
+	return getInsightStaticPaths("id");
 }
 
 const { post, slug, prevPost, nextPost } = Astro.props;
@@ -12,7 +12,7 @@ const { Content, headings } = await render(post);
 ---
 
 <ArticleLayout
-	lang="en"
+	lang="id"
 	slug={slug}
 	title={post.data.title}
 	description={post.data.description}

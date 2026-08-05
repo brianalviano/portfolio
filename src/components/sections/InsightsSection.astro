@@ -1,5 +1,5 @@
 ---
-import { portfolioData } from "../data/portfolioData";
+import { portfolioData } from "@data/portfolioData";
 const { insights, clients } = portfolioData;
 ---
 
@@ -18,6 +18,8 @@ const { insights, clients } = portfolioData;
 		<a
 			class="inline-flex items-center gap-2 text-sm font-bold text-accent transition hover:gap-3 shrink-0"
 			href="/insights"
+			data-i18n-href-en="/insights"
+			data-i18n-href-id="/id/insights"
 		>
 			<span data-i18n-en={insights.viewAll.en} data-i18n-id={insights.viewAll.id}
 				>{insights.viewAll.en}</span
@@ -57,6 +59,8 @@ const { insights, clients } = portfolioData;
 					<div class="mt-8 pt-4 border-t border-current/15 flex items-center justify-between">
 						<a
 							href={art.link}
+							data-i18n-href-en={art.link}
+							data-i18n-href-id={`/id${art.link}`}
 							class="inline-flex items-center gap-2 text-xs font-bold transition group-hover:gap-3"
 						>
 							<span data-i18n-en={insights.readArticle.en} data-i18n-id={insights.readArticle.id}>

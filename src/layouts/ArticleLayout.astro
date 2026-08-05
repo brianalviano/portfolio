@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 export interface Props {
 	title: string;
@@ -7,29 +7,67 @@ export interface Props {
 	category: string;
 	readTime: string;
 	pubDate: Date;
+	lang?: "en" | "id";
+	slug?: string;
 	headings?: { depth: number; slug: string; text: string }[];
-	prevPost?: { id: string; data: { title: string } } | null;
-	nextPost?: { id: string; data: { title: string } } | null;
+	prevPost?: { id: string; slug?: string; data: { title: string } } | null;
+	nextPost?: { id: string; slug?: string; data: { title: string } } | null;
 }
 
-const { title, description, category, readTime, headings = [], prevPost, nextPost } = Astro.props;
+const {
+	title,
+	description,
+	category,
+	readTime,
+	lang = "en",
+	slug = "",
+	headings = [],
+	prevPost,
+	nextPost,
+} = Astro.props;
 
 const tocHeadings = headings.filter((h) => h.depth === 2);
+const homeHref = lang === "id" ? "/id" : "/";
+const insightsHref = lang === "id" ? "/id/insights" : "/insights";
+const getPostHref = (postSlug: string) =>
+	lang === "id" ? `/id/insights/${postSlug}` : `/insights/${postSlug}`;
 ---
 
 <BaseLayout
+	lang={lang}
 	seo={{
 		title: `${title} | Brian Alviano`,
 		description,
 		type: "article",
 	}}
 >
-	<header class="shell nav">
-		<a class="brand" href="/">
+	<header class="shell nav flex items-center justify-between">
+		<a class="brand" href={homeHref}>
 			<span class="mark">BA</span>
 			<span>BRIAN<br />ALVIANO</span>
 		</a>
-		<a class="back" href="/insights">← <span>All insights</span></a>
+		<div class="flex items-center gap-4">
+			<!-- Language Switcher -->
+			<div
+				class="flex items-center rounded-full border-2 border-ink bg-white p-1 text-xs font-extrabold shadow-[2px_2px_0_#151310]"
+			>
+				<a
+					href={slug ? `/insights/${slug}` : "/insights"}
+					onclick="localStorage.setItem('preferred_lang', 'en')"
+					class={`rounded-full px-2.5 py-1 transition-colors ${lang === "en" ? "bg-ink text-white" : "text-ink/60 hover:text-ink"}`}
+					>EN</a
+				>
+				<a
+					href={slug ? `/id/insights/${slug}` : "/id/insights"}
+					onclick="localStorage.setItem('preferred_lang', 'id')"
+					class={`rounded-full px-2.5 py-1 transition-colors ${lang === "id" ? "bg-ink text-white" : "text-ink/60 hover:text-ink"}`}
+					>ID</a
+				>
+			</div>
+			<a class="back" href={insightsHref}
+				>← <span>{lang === "id" ? "Semua artikel" : "All insights"}</span></a
+			>
+		</div>
 	</header>
 
 	<main>
@@ -45,7 +83,9 @@ const tocHeadings = headings.filter((h) => h.depth === 2);
 			{
 				tocHeadings.length > 0 && (
 					<aside class="toc">
-						<strong class="display">In this article</strong>
+						<strong class="display">
+							{lang === "id" ? "Dalam artikel ini" : "In this article"}
+						</strong>
 						{tocHeadings.map((h) => (
 							<a href={`#${h.slug}`}>{h.text}</a>
 						))}
@@ -57,12 +97,22 @@ const tocHeadings = headings.filter((h) => h.depth === 2);
 				<slot />
 
 				<div class="next">
-					{prevPost ? <a href={`/insights/${prevPost.id}`}>← {prevPost.data.title}</a> : <span />}
+					{
+						prevPost ? (
+							<a href={getPostHref(prevPost.slug || prevPost.id.split("/").pop() || "")}>
+								← {prevPost.data.title}
+							</a>
+						) : (
+							<span />
+						)
+					}
 					{
 						nextPost ? (
-							<a href={`/insights/${nextPost.id}`}>{nextPost.data.title} →</a>
+							<a href={getPostHref(nextPost.slug || nextPost.id.split("/").pop() || "")}>
+								{nextPost.data.title} →
+							</a>
 						) : (
-							<a href="/insights">All insights →</a>
+							<a href={insightsHref}>{lang === "id" ? "Semua artikel →" : "All insights →"}</a>
 						)
 					}
 				</div>
@@ -73,8 +123,16 @@ const tocHeadings = headings.filter((h) => h.depth === 2);
 	<footer class="article-footer">
 		<div class="shell">
 			<strong class="display">BRIAN ALVIANO</strong>
-			<p>Full-stack Laravel developer in Surabaya, Indonesia.</p>
-			<a href="/#contact">Start a conversation →</a>
+			<p>
+				{
+					lang === "id"
+						? "Full-stack developer di Surabaya, Indonesia."
+						: "Full-stack Laravel developer in Surabaya, Indonesia."
+				}
+			</p>
+			<a href={`${homeHref}#contact`}
+				>{lang === "id" ? "Mulai diskusi →" : "Start a conversation →"}</a
+			>
 		</div>
 	</footer>
 </BaseLayout>
