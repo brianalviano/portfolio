@@ -79,6 +79,7 @@ const idHref = "/id";
 					href={enHref}
 					onclick="localStorage.setItem('preferred_lang', 'en')"
 					data-lang-btn="en"
+					data-astro-prefetch="hover"
 					aria-label="Switch to English"
 					class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === "en" ? "bg-ink text-white" : "text-ink/60 hover:text-ink"}`}
 					>EN</a
@@ -87,6 +88,7 @@ const idHref = "/id";
 					href={idHref}
 					onclick="localStorage.setItem('preferred_lang', 'id')"
 					data-lang-btn="id"
+					data-astro-prefetch="hover"
 					aria-label="Switch to Indonesian"
 					class={`rounded-full px-2.5 py-1 transition-colors ${currentLang === "id" ? "bg-ink text-white" : "text-ink/60 hover:text-ink"}`}
 					>ID</a

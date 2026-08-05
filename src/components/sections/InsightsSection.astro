@@ -20,6 +20,7 @@ const { insights, clients } = portfolioData;
 			href="/insights"
 			data-i18n-href-en="/insights"
 			data-i18n-href-id="/id/insights"
+			data-astro-prefetch="hover"
 		>
 			<span data-i18n-en={insights.viewAll.en} data-i18n-id={insights.viewAll.id}
 				>{insights.viewAll.en}</span
@@ -61,6 +62,7 @@ const { insights, clients } = portfolioData;
 							href={art.link}
 							data-i18n-href-en={art.link}
 							data-i18n-href-id={`/id${art.link}`}
+							data-astro-prefetch="hover"
 							class="inline-flex items-center gap-2 text-xs font-bold transition group-hover:gap-3"
 						>
 							<span data-i18n-en={insights.readArticle.en} data-i18n-id={insights.readArticle.id}>

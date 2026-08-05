@@ -1,0 +1,49 @@
+---
+interface Props {
+	eyebrow?: string;
+	titleEn?: string;
+	titleId?: string;
+	descEn?: string;
+	descId?: string;
+	class?: string;
+}
+
+const {
+	eyebrow,
+	titleEn,
+	titleId,
+	descEn,
+	descId,
+	class: className = "mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between",
+} = Astro.props;
+---
+
+<div class={className}>
+	<div>
+		{eyebrow && <p class="eyebrow">{eyebrow}</p>}
+		{
+			titleEn && (
+				<h2
+					class="display mt-2 text-3xl font-bold sm:text-4xl"
+					data-i18n-en={titleEn}
+					data-i18n-id={titleId || titleEn}
+				>
+					{titleEn}
+				</h2>
+			)
+		}
+		<slot name="title" />
+	</div>
+	{
+		descEn && (
+			<p
+				class="max-w-xl text-xs sm:text-sm leading-relaxed text-ink/65"
+				data-i18n-en={descEn}
+				data-i18n-id={descId || descEn}
+			>
+				{descEn}
+			</p>
+		)
+	}
+	<slot />
+</div>

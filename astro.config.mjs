@@ -9,6 +9,10 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
 	site: "https://portfolio.local",
+	prefetch: {
+		prefetchAll: true,
+		defaultStrategy: "hover",
+	},
 	i18n: {
 		defaultLocale: "en",
 		locales: ["en", "id"],

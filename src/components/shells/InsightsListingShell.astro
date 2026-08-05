@@ -41,17 +41,19 @@ const contactHref = lang === "id" ? "/id#contact" : "/#contact";
 				<a
 					href="/insights"
 					onclick="localStorage.setItem('preferred_lang', 'en')"
+					data-astro-prefetch="hover"
 					class={`rounded-full px-2.5 py-1 transition-colors ${lang === "en" ? "bg-ink text-white" : "text-ink/60 hover:text-ink"}`}
 					>EN</a
 				>
 				<a
 					href="/id/insights"
 					onclick="localStorage.setItem('preferred_lang', 'id')"
+					data-astro-prefetch="hover"
 					class={`rounded-full px-2.5 py-1 transition-colors ${lang === "id" ? "bg-ink text-white" : "text-ink/60 hover:text-ink"}`}
 					>ID</a
 				>
 			</div>
-			<a class="back" href={homeHref}>← <span>Portfolio</span></a>
+			<a class="back" href={homeHref} data-astro-prefetch="hover">← <span>Portfolio</span></a>
 		</div>
 	</header>
 
@@ -87,7 +89,9 @@ const contactHref = lang === "id" ? "/id#contact" : "/#contact";
 							</p>
 							<h2 class="display">{post.data.title}</h2>
 							<p>{post.data.description}</p>
-							<a href={articleHref}>{readText}</a>
+							<a href={articleHref} data-astro-prefetch="hover">
+								{readText}
+							</a>
 						</article>
 					);
 				})

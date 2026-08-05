@@ -1,21 +1,16 @@
 ---
 import { portfolioData } from "@data/portfolioData";
+import SectionHeader from "@components/ui/SectionHeader.astro";
 const { services } = portfolioData;
 ---
 
 <section class="section-shell pt-6 pb-16 sm:pt-8 sm:pb-24" id="services">
-	<div class="mb-14 flex items-end justify-between">
-		<div>
-			<p class="eyebrow">{services.eyebrow}</p>
-			<h2
-				class="display mt-3 text-4xl font-bold sm:text-6xl"
-				data-i18n-en={services.heading.en}
-				data-i18n-id={services.heading.id}
-			>
-				{services.heading.en}
-			</h2>
-		</div>
-	</div>
+	<SectionHeader
+		eyebrow={services.eyebrow}
+		titleEn={services.heading.en}
+		titleId={services.heading.id}
+		class="mb-14 flex items-end justify-between"
+	/>
 	<div class="grid gap-5 md:grid-cols-2">
 		{
 			services.list.map((s) => (
